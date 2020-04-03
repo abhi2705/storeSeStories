@@ -1,1 +1,1 @@
-# storeSeStories
+# StoreSeStories

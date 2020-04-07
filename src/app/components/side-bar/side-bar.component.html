@@ -1,0 +1,18 @@
+<div class="component-wrapper">
+  <nav class="sidebar bg-light" [ngClass]="{'active':active}">
+    <div class="sidebar-heading">
+      <img src="https://api.adorable.io/avatars/108/rancho@adorable.io.png" alt="Avatar" class="avatar">
+      <h3>Hello User!</h3>
+    </div>
+    <ul class="list-unstyled components">
+      <li>
+        <a>About Us</a>
+      </li>
+      <li>
+        <a>FAQs</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="overlay" [ngClass]="{'active':active}" (click)="collapse()"></div>
+</div>

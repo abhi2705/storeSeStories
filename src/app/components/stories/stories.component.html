@@ -1,0 +1,32 @@
+<ons-page>
+    <ons-toolbar>
+        <div class="left">
+          <ons-toolbar-button (click)="prev()">
+            <ons-icon icon="md-chevron-left"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+        <div class="center">Carousel</div>
+        <div class="right">
+          <ons-toolbar-button (click)="next()">
+            <ons-icon icon="md-chevron-right"></ons-icon>
+          </ons-toolbar-button>
+        </div>
+      </ons-toolbar>
+    <div class="content">
+      <ons-carousel #carousel fullscreen swipeable auto-scroll overscrollable animation-option="{duration: 0.2, delay: 1, timing: 'ease-in'}" id="carousel">
+        <ons-carousel-item style="background-color: #085078;">
+          <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+            BLUE
+          </div>
+        </ons-carousel-item>
+        <ons-carousel-item style="background-color: #373B44;">
+          <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+            DARK
+          </div>
+        </ons-carousel-item> <ons-carousel-item style="background-color: #D38312;"> <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+            ORANGE
+          </div>
+        </ons-carousel-item>
+      </ons-carousel>
+    </div>
+  </ons-page>

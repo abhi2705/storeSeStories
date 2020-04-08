@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+
+// Component framework imports
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnsenModule } from 'ngx-onsenui';
 
-import { AppRoutingModule } from './app-routing.module';
+// Component imports
 import { AppComponent } from './app.component';
 import { StoriesComponent } from './components/stories/stories.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
@@ -22,6 +26,7 @@ import { BrandsTabComponent } from './components/brands-tab/brands-tab.component
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     NgbModule,
     OnsenModule

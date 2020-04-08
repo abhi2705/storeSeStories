@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "SeStories"
+    }
+  },
+  "defaultProject": "SeStories",
+  "cli": {
+    "analytics": "4cc79d72-11f2-423b-9341-b48b44588089"
+  }
 }

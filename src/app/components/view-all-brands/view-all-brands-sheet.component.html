@@ -1,0 +1,33 @@
+
+    <div style="text-align: center;">
+        <mat-icon >home</mat-icon>
+      </div>
+      
+      <div style="text-align: center;">View All Companies</div>
+      <div class="whole">
+      <ul class="mdc-image-list my-image-list">
+        <li *ngFor="let number of numbers" class="mdc-image-list__item">
+          <div class="mdc-image-list__image-aspect-container">
+            <mat-card class="example-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Shiba Inu</mat-card-title>
+                <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              <mat-card-content>
+                <p>
+                  The Shiba Inu is the smallest of the six original dogs.
+                </p>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </li>
+        
+      </ul>
+      </div>
+     

@@ -1,0 +1,29 @@
+@use "@material/image-list/mdc-image-list";
+@use "@material/image-list";
+
+.mat-card{
+    // color:blue;
+    background-color: grey;
+}
+.example-card {
+    max-width: 400px;
+    max-height: 450px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+
+  .my-image-list {
+    @include image-list.standard-columns(4);
+  }
+  
+  @media (max-width: 599px) {
+    .my-image-list {
+      @include image-list.standard-columns(2);
+    }
+  }
+
+

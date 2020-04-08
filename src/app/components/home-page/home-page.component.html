@@ -1,8 +1,13 @@
 <div class="component-wrapper">
   <app-side-bar [active]="sidebarIsActive"></app-side-bar>
   <div class="content-wrapper">
+    
     <app-nav-bar (toggleBar)="toggleSidebar()"></app-nav-bar>
       <app-stories></app-stories>
+      
+    <app-view-all-brands></app-view-all-brands>
+     
   </div>
+  
 </div>
 

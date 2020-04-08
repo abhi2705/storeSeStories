@@ -22,8 +22,11 @@
     "@angular/router": "~9.1.0",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
+    "ngx-onsenui": "^7.0.0",
+    "onsenui": "^2.10.10",
     "bootstrap": "^4.4.1",
     "rxjs": "~6.5.4",
+    "setimmediate": "^1.0.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
   },

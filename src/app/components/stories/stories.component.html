@@ -1,0 +1,13 @@
+    <br>
+    <div class="container view" style="margin: auto;">
+      <ons-carousel #carousel centered swipeable auto-scroll overscrollable id="carousel" *ngIf="images" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <ons-carousel-item *ngFor="let image of images" >
+          <div class="card" style="margin: auto; padding: auto; border-radius: 10px;"> 
+              <img [src]="image" alt="story slide" class="card-img-top img-fluid" style="width: auto; height: auto; margin: auto; padding: auto; border-radius: 10px;" >
+            <button class="btn gradient-button gradient-button-1" style="font-family: 'Courier New', Courier, monospace; ">SHOP NOW</button>
+          </div>
+ 
+        </ons-carousel-item>
+      </ons-carousel>
+    </div>
+    <br>

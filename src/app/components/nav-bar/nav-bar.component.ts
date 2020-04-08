@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class NavBarComponent implements OnInit {
 
   @Output() toggleBar = new EventEmitter();
+  readonly logoImg = 'assets/img/logos/Storese_branding-01.png';
 
   constructor() { }
 

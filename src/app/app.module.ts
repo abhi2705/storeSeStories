@@ -14,6 +14,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrandsTabComponent } from './components/brands-tab/brands-tab.component';
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrandsTabComponent } from './components/brands-tab/brands-tab.component
     HttpClientModule,
     AppRoutingModule,
     NgbModule,
-    OnsenModule
+    OnsenModule,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

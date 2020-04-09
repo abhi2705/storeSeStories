@@ -43,4 +43,11 @@ $overlay-bg: rgba(0, 0, 0, 0.7);
   opacity: 1;
 }
 
+.scroll-wrapper{
+  height:100vh;
+  width:auto;
+  background:yellow;
+  overflow:scroll;
+}
+
 

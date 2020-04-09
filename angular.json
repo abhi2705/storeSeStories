@@ -25,12 +25,47 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
             ],
             "styles": [
               "node_modules/onsenui/css/onsenui.css",
               "node_modules/onsenui/css/onsen-css-components.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              {
+                "input": "node_modules/@ionic/angular/css/normalize.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/structure.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/typography.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/core.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/padding.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/float-elements.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-alignment.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/text-transformation.css"
+              },
+              {
+                "input": "node_modules/@ionic/angular/css/flex-utils.css"
+              },
+              {
+                "input": "src/theme/variables.css"
+              }
             ],
             "scripts": []
           },
@@ -123,8 +158,36 @@
               "devServerTarget": "SeStories:serve:production"
             }
           }
+        },
+        "ionic-cordova-serve": {
+          "builder": "@ionic/angular-toolkit:cordova-serve",
+          "options": {
+            "cordovaBuildTarget": "SeStories:ionic-cordova-build",
+            "devServerTarget": "SeStories:serve"
+          },
+          "configurations": {
+            "production": {
+              "cordovaBuildTarget": "SeStories:ionic-cordova-build:production",
+              "devServerTarget": "SeStories:serve:production"
+            }
+          }
+        },
+        "ionic-cordova-build": {
+          "builder": "@ionic/angular-toolkit:cordova-build",
+          "options": {
+            "browserTarget": "SeStories:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "SeStories:build:production"
+            }
+          }
         }
       }
-    }},
-  "defaultProject": "SeStories"
+    }
+  },
+  "defaultProject": "SeStories",
+  "cli": {
+    "analytics": false
+  }
 }

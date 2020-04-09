@@ -19,7 +19,7 @@ export class BrandsTabComponent implements OnInit {
     {
       this.brands = response.brands;
     });
-    console.log("brands: ",this.brands);
+    
 
   }
 
@@ -33,6 +33,7 @@ export class BrandsTabComponent implements OnInit {
   }
   toggle() {
     this.active = !this.active;
+    console.log("brands: ",this.brands);
     return this.active;
   }
   toggleInfiniteScroll() {

@@ -10,67 +10,12 @@
         </button>
       </div>
       <div class="scroll-wrapper">
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
+        <div class="card column" style=" padding: 0;" *ngFor ="let brand of brands">
+          <img class="card-img-top" src="{{brand?.logoUrl}}" style="width: 100%; border-radius:25px; object-fit: cover; max-width: 100%;
+          max-height: 100%;"alt="Card image cap">
           <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
-          </div>
-        </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/gmail.svg" style="width: 100%; border-radius:25px;"alt="Card image cap">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">Gmail</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">Some quick example text.</p>
+            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">{{brand.name}}</h5>
+            <p class="card-text company-desc" style="margin-top: 0; color:blue;">{{brand.description}}</p>
           </div>
         </div>
       </div>

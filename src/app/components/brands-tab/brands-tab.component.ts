@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
+import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-brands-tab',
   templateUrl: './brands-tab.component.html',

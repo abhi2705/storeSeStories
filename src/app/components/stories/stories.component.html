@@ -4,7 +4,7 @@
         <ons-carousel-item *ngFor="let image of images" >
           <div class="card" style="margin: auto; padding: auto; border-radius: 10px;"> 
               <img [src]="image" alt="story slide" class="card-img-top img-fluid" style="width: auto; height: auto; margin: auto; padding: auto; border-radius: 10px;" >
-            <button class="btn gradient-button gradient-button-1" style="font-family: 'Courier New', Courier, monospace; ">SHOP NOW</button>
+            <button class="btn gradient-button gradient-button-1" style="font-family: 'Courier New', Courier, monospace; " (click)="shop_now(image)">SHOP NOW</button>
           </div>
  
         </ons-carousel-item>

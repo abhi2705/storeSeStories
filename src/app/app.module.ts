@@ -9,6 +9,7 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BrandsTabComponent } from './components/brands-tab/brands-tab.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     StoriesComponent,
     SideBarComponent,
     HomePageComponent,
-    NavBarComponent
+    NavBarComponent,
+    BrandsTabComponent
   ],
   imports: [
     BrowserModule,

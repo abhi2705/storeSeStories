@@ -1,0 +1,46 @@
+$brands-z: 995;
+$border-radius: 15px;
+$brands-height: 70vh;
+$brands-closed-height: 9vh;
+$brands-margin: -490px;
+$brands-color: #e6e6fa;
+$overlay-bg: rgba(0, 0, 0, 0.7);
+
+.brands-tab {
+  z-index: $brands-z;
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
+  margin-bottom: $brands-margin;
+  height: $brands-height;
+  margin-top: auto;
+  background: $brands-color;
+  position: fixed;
+  left: 0;
+  top: (100vh - $brands-closed-height);
+  width: 100vw;
+  transition: all 0.3s;
+}
+
+.brands-tab.active {
+  top: (100vh - $brands-height);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $overlay-bg;
+  z-index: ($brands-z - 1);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+

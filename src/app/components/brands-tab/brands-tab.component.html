@@ -1,0 +1,12 @@
+<div class="component-wrapper">
+  <div class="brands-tab" [class.active]="active">
+    <div class="container-fluid">
+      <div class="view-btn">
+        <button type="button" class="btn" (click)="toggle()">
+          View all brands
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="overlay" [class.active]="active" (click)="toggle()"></div>
+</div>

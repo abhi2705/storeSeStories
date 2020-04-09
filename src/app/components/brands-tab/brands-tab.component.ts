@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { ApiService } from '../../services/api.service';
+import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-brands-tab',
   templateUrl: './brands-tab.component.html',
@@ -10,7 +11,17 @@ import { ApiService } from '../../services/api.service';
 export class BrandsTabComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @Input() active: boolean;
-  constructor() { }
+  // constructor() { }
+  brands: any;
+
+  constructor(@Inject(DOCUMENT) private document: Document, apiservice: ApiService) { 
+    apiservice.brands.get().subscribe(response => 
+    {
+      this.brands = response.brands;
+    });
+    console.log("brands: ",this.brands);
+
+  }
 
   ngOnInit(): void {
   }
@@ -18,12 +29,6 @@ export class BrandsTabComponent implements OnInit {
     setTimeout(() => {
       console.log('Done');
       event.target.complete();
-
-      // App logic to determine if all data is loaded
-      // and disable the infinite scroll
-      // if (data.length == 1000) {
-      //   event.target.disabled = true;
-      // }
     }, 500);
   }
   toggle() {

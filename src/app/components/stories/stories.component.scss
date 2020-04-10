@@ -1,11 +1,17 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$img-height: 68vh;
+
 .view {
     display: flex;
     justify-content: center;
 }
 
 .text{
-    font-size: 36pt;
-    font-weight: bold;
+    // font-size: 20pt;
+    // font-weight: bold;
     position: absolute;
     top: 7%;
     left: 37%;
@@ -26,9 +32,10 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
     display: inline-block;
-    border-radius: 40pt;
+    border-radius: 12pt;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
+    height: (0.114 * $img-height);
 }
 .gradient-button:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -54,3 +61,50 @@
 //     margin-right: 10px;
 // }
 
+.like{
+  position: absolute;
+  top: 65%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #1d2a5b;
+  background-image: url('src/assets/img/heart.svg');
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.share{
+  position: absolute;
+  top: 80%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #1d2a5b;
+  background-image: url('src/assets/img/share (1).svg');
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.img{
+  height: ($img-height);
+  width: ($img-height * 0.79);
+}

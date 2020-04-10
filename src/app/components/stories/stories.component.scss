@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-$img-height: 68vh;
+$img-height: 65vh;
 
 .view {
     display: flex;
@@ -63,8 +63,8 @@ $img-height: 68vh;
 
 .like{
   position: absolute;
-  top: 65%;
-  left: 85%;
+  top: 72.5%;
+  left: 90%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #1d2a5b;
@@ -74,18 +74,18 @@ $img-height: 68vh;
   background-repeat: no-repeat;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  // padding: 12px 24px;
   border: none;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   text-align: center;
 }
 
 .share{
   position: absolute;
-  top: 80%;
-  left: 85%;
+  top: 83%;
+  left: 90%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   background-color: #1d2a5b;
@@ -95,11 +95,11 @@ $img-height: 68vh;
   background-repeat: no-repeat;
   color: white;
   font-size: 16px;
-  padding: 12px 24px;
+  // padding: 12px 24px;
   border: none;
   cursor: pointer;
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
   text-align: center;
 }

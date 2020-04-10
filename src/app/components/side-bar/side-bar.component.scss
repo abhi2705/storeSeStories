@@ -4,7 +4,7 @@
 
 $sidebar-width: 250px;
 $header-bg-color: #000839;
-$header-font-size: 1.1em;
+$header-font-size: 1em;
 $header-font-weight: bold;
 $header-color: #fafafa;
 $border-color: #f5f5f5;
@@ -12,7 +12,6 @@ $overlay-bg: rgba(0, 0, 0, 0.7);
 $sidebar-z: 999;
 
 .component-wrapper {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', Geneva, Verdana, sans-serif;
   display: inline-flex;
   width: fit-content;
   height: 100vh;
@@ -41,12 +40,12 @@ $sidebar-z: 999;
     align-items: center;
     width: 100%;
 
-    h3, h2, h1 {
+    h5, h4, h3, h2, h1 {
       color: $header-color;
       font-size: $header-font-size;
       font-weight: $header-font-weight;
-      padding-left: 10px;
-      padding-top: 10px;
+      padding: 0 15px;
+      margin: 0;
     }
   }
 
@@ -65,9 +64,6 @@ $sidebar-z: 999;
 
 .sidebar.active {
   margin-left: 0px;
-}
-
-@include media-breakpoint-down(sm) {
 }
 
 .avatar {

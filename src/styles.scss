@@ -3,4 +3,9 @@
 @import '../node_modules/onsenui/css/onsen-css-components.css';
 @import 'variables';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import '~bootstrap/scss/bootstrap';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}

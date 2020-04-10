@@ -4,18 +4,18 @@
     <div class="container-fluid" style="overflow:scroll;">
       <div class="view-btn" style="text-align: center;">
 
-        <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger;">
+        <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger; font-family: 'Montserrat'; ">
           <hr>
           View All Brands
         </button>
       </div>
       <div class="scroll-wrapper">
-        <div class="card column" style=" padding: 0;" *ngFor ="let brand of (brands$ | async)?.brands" style="background: grey;">
+        <div class="card column" style=" padding: 0;" *ngFor ="let brand of (brands$ | async)?.brands" >
           <img class="card-img-top" src="{{brand.logoUrl}}" style="width: 100%; border-radius:25px; object-fit: cover; max-width: 100%;
           max-height: 100%;"alt="Card image cap">
           <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue;">{{brand.name}}</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue;">{{brand.description}}</p>
+            <h5 class="card-title company-name" style="margin-top: 0; color:blue; font-family: 'Montserrat',sans-serif; font-size: medium;">{{brand.name}}</h5>
+            <p class="card-text company-desc" style="margin-top: 0; color:blue; font-family: 'Montserrat',sans-serif;font-size: small; ">{{brand.description}}</p>
           </div>
         </div>
       </div>

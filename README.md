@@ -13,4 +13,4 @@
     - [ ] move to next story on flicks
     - [ ] fix brand name and description
     - [ ] view all brands not visible smaller screens
-    - [ ] use storese favicon
+    - [x] use storese favicon

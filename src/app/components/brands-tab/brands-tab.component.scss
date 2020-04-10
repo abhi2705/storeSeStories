@@ -1,5 +1,5 @@
 $brands-z: 995;
-$border-radius: 15px;
+$border-radius: 20px;
 $brands-height: 70vh;
 $brands-closed-height: 14vh;
 $brands-margin: -490px;
@@ -46,8 +46,12 @@ $overlay-bg: rgba(0, 0, 0, 0.7);
 .scroll-wrapper{
   height:100vh;
   width:auto;
-  // background:yellow;
   overflow:scroll;
+
+}
+.scroll-wrapper::-webkit-scrollbar{
+  display:none;
+
 }
 hr {
   display: block;
@@ -89,4 +93,15 @@ hr {
 }
 .company-desc{
   font-size: large;
+}
+.component-wrapper{
+  box-shadow: 5px 10px #888888;
+}
+.brands-tab{
+  box-shadow: 5px 10px #888888;
+}
+.container-fluid{
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: $border-radius;
+  // box-shadow: 50px 50px #000000;
 }

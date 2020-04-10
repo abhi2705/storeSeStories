@@ -24,6 +24,7 @@
     "@ionic/angular": "^5.0.7",
     "@ng-bootstrap/ng-bootstrap": "^6.0.2",
     "bootstrap": "^4.4.1",
+    "ng-swipe": "^1.0.5",
     "ngx-onsenui": "^7.0.0",
     "onsenui": "^2.10.10",
     "rxjs": "~6.5.4",

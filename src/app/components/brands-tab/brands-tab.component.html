@@ -4,20 +4,69 @@
     <div class="container-fluid" style="overflow:scroll;">
       <div class="view-btn" style="text-align: center;">
 
-        <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger; font-family: 'Montserrat'; margin-bottom: 4.3vh;">
+        <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger; font-family: 'Montserrat'; margin-bottom:5.5vh;">
           <hr>
           View All Brands
         </button>
       </div>
       <div class="scroll-wrapper">
         <div class="card column" style=" padding: 0;" *ngFor ="let brand of (brands$ | async)?.brands" >
-          <img class="card-img-top" src="{{brand.logoUrl}}" style="width: 100%; border-radius:25px; object-fit: cover; max-width: 100%;
-          max-height: 100%;"alt="Card image cap">
+          <img class="card-img-top" src="{{brand.logoUrl}}" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+          max-height: 100%;">
           <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; margin-bottom: 0;color:blue; font-family: 'Montserrat',sans-serif; font-size: larger; text-align: left;">{{brand.name}}</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue; font-family: 'Montserrat',sans-serif;font-size: small; text-align: left; font-weight: 600; ">{{brand.description}}</p>
+            <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">{{brand.name}}</h5>
+            <p class="card-text company-desc" style="height:36px;margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">{{brand.description}}</p>
           </div>
         </div>
+        <div class="card column" style=" padding: 0;"  >
+          <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+          max-height: 100%;">
+          <div class="card-body" style="padding:0;">
+            <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;"></h5>
+            <p class="card-text company-desc" style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; "> </p>
+          </div>
+        </div>
+        <div class="card column" style=" padding: 0;" >
+          <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+          max-height: 100%;">
+          <div class="card-body" style="padding:0;">
+            <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;"></h5>
+            <p class="card-text company-desc" style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; "></p>
+          </div>
+        </div>
+        <div class="card column" style=" padding: 0;" >
+          <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+          max-height: 100%;">
+          <div class="card-body" style="padding:0;">
+            <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;"></h5>
+            <p class="card-text company-desc" style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; "></p>
+          </div>
+        </div>
+        <div class="card column" style=" padding: 0;" >
+          <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+          max-height: 100%;">
+          <div class="card-body" style="padding:0;">
+            <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;"></h5>
+            <p class="card-text company-desc" style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; "></p>
+          </div>
+          <div class="card column" style=" padding: 0;" >
+            <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+            max-height: 100%;">
+            <div class="card-body" style="padding:0;">
+              <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;"></h5>
+              <p class="card-text company-desc" style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; "></p>
+            </div>
+          </div>
+          <!-- <div class="card column" style=" padding: 0;" >
+            <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="margin-bottom:0.3em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+            max-height: 100%;">
+            <div class="card-body" style="padding:0;">
+              <h5 class="card-title company-name" style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;"></h5>
+              <p class="card-text company-desc" style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; "></p>
+            </div>
+          </div> -->
+        </div>
+        
       </div>
     </div>
   </div>

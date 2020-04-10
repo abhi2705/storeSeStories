@@ -1,6 +1,6 @@
     <br>
     <div class="container view" style="margin: auto;">
-      <ons-carousel #carousel centered swipeable auto-scroll overscrollable id="carousel" *ngIf="images" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <ons-carousel #carousel centered swipeable auto-scroll overscrollable id="carousel" *ngIf="stories$" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
         <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories" >
           <div class="card" style="margin: auto; padding: auto; border-radius: 10px;">
               <img

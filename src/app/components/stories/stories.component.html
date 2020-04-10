@@ -7,8 +7,11 @@
               [src]="story.imageUrl"
               alt="{{story.content}}"
               class="card-img-top img-fluid"
-              style="width: 1004; height: 1271pt; margin: auto; padding: auto; border-radius: 40pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
-              <button class="btn gradient-button gradient-button-1" style="font-family: 'Courier New', Courier, monospace; " (click)="shop_now(story)">SHOP NOW</button>
+              style="width: 1004; height: 1100pt; margin: auto; padding: auto; border-radius: 40pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
+              <div class="text">
+                <p>{{story.postedAt}}</p>
+            </div>
+              <button class="btn gradient-button gradient-button-1" style="font-family: 'Courier New', Courier, monospace; font-size: 36pt; font-weight: bolder;" (click)="shop_now(story)">SHOP NOW</button>
           </div>
         </ons-carousel-item>
       </ons-carousel>

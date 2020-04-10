@@ -3,6 +3,17 @@
     justify-content: center;
 }
 
+.text{
+    font-size: 36pt;
+    font-weight: bold;
+    position: absolute;
+    top: 7%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: left;
+}
+
 .gradient-button {
     text-align: center;
     text-transform: uppercase;
@@ -42,3 +53,4 @@
 //     height: 100%;
 //     margin-right: 10px;
 // }
+

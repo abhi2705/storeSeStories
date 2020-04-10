@@ -38,11 +38,11 @@ export class StoriesComponent implements OnInit {
   //   this.carousel.nativeElement.next();
   // }
 
-  shop_now(image){
+  shop_now(story){
     console.log("shop now clicked!");
-    console.log(image);
-    // this.document.location.href = 'https://www.instagram.com/p/B-pFyz6BQax/' ;
-    console.log("stories: ",this.stories);
+    console.log(story);
+    this.document.location.href = story.targetUrl;
+    // console.log("stories: ",this.stories);
   }
 
 }

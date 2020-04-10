@@ -4,7 +4,7 @@
     <div class="container-fluid" style="overflow:scroll;">
       <div class="view-btn" style="text-align: center;">
 
-        <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger; font-family: 'Montserrat'; ">
+        <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger; font-family: 'Montserrat'; margin-bottom: 4.3vh;">
           <hr>
           View All Brands
         </button>
@@ -14,8 +14,8 @@
           <img class="card-img-top" src="{{brand.logoUrl}}" style="width: 100%; border-radius:25px; object-fit: cover; max-width: 100%;
           max-height: 100%;"alt="Card image cap">
           <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name" style="margin-top: 0; color:blue; font-family: 'Montserrat',sans-serif; font-size: medium;">{{brand.name}}</h5>
-            <p class="card-text company-desc" style="margin-top: 0; color:blue; font-family: 'Montserrat',sans-serif;font-size: small; ">{{brand.description}}</p>
+            <h5 class="card-title company-name" style="margin-top: 0; margin-bottom: 0;color:blue; font-family: 'Montserrat',sans-serif; font-size: larger; text-align: left;">{{brand.name}}</h5>
+            <p class="card-text company-desc" style="margin-top: 0; color:blue; font-family: 'Montserrat',sans-serif;font-size: small; text-align: left; font-weight: 600; ">{{brand.description}}</p>
           </div>
         </div>
       </div>

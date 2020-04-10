@@ -2,7 +2,8 @@ import { Component, OnInit, Input, Inject } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { ApiService } from '../../services/api.service';
-import { DOCUMENT } from '@angular/common';
+import { Brand, Brands } from 'src/app/models/brand.model';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-brands-tab',
   templateUrl: './brands-tab.component.html',
@@ -11,29 +12,17 @@ import { DOCUMENT } from '@angular/common';
 export class BrandsTabComponent implements OnInit {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   @Input() active: boolean;
-  // constructor() { }
-  brands: any;
+  brands$: Observable<Brands>;
 
-  constructor(@Inject(DOCUMENT) private document: Document, apiservice: ApiService) { 
-    apiservice.brands.get().subscribe(response => 
-    {
-      this.brands = response.brands;
-    });
-    
-
-  }
+  constructor(private apiservice: ApiService) {}
 
   ngOnInit(): void {
+    this.brands$ = this.apiservice.brands.get();
+    this.brands$.subscribe((data: Brands) => console.log(data));
   }
-  loadData(event) {
-    setTimeout(() => {
-      console.log('Done');
-      event.target.complete();
-    }, 500);
-  }
+
   toggle() {
     this.active = !this.active;
-    console.log("brands: ",this.brands);
     return this.active;
   }
   toggleInfiniteScroll() {

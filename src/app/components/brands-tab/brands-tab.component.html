@@ -1,17 +1,17 @@
 <div class="component-wrapper" style="overflow:auto; ">
- 
+
   <div class="brands-tab" [class.active]="active"  style="background-color:white; ">
     <div class="container-fluid" style="overflow:scroll;">
       <div class="view-btn" style="text-align: center;">
-        
+
         <button type="button" class="btn" (click)="toggle()" style="text-align: center; font-weight: bolder; font-size: larger;">
           <hr>
           View All Brands
         </button>
       </div>
       <div class="scroll-wrapper">
-        <div class="card column" style=" padding: 0;" *ngFor ="let brand of brands">
-          <img class="card-img-top" src="{{brand?.logoUrl}}" style="width: 100%; border-radius:25px; object-fit: cover; max-width: 100%;
+        <div class="card column" style=" padding: 0;" *ngFor ="let brand of (brands$ | async)?.brands">
+          <img class="card-img-top" src="{{brand.logoUrl}}" style="width: 100%; border-radius:25px; object-fit: cover; max-width: 100%;
           max-height: 100%;"alt="Card image cap">
           <div class="card-body" style="padding:0;">
             <h5 class="card-title company-name" style="margin-top: 0; color:blue;">{{brand.name}}</h5>

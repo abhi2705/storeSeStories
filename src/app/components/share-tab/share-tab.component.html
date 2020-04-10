@@ -1,0 +1,22 @@
+<div class="component-wrapper">
+  <div class="share-tab overflow-auto" [ngClass]="{'active': active, 'higher': active && higher}">
+    <div class="container-fluid">
+      <div class="header" (touchend)="swipe($event, 'end')" (touchstart)="swipe($event, 'start')">
+        <hr>
+        <h4>SHARE</h4>
+      </div>
+      <div class="row justify-content-space-around">
+        <div class="col-4 shareable-container" *ngFor="let shr of shareables">
+          <button class="shareable">
+            <a [href] = "(shr.targetUrl + message) | urlEncode">
+              <i><img src="{{shr.icon}}"></i>
+              <p>{{shr.name}}</p>
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="overlay" [class.active]="active" (click)="toggle()"></div>
+  <!-- <button class="btn" (click)="toggle()">Toggle</button> -->
+</div>

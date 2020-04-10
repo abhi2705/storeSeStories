@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 // Component framework imports
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnsenModule } from 'ngx-onsenui';
+import { IonicModule } from '@ionic/angular';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -14,7 +15,8 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrandsTabComponent } from './components/brands-tab/brands-tab.component';
-import { IonicModule } from '@ionic/angular';
+import { ShareTabComponent } from './components/share-tab/share-tab.component';
+import { UrlEncodePipe } from './pipes/url-encode.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { IonicModule } from '@ionic/angular';
     SideBarComponent,
     HomePageComponent,
     NavBarComponent,
-    BrandsTabComponent
+    BrandsTabComponent,
+    ShareTabComponent,
+    UrlEncodePipe
   ],
   imports: [
     BrowserModule,
@@ -37,6 +41,6 @@ import { IonicModule } from '@ionic/angular';
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
-]
+  ]
 })
 export class AppModule { }

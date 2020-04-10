@@ -1,0 +1,87 @@
+$share-bg: #fafafa;
+$share-height: 35vh;
+$share-full-height: 70vh;
+$share-closed-height: 0vh;
+$share-border-radius: 15px;
+$overlay-bg: rgba(0, 0, 0, 0.7);
+$share-z: 999;
+
+.share-tab {
+  background: $share-bg;
+  position: fixed;
+  top: (100vh - $share-closed-height);
+  width: 100vw;
+  border-top-left-radius: $share-border-radius;
+  border-top-right-radius: $share-border-radius;
+  display: flex;
+  z-index: $share-z;
+  transition: all 0.5s ease-in-out;
+  height: $share-full-height;
+
+  .header {
+    hr {
+      background: #aaaaaa;
+      height: 3px;
+      width: 8%;
+      border-radius: 30%;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-weight: bold;
+      font-size: 0.95em;
+      color: #212121;
+      padding-left: 15px;
+    }
+  }
+}
+
+.share-tab.active {
+  top: (100vh - $share-height);
+}
+
+.share-tab.active.higher {
+  top: (100vh - $share-full-height);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $overlay-bg;
+  z-index: ($share-z - 1);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+.shareable {
+  min-width: 50px;
+  background: #fafafa;
+
+  a{
+    text-decoration: none;
+    color: #000000;
+    font-size: small;
+    font-weight: lighter;
+
+    img {
+    width: 50px;
+    }
+
+    p {
+      margin-top: 2px;
+    }
+  }
+}
+
+.shareable-container {
+  display: flex;
+  justify-content: center;
+}

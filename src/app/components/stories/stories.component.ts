@@ -16,7 +16,7 @@ export class StoriesComponent implements OnInit {
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
 
-  constructor(private apiservice: ApiService) {}
+  constructor(@Inject(DOCUMENT) private document: Document, private apiservice: ApiService) {}
 
   ngOnInit(): void {
     this.stories$ = this.apiservice.stories.get();
@@ -34,11 +34,11 @@ export class StoriesComponent implements OnInit {
   //   this.carousel.nativeElement.next();
   // }
 
-  // shop_now(story){
-  //   console.log('shop now clicked!');
-  //   console.log(story);
-  //   this.document.location.href = story.targetUrl;
-  //   // console.log("stories: ",this.stories);
-  // }
+  shop_now(story){
+    console.log('shop now clicked!');
+    console.log(story);
+    this.document.location.href = story.targetUrl;
+    // console.log("stories: ",this.stories);
+  }
 
 }

@@ -1,14 +1,18 @@
-    <br>
-    <div class="container view" style="margin: auto;">
-      <ons-carousel #carousel centered swipeable auto-scroll overscrollable fullscreen id="carousel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories" >
-          <div class="card  scroll-wrapper" style="margin: auto; padding: auto; border-radius: 10px; border-width: 0px;">
+<div class="container view" style="margin-top:12px">
+      <ons-carousel #carousel swipeable auto-scroll overscrollable fullscreen id="carousel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories" style="margin: auto; padding: auto;">
+          <div class="card  scroll-wrapper" style=" margin: 4vw; padding:0; border-radius: 10px; border-width: 0px;">
               <img
               [src]="story.imageUrl"
               alt="{{story.content}}"
-              class="card-img-top img-fluid"
-              style="width: 1004; height: 1271pt; margin: auto; padding: auto; border-radius: 40pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
-              <button class="btn gradient-button gradient-button-1" style="font-family: 'Courier New', Courier, monospace; " (click)="shop_now(story)">SHOP NOW</button>
+              class="card-img-top img-fluid img"
+              style="margin: 0; padding: 0; border-radius: 12pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
+              <div class="text">
+                <input type="text" id="duration" [value]="get_duration(story)" style="background: none; border-width: 0; color: #c9c9c9; font-size: 14; font-family: 'Montserrat'; font-weight: bold;" readonly> 
+             </div>
+             <button class="btn like"></button>
+             <button class="btn share"></button>
+              <button class="btn gradient-button gradient-button-1" style="font-family: 'Montserrat'; font-weight:bold;" (click)="shop_now(story)">SHOP NOW</button>
           </div>
         </ons-carousel-item>
       </ons-carousel>

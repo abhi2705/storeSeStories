@@ -41,4 +41,18 @@ export class StoriesComponent implements OnInit {
     // console.log("stories: ",this.stories);
   }
 
-}
+  get_duration(story){
+    var date1 = new Date(story.postedAt);
+    console.log(date1);
+    var date2 = new Date();
+    var diffTime = Math.abs(date2.getTime() - date1.getTime());
+    var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    var diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
+    console.log(diffDays);
+    console.log(diffHours);
+    if (diffHours >= 24)
+    return "    " + diffDays.toString() + " d";
+    return "    " + diffHours.toString() + " h";
+  }
+
+} 

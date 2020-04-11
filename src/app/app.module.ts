@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,19 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrandsTabComponent } from './components/brands-tab/brands-tab.component';
 import { ShareTabComponent } from './components/share-tab/share-tab.component';
 import { UrlEncodePipe } from './pipes/url-encode.pipe';
+import { HammerGestureConfig } from "@angular/platform-browser";
+import * as hammer from "hammerjs";
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    swipe: { direction: hammer.DIRECTION_VERTICAL },
+    pinch: { enable: false },
+    rotate: { enable: false }
+  };
+}
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +50,10 @@ import { UrlEncodePipe } from './pipes/url-encode.pipe';
     OnsenModule,
     IonicModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig
+  }],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

@@ -17,7 +17,7 @@ interface Shareable {
 export class ShareTabComponent implements OnInit, OnDestroy {
   higher = false;
   shareables: Shareable[] = [
-    {name: 'Whatsapp', icon: 'assets/img/shareables/whatsapp.svg', targetUrl: 'whatsapp://send?text='},
+    {name: 'Whatsapp', icon: 'assets/img/shareables/whatsapp.svg', targetUrl: 'https://api.whatsapp.com/send?text='},
     {name: 'Twitter', icon: 'assets/img/shareables/twitter.svg', targetUrl: 'https://twitter.com/intent/tweet?text='},
     {name: 'Telegram', icon: 'assets/img/shareables/telegram.svg', targetUrl: 'tg://msg?text='},
     {name: 'Facebook', icon: 'assets/img/shareables/facebook.svg', targetUrl: 'https://facebook.com/sharer/sharer.php?text='},

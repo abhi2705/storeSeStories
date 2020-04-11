@@ -8,10 +8,10 @@
               class="card-img-top img-fluid img"
               style="margin: 0; padding: 0; border-radius: 12pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
               <div class="text">
-                <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" style="background: none; border-width: 0; color: #c9c9c9; font-size: 14; font-family: 'Montserrat'; font-weight: bold;" readonly> 
+                <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" style="background: none; border-width: 0; color: #c9c9c9; font-size: 14; font-family: 'Montserrat'; font-weight: bold;" readonly>
              </div>
              <button class="btn like"></button>
-             <button class="btn share"></button>
+             <button class="btn share" (click) = "activateShare(story.targetUrl)"></button>
               <button class="btn gradient-button gradient-button-1" style="font-family: 'Montserrat'; font-weight:bold;" (click)="shop_now(story)">SHOP NOW</button>
           </div>
         </ons-carousel-item>

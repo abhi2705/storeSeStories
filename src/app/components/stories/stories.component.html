@@ -8,7 +8,7 @@
               class="card-img-top img-fluid img"
               style="margin: 0; padding: 0; border-radius: 12pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
               <div class="text">
-                <input type="text" id="duration" [value]="get_duration(story)" style="background: none; border-width: 0; color: #c9c9c9; font-size: 14; font-family: 'Montserrat'; font-weight: bold;" readonly> 
+                <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" style="background: none; border-width: 0; color: #c9c9c9; font-size: 14; font-family: 'Montserrat'; font-weight: bold;" readonly> 
              </div>
              <button class="btn like"></button>
              <button class="btn share"></button>

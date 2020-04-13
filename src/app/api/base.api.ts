@@ -9,7 +9,7 @@ import { throwError } from 'rxjs';
 export class BaseApi {
   private readonly USER_ERROR_MESSAGE = 'Oops! Something unexpected happened.';
   // Request options commmon to all requests.
-  // TODO: Probably use an interceptor insetead of this.
+  protected readonly Retries = 0;
   protected readonly GlobalOpts = {};
 
   constructor(protected baseUrl: string, protected http: HttpClient) {}
@@ -20,8 +20,7 @@ export class BaseApi {
     } else {
       console.error(
         `An error occured in the backend
-        Returned code ${error.status}
-        Message: ${error.error.message}`
+        Returned code ${error.status}`
       );
     }
     return throwError(this.USER_ERROR_MESSAGE);

@@ -1,4 +1,4 @@
-<div class="component-wrapper">
+<div class="component-wrapper" *ngIf="!hasWebApi">
   <div class="share-tab overflow-auto" [ngClass]="{'active': state.isActive, 'higher': state.isActive && higher}">
     <div class="container-fluid">
       <div class="header" (touchend)="swipe($event, 'end')" (touchstart)="swipe($event, 'start')">

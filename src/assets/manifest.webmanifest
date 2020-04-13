@@ -1,0 +1,16 @@
+{
+  "short_name": "StoreSe",
+  "name": "StoreSe Stories",
+  "description": "Brand discovery marketplace",
+  "icons": [
+    {
+      "src": "assets/../favicon.ico",
+      "type": "image/ico"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#21212121",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#fafafafa"
+}

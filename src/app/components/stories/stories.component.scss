@@ -4,26 +4,25 @@
 
 $img-height: 65vh;
 
-.view {
+@media only screen and (max-width: 475px) {
+  .view {
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
     width: 100vw;
-}
+  }
 
-.text{
-    // font-size: 20pt;
-    // font-weight: bold;
+  .text{
     position: absolute;
-    top: 7%;
+    top: 5%;
     left: 37%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: left;
-}
+  }
 
-.gradient-button {
+  .gradient-button {
     text-align: center;
     text-transform: uppercase;
     transition: 0.5s;
@@ -40,87 +39,244 @@ $img-height: 65vh;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     height: (0.114 * $img-height);
-}
-.gradient-button:hover{
+    font-family: 'Montserrat'; 
+    font-weight:bold; 
+    margin-bottom: 100px;
+  }
+  .gradient-button:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-}
-.gradient-button-1 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
-.gradient-button-1:hover { background-position: right center; }
+  }
+  .gradient-button-1 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
+  .gradient-button-1:hover { background-position: right center; }
 
-.scroll-wrapper{
+  .card-wrapper{
     overflow-y:none;
     max-height: 85vh;
+    width: 100vw; 
+    margin: 0; 
+    padding:0; 
+    border-width: 0px; 
+    align-items: center;
+    }
+
+
+  .like{
+    position: absolute;
+    bottom: 35%;
+    right: 3%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart.svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
   }
 
-//   .featured-image-wrapper {
-//     position: relative;
-//     padding-bottom: 126.5%;
-// }
-// .featured-image-wrapper > img {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     margin-right: 10px;
-// }
+  .share{
+    position: absolute;
+    bottom: 23%;
+    right: 3%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/share\ \(1\).svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    // padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+  }
 
-.like{
-  position: absolute;
-  top: 60%;
-  left: 85%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #1d2a5b;
-  background-image: url('src/assets/img/shareables/heart.svg');
-  background-size: 50%;
-  background-position: 50%, 50%;
-  background-repeat: no-repeat;
-  color: white;
-  font-size: 16px;
-  // padding: 12px 24px;
-  border: none;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  text-align: center;
+  .img{
+    height: ($img-height);
+    width: ($img-height * 0.79);
+    max-width: 93vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0; 
+    padding: 0; 
+    border-radius: 12pt; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px ;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 1px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+
+  .carousel_style {
+    padding: 0;
+  }
+
+  .postedAt_style {
+    background: none; 
+    border-width: 0; 
+    color: #c9c9c9; 
+    font-size: 14; 
+    font-family: 'Montserrat'; 
+    font-weight: bold;
+  }
 }
 
-.share{
-  position: absolute;
-  top: 70%;
-  left: 85%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #1d2a5b;
-  background-image: url('src/assets/img/shareables/share\ \(1\).svg');
-  background-size: 50%;
-  background-position: 50%, 50%;
-  background-repeat: no-repeat;
-  color: white;
-  font-size: 16px;
-  // padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-  text-align: center;
-}
 
-.img{
-  height: ($img-height);
-  width: ($img-height * 0.79);
-  max-width: 93vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
+@media only screen and (min-width: 476px){
+  .view {
+    display: flex;
+    justify-content: center;
+  }
 
-.dot {
-  height: 8px;
-  width: 8px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  align-self: center;
-  margin: 1px;
+  .text{
+    position: absolute;
+    top: 7%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: left;
+  }
+
+  .gradient-button {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    width: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // box-shadow: 0 1px 3px rgba(68, 36, 36, 0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 12pt;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: (0.114 * $img-height);
+    font-family: 'Montserrat'; 
+    font-weight:bold;
+    margin-bottom: 100px;
+  }
+  .gradient-button:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .gradient-button-1 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
+  .gradient-button-1:hover { background-position: right center; }
+
+  .card-wrapper{
+    overflow-y:none;
+    max-height: 85vh;
+    margin: 4vw; 
+    padding:0; 
+    border-radius: 10px; 
+    border-width: 0px;
+    margin-top: 0;
+    padding-top: 0;
+    }
+
+  .like{
+    position: absolute;
+    top: 62.5%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart.svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .share{
+    position: absolute;
+    top: 73%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/share\ \(1\).svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .img{
+    height: ($img-height);
+    width: ($img-height * 0.79);
+    margin: 0; 
+    padding: 0; 
+    border-radius: 12pt; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    // margin: 1px;
+    margin-bottom: 0;
+  }
+
+  .carousel_style {
+    padding-top: 0;
+    margin-top: 0;
+  }
+
+  .carousel_item_style {
+    margin: auto; 
+    padding: auto;
+  }
+
+  .postedAt_style {
+    background: none; 
+    border-width: 0; 
+    color: #c9c9c9; 
+    font-size: 14; 
+    font-family: 'Montserrat'; 
+    font-weight: bold;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 1px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+
 }

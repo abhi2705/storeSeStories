@@ -1,21 +1,17 @@
-<div class="view" style="margin-top: 1vh;"> 
+<div class="view">
   <span class="dot" *ngFor="let story of (stories$ | async)?.stories"></span>
 </div>
-<div class="container view" style="margin-top: 2vh; width: 100vw;">
-  <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.05 overscrollable id="carousel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="width: 100vw; margin: 0; padding: 0;"> 
-    <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories" style="margin: 0; padding: 0; width: 100vw;">
-      <div class="card  scroll-wrapper" style=" width: 100vw; margin: 0; padding:0; border-radius: 10px; border-width: 0px;align-items: center;">
-          <img
-          [src]="story.imageUrl"
-          alt="{{story.content}}"
-          class="card-img-top img-fluid img"
-          style="margin: 0; padding: 0; border-radius: 12pt; border-bottom-left-radius: 0px; border-bottom-right-radius: 0px ;" >
-          <div class="text">
-            <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" style="background: none; border-width: 0; color: #c9c9c9; font-size: 14; font-family: 'Montserrat'; font-weight: bold;" readonly>
-          </div>
-          <button class="btn like"></button>
-          <button class="btn share" (click) = "activateShare(story.targetUrl)"></button>
-          <button class="btn gradient-button gradient-button-1" style="font-family: 'Montserrat'; font-weight:bold; margin-bottom: 100px;" (click)="shop_now(story)">SHOP NOW</button>
+<div class="container view">
+  <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.03 overscrollable id="carousel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 carousel_style" >
+    <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories" class="carousel_item_style">
+      <div class="card  card-wrapper">
+        <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
+        <div class="text">
+          <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" class="postedAt_style" readonly>
+        </div>
+        <button class="btn like"></button>
+        <button class="btn share" (click)="activateShare(story.targetUrl)"></button>
+        <button class="btn gradient-button gradient-button-1" (click)="shop_now(story)">SHOP NOW</button>
       </div>
     </ons-carousel-item>
   </ons-carousel>

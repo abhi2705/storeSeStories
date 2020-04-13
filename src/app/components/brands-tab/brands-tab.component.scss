@@ -1,7 +1,7 @@
 $brands-z: 995;
 $border-radius: 20px;
 $brands-height: 70vh;
-$brands-closed-height: 14vh;
+$brands-closed-height: 10vh;
 $brands-margin: -490px;
 $brands-color: #e6e6fa;
 $overlay-bg: rgba(0, 0, 0, 0.7);
@@ -59,12 +59,13 @@ hr {
   margin-bottom: 0.5em;
   margin-left: 40%;
   margin-right: 40%;
-  border-style: inset;
-  color:black;
-  border-width: 1px;
-  border-top: 1px solid black;
+  background: #aaaaaa;
+  height: 2px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
-
 
 .btn{
   margin-top: 0.1em;

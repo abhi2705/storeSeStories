@@ -112,6 +112,7 @@ $img-height: 65vh;
     border-radius: 12pt; 
     border-bottom-left-radius: 0px; 
     border-bottom-right-radius: 0px ;
+    object-fit: cover;
   }
 
   .dot {
@@ -246,6 +247,7 @@ $img-height: 65vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     // margin: 1px;
     margin-bottom: 0;
+    object-fit: cover;
   }
 
   .carousel_style {

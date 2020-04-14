@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <div class="wholething">
-  <app-nav-bar ></app-nav-bar>
+<div class="component-wrapper">
+<app-side-bar [active]="sidebarIsActive"></app-side-bar>
+<div class="content-wrapper">
+  <app-nav-bar (toggleBar)="toggleSidebar()" ></app-nav-bar>
     <div class="track-block">
       <div class="search-wrap">
           <img alt="search icon" src="../../../assets/img/logos/search.svg">
@@ -103,7 +105,8 @@
             
               
             </div>
-          </div>
+</div>
+</div>
             
           
           

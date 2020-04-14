@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./brand-nav.component.scss']
 })
 export class BrandNavComponent implements OnInit {
-
+  sidebarIsActive = false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  toggleSidebar(): boolean {
+    this.sidebarIsActive = !this.sidebarIsActive;
+    return this.sidebarIsActive;
+  }
 }

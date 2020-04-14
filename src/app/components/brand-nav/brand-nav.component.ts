@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BrandNavComponent implements OnInit {
   sidebarIsActive = false;
   constructor() { }
+  selectedTab = "All";
 
   ngOnInit(): void {
   }

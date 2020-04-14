@@ -7,7 +7,7 @@
       </div>
       <div class="row justify-content-space-around">
         <div class="col-4 shareable-container" *ngFor="let shr of shareables">
-          <button class="shareable">
+          <button class="shareable btn">
             <a [href] = "(shr.targetUrl + message + state.brandUrl) | urlEncode" >
               <i><img src="{{shr.icon}}"></i>
               <p>{{shr.name}}</p>

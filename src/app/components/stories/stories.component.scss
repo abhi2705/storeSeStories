@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-$img-height: 65vh;
+$img-height: 62vh;
 
 @media only screen and (max-width: 475px) {
   .view {
@@ -16,10 +16,9 @@ $img-height: 65vh;
   .text{
     position: absolute;
     top: 5%;
-    left: 37%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
+    left: 0%;
     text-align: left;
+    font-size: medium;
   }
 
   .gradient-button {
@@ -38,11 +37,12 @@ $img-height: 65vh;
     border-radius: 12pt;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    height: (0.114 * $img-height);
+    height: (0.13 * $img-height);
     font-family: 'Montserrat'; 
     font-weight:bold; 
-    margin-bottom: 100px;
+    font-size: medium;
   }
+
   .gradient-button:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
   }
@@ -53,17 +53,25 @@ $img-height: 65vh;
     overflow-y:none;
     max-height: 85vh;
     width: 100vw; 
+    height: 100vh;
     margin: 0; 
     padding:0; 
     border-width: 0px; 
     align-items: center;
-    }
+  }
 
+  .card-wrapper-2 {
+    margin: 0;
+    margin-top: 1vh;
+    padding: 0;
+    border-radius: 12pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
   .like{
     position: absolute;
-    bottom: 35%;
-    right: 3%;
+    bottom: 23%;
+    right: 0%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -82,8 +90,8 @@ $img-height: 65vh;
 
   .share{
     position: absolute;
-    bottom: 23%;
-    right: 3%;
+    bottom: 10%;
+    right: 0%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -93,7 +101,6 @@ $img-height: 65vh;
     background-repeat: no-repeat;
     color: white;
     font-size: 16px;
-    // padding: 12px 24px;
     border: none;
     cursor: pointer;
     height: 45px;
@@ -141,8 +148,7 @@ $img-height: 65vh;
   }
 }
 
-
-@media only screen and (min-width: 476px){
+@media only screen and (min-width: 769px){
   .view {
     display: flex;
     justify-content: center;
@@ -150,11 +156,12 @@ $img-height: 65vh;
 
   .text{
     position: absolute;
-    top: 7%;
-    left: 37%;
+    top: 5%;
+    left: 40%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: left;
+    font-size: large;
   }
 
   .gradient-button {
@@ -164,19 +171,19 @@ $img-height: 65vh;
     background-size: 200% auto;
     color: #FFF;
     box-shadow: 0 0 20px #eee;
-    width: auto;
+    width: ($img-height * 0.79);
+    max-width: 93vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    // box-shadow: 0 1px 3px rgba(68, 36, 36, 0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
     display: inline-block;
     border-radius: 12pt;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    height: (0.114 * $img-height);
+    height: (0.13 * $img-height);
     font-family: 'Montserrat'; 
-    font-weight:bold;
-    margin-bottom: 100px;
+    font-weight: bold;
+    font-size: large;
   }
   .gradient-button:hover{
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
@@ -186,19 +193,34 @@ $img-height: 65vh;
 
   .card-wrapper{
     overflow-y:none;
-    max-height: 85vh;
-    margin: 4vw; 
+    margin: 0; 
     padding:0; 
-    border-radius: 10px; 
+    border-radius: 12pt; 
     border-width: 0px;
     margin-top: 0;
     padding-top: 0;
-    }
+    margin-left: 3vw;
+    margin-right: 3vw;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-wrapper-2 {
+    height: (1.13 * $img-height);
+    width: ($img-height * 0.79);
+    max-width: 93vw;
+    margin: 0;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    padding: 0;
+    border-radius: 12pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
   .like{
     position: absolute;
-    top: 62.5%;
-    left: 90%;
+    bottom: 26%;
+    right: 0%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -209,16 +231,16 @@ $img-height: 65vh;
     color: white;
     font-size: 16px;
     border: none;
-    height: 45px;
-    width: 45px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     text-align: center;
   }
 
   .share{
     position: absolute;
-    top: 73%;
-    left: 90%;
+    bottom: 13%;
+    right: 0%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -230,8 +252,8 @@ $img-height: 65vh;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    height: 45px;
-    width: 45px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     text-align: center;
   }
@@ -239,13 +261,12 @@ $img-height: 65vh;
   .img{
     height: ($img-height);
     width: ($img-height * 0.79);
+    max-width: 93vw;
     margin: 0; 
     padding: 0; 
     border-radius: 12pt; 
     border-bottom-left-radius: 0px; 
     border-bottom-right-radius: 0px ;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    // margin: 1px;
     margin-bottom: 0;
     object-fit: cover;
   }
@@ -253,11 +274,17 @@ $img-height: 65vh;
   .carousel_style {
     padding-top: 0;
     margin-top: 0;
+    align-items: center;
+    width: ($img-height * 0.79);
+    justify-content: center;
+
   }
 
   .carousel_item_style {
     margin: auto; 
     padding: auto;
+    width: ($img-height * 0.79);
+    align-items: center;
   }
 
   .postedAt_style {
@@ -281,4 +308,168 @@ $img-height: 65vh;
     margin-bottom: 1vh;
   }
 
+}
+
+@media only screen and (min-width: 476px) and (max-width: 768px) {
+  .view {
+    display: flex;
+    justify-content: center;
+  }
+
+  .text{
+    position: absolute;
+    top: 5%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: left;
+    font-size: medium;
+  }
+
+  .gradient-button {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    width: ($img-height * 0.79);
+    max-width: 93vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 12pt;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: (0.13 * $img-height);
+    font-family: 'Montserrat'; 
+    font-weight: bold;
+    font-size: medium;
+  }
+  .gradient-button:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .gradient-button-1 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
+  .gradient-button-1:hover { background-position: right center; }
+
+  .card-wrapper{
+    overflow-y:none;
+    margin: 0; 
+    padding:0; 
+    border-radius: 12pt; 
+    border-width: 0px;
+    margin-top: 0;
+    padding-top: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-wrapper-2 {
+    // height: (1.13 * $img-height);
+    // width: ($img-height * 0.79);
+    max-width: 93vw;
+    margin: 0;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    // margin-left: 2vh;
+    // margin-right: 2vh;
+    padding: 0;
+    border-radius: 12pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .like{
+    position: absolute;
+    bottom: 26%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart.svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .share{
+    position: absolute;
+    bottom: 13%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/share\ \(1\).svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .img{
+    height: ($img-height);
+    width: ($img-height * 0.79);
+    max-width: 93vw;
+    margin: 0; 
+    padding: 0; 
+    border-radius: 12pt; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px ;
+    margin-bottom: 0;
+    object-fit: cover;
+  }
+
+  .carousel_style {
+    padding-top: 0;
+    margin-top: 0;
+    align-items: center;
+    width: ($img-height * 0.79);
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .carousel_item_style {
+    margin: 0; 
+    padding: 0;
+    width: ($img-height * 0.79);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .postedAt_style {
+    background: none; 
+    border-width: 0; 
+    color: #c9c9c9; 
+    font-size: 14; 
+    font-family: 'Montserrat'; 
+    font-weight: bold;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 1px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
 }

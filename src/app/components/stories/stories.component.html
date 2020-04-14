@@ -2,16 +2,18 @@
   <span class="dot" *ngFor="let story of (stories$ | async)?.stories"></span>
 </div>
 <div class="container view">
-  <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.03 overscrollable id="carousel" class="col-xs-6 col-sm-6 col-md-6 col-lg-6 carousel_style" >
+  <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.03 overscrollable id="carousel" class="col-xs-6 col-sm-12 col-md-12 col-lg-10 carousel_style" >
     <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories" class="carousel_item_style">
       <div class="card  card-wrapper">
-        <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
-        <div class="text">
-          <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" class="postedAt_style" readonly>
+        <div class="card card-wrapper-2">
+          <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
+          <div class="text">
+            <input type="text" id="duration{{story.storyId}}" [value]="get_duration(story)" class="postedAt_style" readonly>
+          </div>
+          <button class="btn like"></button>
+          <button class="btn share" (click)="activateShare(story.targetUrl)"></button>
+          <button class="btn gradient-button gradient-button-1" (click)="shop_now(story)">SHOP NOW</button>
         </div>
-        <button class="btn like"></button>
-        <button class="btn share" (click)="activateShare(story.targetUrl)"></button>
-        <button class="btn gradient-button gradient-button-1" (click)="shop_now(story)">SHOP NOW</button>
       </div>
     </ons-carousel-item>
   </ons-carousel>

@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <div class="wholething">
-  <app-nav-bar ></app-nav-bar>
+<div class="component-wrapper">
+<app-side-bar [active]="sidebarIsActive"></app-side-bar>
+<div class="content-wrapper">
+  <app-nav-bar (toggleBar)="toggleSidebar()" ></app-nav-bar>
     <div class="track-block">
       <div class="search-wrap">
           <img alt="search icon" src="../../../assets/img/logos/search.svg">
@@ -11,20 +13,21 @@
 <div class="container-fluid">
           <nav class="tabbable">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">All</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="" href="javascript:void(0) " role="tab" aria-controls="nav-contact" aria-selected="false">Fashion</a>
-              <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">Electronics</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href=" javascript:void(0)" role="tab" aria-controls="nav-profile" aria-selected="false">Accessories</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href=" javascript:void(0)" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-              <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">Home</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href=" javascript:void(0)" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select();" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">All</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select();" id="nav-profile-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-contact-tab" data-toggle="" href="javascript:void(0) " role="tab" aria-controls="nav-contact" aria-selected="false">Fashion</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">Electronics</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-profile-tab" data-toggle="tab" href=" javascript:void(0)" role="tab" aria-controls="nav-profile" aria-selected="false">Accessories</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-contact-tab" data-toggle="tab" href=" javascript:void(0)" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">Home</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-profile-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-contact-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+              <a class="nav-item nav-link" (click)="selectedTab=$event.target.select()" id="nav-profile-tab" data-toggle="tab" href=" javascript:void(0)" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
             </div>
           </nav>
         </div>
         <button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.ico" height="20vh" width="20vh" alt="filter icon"></button>
+        <!-- {{selectedTab}} -->
         <div class="scroll-wrapper">
            
             <div class="card column" style=" padding: 0;"  >
@@ -103,7 +106,6 @@
             
               
             </div>
-          </div>
+</div>
+</div>
             
-          
-          

@@ -19,6 +19,7 @@ import { ShareTabComponent } from './components/share-tab/share-tab.component';
 import { UrlEncodePipe } from './pipes/url-encode.pipe';
 import { HammerGestureConfig } from "@angular/platform-browser";
 import * as hammer from "hammerjs";
+import { FavouritesComponent } from './components/favourites/favourites.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -40,7 +41,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     NavBarComponent,
     BrandsTabComponent,
     ShareTabComponent,
-    UrlEncodePipe
+    UrlEncodePipe,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

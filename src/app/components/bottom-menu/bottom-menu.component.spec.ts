@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BrandsTabComponent } from './brands-tab.component';
+import { BottomMenuComponent } from './bottom-menu.component';
 
-describe('BrandsTabComponent', () => {
-  let component: BrandsTabComponent;
-  let fixture: ComponentFixture<BrandsTabComponent>;
+describe('BottomMenuComponent', () => {
+  let component: BottomMenuComponent;
+  let fixture: ComponentFixture<BottomMenuComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BrandsTabComponent ]
+      declarations: [ BottomMenuComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BrandsTabComponent);
+    fixture = TestBed.createComponent(BottomMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

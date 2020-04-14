@@ -1,8 +1,23 @@
-.component-wrapper {
+.app-home-page {
   display: flex;
   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  flex-direction: column;;
+
+  .header {
+    z-index: 100;
+  }
+  .content-wrapper {
+      width: 100vw;
+      height: 81vh;
+      overflow: hidden;
+      margin-bottom: auto;
+  }
+
+  .footer {
+    z-index: 100;
+  }
 }
 
-.content-wrapper {
-  width: 100%;
-}
+

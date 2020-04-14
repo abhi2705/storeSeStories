@@ -3,25 +3,43 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { BrandNavComponent } from './components/brand-nav/brand-nav.component';
+import { StoriesComponent } from './components/stories/stories.component';
 import { BlogNavComponent } from './components/blog-nav/blog-nav.component';
-import { BlogPageComponent } from './components/blog-page/blog-page.component'
+import { BlogPageComponent } from './components/blog-page/blog-page.component';
+import { FavouritesComponent } from './components/favourites/favourites.component';
+
 const routes: Routes = [
   {
-    path: 'blog-page',
-    component: BlogPageComponent
-  },
-  {
-    path: 'blogs',
-    component: BlogNavComponent
-  },
-  {
-    path: 'brands',
-    component: BrandNavComponent
-  },
-  {
-  path: '',
-  component: HomePageComponent
-},
+    path: '',
+    component: HomePageComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: 'feed',
+        pathMatch: 'full',
+      },
+      {
+        path: 'brands',
+        component: BrandNavComponent
+      },
+      {
+        path: 'feed',
+        component: StoriesComponent
+      },
+      {
+        path: 'blogs',
+        component: BlogNavComponent
+      },
+      {
+        path: 'blog/:id',
+        component: BlogPageComponent
+      },
+      {
+        path: 'account',
+        component: FavouritesComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({

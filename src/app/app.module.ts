@@ -22,6 +22,8 @@ import { HammerGestureConfig } from '@angular/platform-browser';
 import * as hammer from 'hammerjs';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { BrandNavComponent } from './components/brand-nav/brand-nav.component';
+import { BlogNavComponent } from './components/blog-nav/blog-nav.component';
+import { BlogPageComponent } from './components/blog-page/blog-page.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -45,7 +47,9 @@ export class MyHammerConfig extends HammerGestureConfig {
     ShareTabComponent,
     UrlEncodePipe,
     FavouritesComponent,
-    BrandNavComponent
+    BrandNavComponent,
+    BlogNavComponent,
+    BlogPageComponent
   ],
   imports: [
     BrowserModule,

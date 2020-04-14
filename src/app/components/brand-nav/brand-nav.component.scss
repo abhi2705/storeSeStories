@@ -1,14 +1,46 @@
-.tabbable .nav-tabs {
-    overflow-x: auto;
-    overflow-y:hidden;
-    flex-wrap: nowrap;
- }
- .tabbable .nav-tabs .nav-link {
-   white-space: nowrap;
- }
- .nav-tabs::-webkit-scrollbar{
-    display:none;
-  }
+.nav{
+  display: flex;
+  flex-wrap: unset !important; 
+  //  flex-wrap: wrap !important; 
+
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  overflow-x: scroll;
+  overflow-y: hidden;
+} 
+// #Nav {
+//   // display: flex;
+//   /* flex-wrap: wrap; */
+
+//   padding-left: 0;
+//   margin-bottom: 0;
+//   list-style: none;
+//   overflow-x: scroll;
+//   overflow-y: hidden;
+// }
+a{
+  color: dimgrey;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.nav-tabs .nav-link {
+  border: 0px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+// .tabbable .nav-tabs {
+//     overflow-x: auto;
+//     overflow-y:hidden;
+//     flex-wrap: nowrap;
+//  }
+//  .tabbable .nav-tabs .nav-link {
+//    white-space: nowrap;
+//  }
+//  .nav-tabs::-webkit-scrollbar{
+//     display:none;
+//   }
   
 .search-wrap {
   display: flex;
@@ -42,9 +74,9 @@
   border: none;
 
 }
-.nav-tabs{
-  border-bottom: 0 solid #ffffff;
-}
+// .nav-tabs{
+//   border-bottom: 0 solid #ffffff;
+// }
 .tabbable[_ngcontent-ncg-c211] .nav-tabs[_ngcontent-ncg-c211] .nav-link[_ngcontent-ncg-c211] {
   white-space: nowrap;
   color: dimgray;
@@ -55,9 +87,9 @@ a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
-.navbar-default .navbar-nav > li > a:focus {
-  color: #fff;
-}
+// .navbar-default .navbar-nav > li > a:focus {
+//   color: #fff;
+// }
 
 .column {
   float: left;
@@ -71,11 +103,7 @@ a {
 
 }
 
-.wholething{
-  width:auto;
-  overflow:scroll;
 
-}
 .card{
   border: 0 solid rgba(255, 255, 255, 1);
   box-shadow: none;
@@ -85,8 +113,18 @@ a {
   background-color: #fff;
   border-color: #fff #fff #fff;
   border-bottom: 4px solid #000;
+  overflow: scroll;
 }
 .card-img-top{
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 
 }
+.component-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.content-wrapper {
+  width: 100%;
+}
+

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="component-wrapper">
+    <app-side-bar [active]="sidebarIsActive"></app-side-bar>
+    <div class="content-wrapper">
+        <app-nav-bar (toggleBar)="toggleSidebar()" ></app-nav-bar>
+            <div class="scroll-wrapper">
+                <p class="heading">Liked Cards</p>
+                <div class="card column"  *ngFor="let story of (stories$ | async)?.stories" >
+                  <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story)">
+                  <button class="btn gradient-button gradient-button-1" (click)="shop_now(story.targetUrl)">SHOP NOW</button>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'" style="align-items: center;">
+    <!-- <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span> -->
+    <div class="w3-animate-zoom">
+      <div class=" card-wrapper">
+        <img [src]="source" id="img01" alt="Image Not Found" class="img2">
+        <button class="btn gradient-button-2 gradient-button-3" (click)="shop_now(target)">SHOP NOW</button>
+      </div>
+    </div>
+  </div>

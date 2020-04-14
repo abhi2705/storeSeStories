@@ -4,7 +4,8 @@
 
 $img-height: 62vh;
 
-@media only screen and (max-width: 475px) {
+// For mobile screen sizes
+@media only screen and (max-width: 575px) {
   .view {
     display: flex;
     justify-content: center;
@@ -15,10 +16,12 @@ $img-height: 62vh;
 
   .text{
     position: absolute;
-    top: 5%;
-    left: 0%;
+    top: 15px;
+    left: 15px;
     text-align: left;
     font-size: medium;
+    color: #fefefe;
+    font-family: 'Montserrat'; 
   }
 
   .gradient-button {
@@ -68,10 +71,10 @@ $img-height: 62vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .like{
+  .like_n{
     position: absolute;
     bottom: 23%;
-    right: 0%;
+    right: -5%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -82,8 +85,28 @@ $img-height: 62vh;
     color: white;
     font-size: 16px;
     border: none;
-    height: 45px;
-    width: 45px;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .like_y{
+    position: absolute;
+    bottom: 23%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart_liked.png');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 7vh;
+    width: 7vh;
     border-radius: 50%;
     text-align: center;
   }
@@ -91,7 +114,7 @@ $img-height: 62vh;
   .share{
     position: absolute;
     bottom: 10%;
-    right: 0%;
+    right: -5%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -103,8 +126,8 @@ $img-height: 62vh;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    height: 45px;
-    width: 45px;
+    height: 7vh;
+    width: 7vh;
     border-radius: 50%;
     text-align: center;
   }
@@ -148,7 +171,9 @@ $img-height: 62vh;
   }
 }
 
-@media only screen and (min-width: 769px){
+
+// For large size mobiles and tablet screen sizes
+@media only screen and (min-width: 576px) and (max-width: 768px) {
   .view {
     display: flex;
     justify-content: center;
@@ -156,12 +181,197 @@ $img-height: 62vh;
 
   .text{
     position: absolute;
-    top: 5%;
-    left: 40%;
+    top: 25px;
+    left: 25px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: left;
+    font-size: medium;
+    color: #fefefe;
+    font-family: 'Montserrat'; 
+  }
+
+  .gradient-button {
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: #FFF;
+    box-shadow: 0 0 20px #eee;
+    width: ($img-height * 0.79);
+    max-width: 93vw;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 12pt;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    height: (0.13 * $img-height);
+    font-family: 'Montserrat'; 
+    font-weight: bold;
+    font-size: medium;
+  }
+  .gradient-button:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .gradient-button-1 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
+  .gradient-button-1:hover { background-position: right center; }
+
+  .card-wrapper{
+    overflow-y:none;
+    margin: 0; 
+    padding:0; 
+    border-radius: 12pt; 
+    border-width: 0px;
+    margin-top: 0;
+    padding-top: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-wrapper-2 {
+    max-width: 93vw;
+    margin: 0;
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+    padding: 0;
+    border-radius: 12pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+  .like_n{
+    position: absolute;
+    bottom: 23%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart.svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .like_y{
+    position: absolute;
+    bottom: 23%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart_liked.png');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .share{
+    position: absolute;
+    bottom: 10%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/share\ \(1\).svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .img{
+    height: ($img-height);
+    width: ($img-height * 0.79);
+    max-width: 93vw;
+    margin: 0; 
+    padding: 0; 
+    border-radius: 12pt; 
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px ;
+    margin-bottom: 0;
+    object-fit: cover;
+  }
+
+  .carousel_style {
+    padding-top: 0;
+    margin-top: 0;
+    align-items: center;
+    width: ($img-height * 0.79);
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+  }
+
+  .carousel_item_style {
+    margin: 0; 
+    padding: 0;
+    width: ($img-height * 0.79);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .postedAt_style {
+    background: none; 
+    border-width: 0; 
+    color: #c9c9c9; 
+    font-size: 14; 
+    font-family: 'Montserrat'; 
+    font-weight: bold;
+  }
+
+  .dot {
+    height: 8px;
+    width: 8px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 1px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+}
+
+// For laptop size screens with large height
+@media only screen and (min-width: 769px) {
+  .view {
+    display: flex;
+    justify-content: center;
+  }
+
+  .text{
+    position: absolute;
+    top: 25px;
+    left: 25px;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     text-align: left;
     font-size: large;
+    color: #fefefe;
+    font-family: 'Montserrat'; 
   }
 
   .gradient-button {
@@ -203,6 +413,7 @@ $img-height: 62vh;
     margin-right: 3vw;
     justify-content: center;
     align-items: center;
+    // width: fit-content;
   }
 
   .card-wrapper-2 {
@@ -217,10 +428,10 @@ $img-height: 62vh;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  .like{
+  .like_n{
     position: absolute;
-    bottom: 26%;
-    right: 0%;
+    bottom: 23%;
+    right: -5%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -231,16 +442,36 @@ $img-height: 62vh;
     color: white;
     font-size: 16px;
     border: none;
-    height: 50px;
-    width: 50px;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .like_y{
+    position: absolute;
+    bottom: 23%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart_liked.png');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 7vh;
+    width: 7vh;
     border-radius: 50%;
     text-align: center;
   }
 
   .share{
     position: absolute;
-    bottom: 13%;
-    right: 0%;
+    bottom: 10%;
+    right: -5%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: #1d2a5b;
@@ -252,8 +483,8 @@ $img-height: 62vh;
     font-size: 16px;
     border: none;
     cursor: pointer;
-    height: 50px;
-    width: 50px;
+    height: 7vh;
+    width: 7vh;
     border-radius: 50%;
     text-align: center;
   }
@@ -308,168 +539,4 @@ $img-height: 62vh;
     margin-bottom: 1vh;
   }
 
-}
-
-@media only screen and (min-width: 476px) and (max-width: 768px) {
-  .view {
-    display: flex;
-    justify-content: center;
-  }
-
-  .text{
-    position: absolute;
-    top: 5%;
-    left: 38%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    text-align: left;
-    font-size: medium;
-  }
-
-  .gradient-button {
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: #FFF;
-    box-shadow: 0 0 20px #eee;
-    width: ($img-height * 0.79);
-    max-width: 93vw;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    cursor: pointer;
-    display: inline-block;
-    border-radius: 12pt;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
-    height: (0.13 * $img-height);
-    font-family: 'Montserrat'; 
-    font-weight: bold;
-    font-size: medium;
-  }
-  .gradient-button:hover{
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  }
-  .gradient-button-1 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
-  .gradient-button-1:hover { background-position: right center; }
-
-  .card-wrapper{
-    overflow-y:none;
-    margin: 0; 
-    padding:0; 
-    border-radius: 12pt; 
-    border-width: 0px;
-    margin-top: 0;
-    padding-top: 0;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .card-wrapper-2 {
-    // height: (1.13 * $img-height);
-    // width: ($img-height * 0.79);
-    max-width: 93vw;
-    margin: 0;
-    margin-top: 1vh;
-    margin-bottom: 3vh;
-    // margin-left: 2vh;
-    // margin-right: 2vh;
-    padding: 0;
-    border-radius: 12pt;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-
-  .like{
-    position: absolute;
-    bottom: 26%;
-    right: 0%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #1d2a5b;
-    background-image: url('src/assets/img/shareables/heart.svg');
-    background-size: 50%;
-    background-position: 50%, 50%;
-    background-repeat: no-repeat;
-    color: white;
-    font-size: 16px;
-    border: none;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    text-align: center;
-  }
-
-  .share{
-    position: absolute;
-    bottom: 13%;
-    right: 0%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: #1d2a5b;
-    background-image: url('src/assets/img/shareables/share\ \(1\).svg');
-    background-size: 50%;
-    background-position: 50%, 50%;
-    background-repeat: no-repeat;
-    color: white;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    height: 45px;
-    width: 45px;
-    border-radius: 50%;
-    text-align: center;
-  }
-
-  .img{
-    height: ($img-height);
-    width: ($img-height * 0.79);
-    max-width: 93vw;
-    margin: 0; 
-    padding: 0; 
-    border-radius: 12pt; 
-    border-bottom-left-radius: 0px; 
-    border-bottom-right-radius: 0px ;
-    margin-bottom: 0;
-    object-fit: cover;
-  }
-
-  .carousel_style {
-    padding-top: 0;
-    margin-top: 0;
-    align-items: center;
-    width: ($img-height * 0.79);
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-
-  }
-
-  .carousel_item_style {
-    margin: 0; 
-    padding: 0;
-    width: ($img-height * 0.79);
-    align-items: center;
-    justify-content: center;
-  }
-
-  .postedAt_style {
-    background: none; 
-    border-width: 0; 
-    color: #c9c9c9; 
-    font-size: 14; 
-    font-family: 'Montserrat'; 
-    font-weight: bold;
-  }
-
-  .dot {
-    height: 8px;
-    width: 8px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    align-self: center;
-    margin: 1px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
-  }
 }

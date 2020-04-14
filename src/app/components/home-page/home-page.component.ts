@@ -7,15 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  sidebarIsActive = false;
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  toggleSidebar(): boolean {
-    this.sidebarIsActive = !this.sidebarIsActive;
-    return this.sidebarIsActive;
   }
 
 }

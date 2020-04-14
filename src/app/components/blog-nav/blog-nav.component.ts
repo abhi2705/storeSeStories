@@ -9,7 +9,7 @@ export class BlogNavComponent implements OnInit {
 
   blogs:Array<any>
 
-  constructor() { 
+  constructor() {
     this.blogs=new Array<any>()
   }
 

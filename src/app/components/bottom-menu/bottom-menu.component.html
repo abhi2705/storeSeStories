@@ -1,0 +1,32 @@
+<div class="app-bottom-menu">
+  <div class="inner-menu row p-1">
+    <div class="col-3 btn-cont">
+      <button routerLink="/blogs" type="button" class="menu btn" (click)="handleClick(0)" [class.active]="active === 0">
+        <img class="dark" src="assets/img/icons/blog_d.svg">
+        <img class="light" src="assets/img/icons/blog_l.svg">
+        <p>Blog</p>
+      </button>
+    </div>
+    <div class="col-3 btn-cont">
+      <button routerLink="/feed" type="button" class="menu btn" (click)="handleClick(1)" [class.active]="active === 1">
+        <img class="dark" src="assets/img/icons/stories_d.svg">
+        <img class="light" src="assets/img/icons/stories_l.svg">
+        <p>Feed</p>
+      </button>
+    </div>
+    <div class="col-3 btn-cont">
+      <button routerLink="/brands" type="button" class="menu btn" (click)="handleClick(2)" [class.active]="active === 2">
+        <img class="light" src="assets/img/icons/brand_l.svg">
+        <img class="dark" src="assets/img/icons/brand_d.svg">
+        <p>Brands</p>
+      </button>
+    </div>
+    <div routerLink="/account" class="col-3 btn-cont">
+      <button type="button" class="menu btn" (click)="handleClick(3)"[class.active]="active === 3">
+        <img class="dark" src="assets/img/icons/ac_d.svg">
+        <img class="light" src="assets/img/icons/ac_l.svg">
+        <p>Account</p>
+      </button>
+    </div>
+  </div>
+</div>

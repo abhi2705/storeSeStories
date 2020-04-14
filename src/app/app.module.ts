@@ -15,7 +15,6 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
-import { BrandsTabComponent } from './components/brands-tab/brands-tab.component';
 import { ShareTabComponent } from './components/share-tab/share-tab.component';
 import { UrlEncodePipe } from './pipes/url-encode.pipe';
 import { HammerGestureConfig } from '@angular/platform-browser';
@@ -24,6 +23,7 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
 import { BrandNavComponent } from './components/brand-nav/brand-nav.component';
 import { BlogNavComponent } from './components/blog-nav/blog-nav.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
+import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -43,13 +43,13 @@ export class MyHammerConfig extends HammerGestureConfig {
     SideBarComponent,
     HomePageComponent,
     NavBarComponent,
-    BrandsTabComponent,
     ShareTabComponent,
     UrlEncodePipe,
     FavouritesComponent,
     BrandNavComponent,
     BlogNavComponent,
-    BlogPageComponent
+    BlogPageComponent,
+    BottomMenuComponent
   ],
   imports: [
     BrowserModule,

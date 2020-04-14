@@ -21,7 +21,7 @@ $img-height: 62vh;
     text-align: left;
     font-size: medium;
     color: #fefefe;
-    font-family: 'Montserrat'; 
+    font-family: 'Montserrat';
   }
 
   .gradient-button {
@@ -41,8 +41,8 @@ $img-height: 62vh;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     height: (0.13 * $img-height);
-    font-family: 'Montserrat'; 
-    font-weight:bold; 
+    font-family: 'Montserrat';
+    font-weight:bold;
     font-size: medium;
   }
 
@@ -55,11 +55,11 @@ $img-height: 62vh;
   .card-wrapper{
     overflow-y:none;
     max-height: 85vh;
-    width: 100vw; 
-    height: 100vh;
-    margin: 0; 
-    padding:0; 
-    border-width: 0px; 
+    width: 100vw;
+    height: 77vh;
+    margin: 0;
+    padding:0;
+    border-width: 0px;
     align-items: center;
   }
 
@@ -137,10 +137,10 @@ $img-height: 62vh;
     width: ($img-height * 0.79);
     max-width: 93vw;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin: 0; 
-    padding: 0; 
-    border-radius: 12pt; 
-    border-bottom-left-radius: 0px; 
+    margin: 0;
+    padding: 0;
+    border-radius: 12pt;
+    border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px ;
     object-fit: cover;
   }
@@ -162,11 +162,11 @@ $img-height: 62vh;
   }
 
   .postedAt_style {
-    background: none; 
-    border-width: 0; 
-    color: #c9c9c9; 
-    font-size: 14; 
-    font-family: 'Montserrat'; 
+    background: none;
+    border-width: 0;
+    color: #c9c9c9;
+    font-size: 14;
+    font-family: 'Montserrat';
     font-weight: bold;
   }
 }
@@ -188,7 +188,7 @@ $img-height: 62vh;
     text-align: left;
     font-size: medium;
     color: #fefefe;
-    font-family: 'Montserrat'; 
+    font-family: 'Montserrat';
   }
 
   .gradient-button {
@@ -208,7 +208,7 @@ $img-height: 62vh;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     height: (0.13 * $img-height);
-    font-family: 'Montserrat'; 
+    font-family: 'Montserrat';
     font-weight: bold;
     font-size: medium;
   }
@@ -220,9 +220,9 @@ $img-height: 62vh;
 
   .card-wrapper{
     overflow-y:none;
-    margin: 0; 
-    padding:0; 
-    border-radius: 12pt; 
+    margin: 0;
+    padding:0;
+    border-radius: 12pt;
     border-width: 0px;
     margin-top: 0;
     padding-top: 0;
@@ -305,10 +305,10 @@ $img-height: 62vh;
     height: ($img-height);
     width: ($img-height * 0.79);
     max-width: 93vw;
-    margin: 0; 
-    padding: 0; 
-    border-radius: 12pt; 
-    border-bottom-left-radius: 0px; 
+    margin: 0;
+    padding: 0;
+    border-radius: 12pt;
+    border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px ;
     margin-bottom: 0;
     object-fit: cover;
@@ -326,7 +326,7 @@ $img-height: 62vh;
   }
 
   .carousel_item_style {
-    margin: 0; 
+    margin: 0;
     padding: 0;
     width: ($img-height * 0.79);
     align-items: center;
@@ -334,11 +334,11 @@ $img-height: 62vh;
   }
 
   .postedAt_style {
-    background: none; 
-    border-width: 0; 
-    color: #c9c9c9; 
-    font-size: 14; 
-    font-family: 'Montserrat'; 
+    background: none;
+    border-width: 0;
+    color: #c9c9c9;
+    font-size: 14;
+    font-family: 'Montserrat';
     font-weight: bold;
   }
 
@@ -371,7 +371,7 @@ $img-height: 62vh;
     text-align: left;
     font-size: large;
     color: #fefefe;
-    font-family: 'Montserrat'; 
+    font-family: 'Montserrat';
   }
 
   .gradient-button {
@@ -391,7 +391,7 @@ $img-height: 62vh;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     height: (0.13 * $img-height);
-    font-family: 'Montserrat'; 
+    font-family: 'Montserrat';
     font-weight: bold;
     font-size: large;
   }
@@ -403,9 +403,9 @@ $img-height: 62vh;
 
   .card-wrapper{
     overflow-y:none;
-    margin: 0; 
-    padding:0; 
-    border-radius: 12pt; 
+    margin: 0;
+    padding:0;
+    border-radius: 12pt;
     border-width: 0px;
     margin-top: 0;
     padding-top: 0;
@@ -493,10 +493,10 @@ $img-height: 62vh;
     height: ($img-height);
     width: ($img-height * 0.79);
     max-width: 93vw;
-    margin: 0; 
-    padding: 0; 
-    border-radius: 12pt; 
-    border-bottom-left-radius: 0px; 
+    margin: 0;
+    padding: 0;
+    border-radius: 12pt;
+    border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px ;
     margin-bottom: 0;
     object-fit: cover;
@@ -512,18 +512,18 @@ $img-height: 62vh;
   }
 
   .carousel_item_style {
-    margin: auto; 
+    margin: auto;
     padding: auto;
     width: ($img-height * 0.79);
     align-items: center;
   }
 
   .postedAt_style {
-    background: none; 
-    border-width: 0; 
-    color: #c9c9c9; 
-    font-size: 14; 
-    font-family: 'Montserrat'; 
+    background: none;
+    border-width: 0;
+    color: #c9c9c9;
+    font-size: 14;
+    font-family: 'Montserrat';
     font-weight: bold;
   }
 
@@ -538,5 +538,4 @@ $img-height: 62vh;
     margin-top: 1vh;
     margin-bottom: 1vh;
   }
-
 }

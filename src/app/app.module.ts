@@ -63,7 +63,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig
-  }],
+  },BookmarksService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

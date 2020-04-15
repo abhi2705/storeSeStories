@@ -1,22 +1,35 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 .app-home-page {
   display: flex;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   overflow: hidden;
   flex-direction: column;;
 
   .header {
     z-index: 100;
+    width: 100%;
   }
   .content-wrapper {
-      width: 100vw;
-      height: 81vh;
-      overflow: hidden;
-      margin-bottom: auto;
+      width: 100%;
+      height: 81%;
+      overflow-y: hidden;
+  }
+
+  @include media-breakpoint-up(xl) {
+    .content-wrapper{
+      height: 85%;
+      overflow-y: hidden;
+    }
   }
 
   .footer {
+    width: 100%;
     z-index: 100;
+    flex-grow: 1;
   }
 }
 

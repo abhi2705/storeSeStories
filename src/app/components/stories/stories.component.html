@@ -1,8 +1,10 @@
 <div class="view">
-  <span class="dot" *ngFor="let story of (stories$ | async)?.stories"></span>
+  <div *ngFor="let story of (stories$ | async)?.stories; let i = index">
+    <span [ngClass]=active[i]></span>
+  </div>
 </div>
 <div class="container view">
-  <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.03 overscrollable id="carousel" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carousel_style" >
+  <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.03 overscrollable (postchange)=change_dots($event) id="carousel" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carousel_style" >
     <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories; let i = index" class="carousel_item_style">
       <div class="card  card-wrapper">
         <div class="card card-wrapper-2">

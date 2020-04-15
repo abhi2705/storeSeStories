@@ -12,10 +12,10 @@ import { ShareTabService } from 'src/app/services/share-tab.service';
   styleUrls: ['./stories.component.scss'],
 })
 export class StoriesComponent implements OnInit {
-  @ViewChild('carousel') carousel;
 
   favourite_stories = [];
   liked = [];
+  active = [];
 
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
@@ -32,7 +32,9 @@ export class StoriesComponent implements OnInit {
       var i = 0;
       for(i = 0; i < l; i++){
         this.liked.push("like_n");
+        this.active.push("dot");
       }
+      this.active[0] = "dot_active";
     });
   }
 
@@ -84,4 +86,10 @@ export class StoriesComponent implements OnInit {
     return;
   }
 
+  change_dots(event){
+    var prevind = event.lastActiveIndex;
+    var curind = event.activeIndex;
+    this.active[prevind] = "dot";
+    this.active[curind] = "dot_active";
+  }
 }

@@ -1,3 +1,12 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$img-height: 62vh;
+$img-width: (0.79 * $img-height);
+$btn-height: (0.13 * $img-height);
+$btn-width: $img-width;
+
 .column {
     float: left;
     width: 50%;
@@ -14,7 +23,7 @@
     align-items: center;
 }
   
-.card{
+.card-1{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
     height: 39vh;
     width: 45vw;
@@ -89,21 +98,23 @@
 
 .card-wrapper{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    height: 59vh;
-    width: 46.6vh;
+    height: ($img-height + $btn-height);
+    width: $img-width;
+    max-width: 93vw;
     margin: auto;
-    border-radius: 10pt;
+    border-radius: 12pt;
     padding: 0;
     align-items: center;
-    // margin-top: 15vh;
+    margin-top: 4vh;
 }
 
 .img2 {
-    border-radius: 10pt;
+    border-radius: 12pt;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-    height: 50vh;
-    width: 46.6vh;
+    height: $img-height;
+    width: $img-width;
+    max-width: 93vw;
     object-fit: cover;
 }
 
@@ -119,11 +130,12 @@
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
     display: inline-block;
-    border-radius: 10pt;
+    border-radius: 12pt;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    height: 9vh;
-    width: 46.6vh;
+    height: $btn-height;
+    width: $btn-width;
+    max-width: 93vw;
     font-family: 'Montserrat'; 
     font-weight: bold; 
     font-size: medium;
@@ -134,3 +146,74 @@
   }
   .gradient-button-3 {background-image: linear-gradient(to right, #f5841f 0%, #f91964 100%)}
   .gradient-button-3:hover { background-position: right center; }
+
+  .like_n{
+    position: absolute;
+    bottom: 23%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart.svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .like_y{
+    position: absolute;
+    bottom: 23%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/heart_liked.png');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .share{
+    position: absolute;
+    bottom: 10%;
+    right: -5%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #1d2a5b;
+    background-image: url('src/assets/img/shareables/share\ \(1\).svg');
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    height: 7vh;
+    width: 7vh;
+    border-radius: 50%;
+    text-align: center;
+  }
+
+  .text{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    text-align: left;
+    font-size: medium;
+    color: #fefefe;
+    font-family: 'Montserrat';
+  }

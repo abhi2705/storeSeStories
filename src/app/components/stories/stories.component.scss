@@ -146,15 +146,27 @@ $img-height: 62vh;
   }
 
   .dot {
-    height: 8px;
-    width: 8px;
+    height: 6px;
+    width: 6px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     align-self: center;
-    margin: 1px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin: 2px;
+    margin-top: 2.1vh;
+    margin-bottom: 0;
+  }
+
+  .dot_active {
+    height: 8px;
+    width: 8px;
+    background-color: rgb(245, 52, 3);
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2vh;
+    margin-bottom: 0;
   }
 
   .carousel_style {
@@ -343,15 +355,27 @@ $img-height: 62vh;
   }
 
   .dot {
-    height: 8px;
-    width: 8px;
+    height: 6px;
+    width: 6px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     align-self: center;
-    margin: 1px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin: 2px;
+    margin-top: 2.1vh;
+    margin-bottom: 0;
+  }
+
+  .dot_active {
+    height: 8px;
+    width: 8px;
+    background-color: rgb(245, 52, 3);
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2vh;
+    margin-bottom: 0;
   }
 }
 
@@ -528,14 +552,26 @@ $img-height: 62vh;
   }
 
   .dot {
-    height: 8px;
-    width: 8px;
+    height: 6px;
+    width: 6px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     align-self: center;
-    margin: 1px;
-    margin-top: 1vh;
-    margin-bottom: 1vh;
+    margin: 2px;
+    margin-top: 2.1vh;
+    margin-bottom: 0;
+  }
+
+  .dot_active {
+    height: 8px;
+    width: 8px;
+    background-color: rgb(245, 52, 3);
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2vh;
+    margin-bottom: 0;
   }
 }

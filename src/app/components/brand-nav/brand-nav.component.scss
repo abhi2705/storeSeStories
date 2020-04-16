@@ -8,6 +8,14 @@
 .nav::-webkit-scrollbar{
   display:none;
 }
+.card-img, .card-img-top {
+    /* border-top-left-radius: calc(0.25rem - 1px); */
+    /* border-top-right-radius: calc(0.25rem - 1px); */
+    padding-top: 50%;
+}
+.card{
+  padding-top: 50%;
+}
 .nav-tabs  .nav-tabs .nav-item.show .nav-link {
   color: #495057;
   background-color: #fff;
@@ -118,8 +126,15 @@ a {
 
 .column {
   float: left;
-  width: 45%;
+  width: 20%;
   padding: 0 0px;
+}
+@media only screen and (max-width: 600px) {
+  .column {
+    float: left;
+    width: 45%;
+    padding: 0 0px;
+  }
 }
 .scroll-wrapper{
   height:75vh;

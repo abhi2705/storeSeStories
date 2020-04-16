@@ -1,140 +1,402 @@
-<div class="component-wrapper">
+<div class="track-block">
+  <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
+    <img alt="search icon" src="../../../assets/img/logos/search.svg">
+    <input aria-label="search your apartment" onkeyup="search(event)" placeholder="Search for brand or product"
+      type="text">
+  </div>
+</div>
+<div class="component-wrapper" >
   <div class="inner-wrapper">
-    <ngb-tabset>
-        <ngb-tab title="One">
-          <ng-template ngbTabContent>
-            <button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.svg" height="20vh"
-                width="20vh" alt="filter icon"></button>
-            <div class="scroll-wrapper">
-              <div class="card column" style=" padding: 0;">
-                <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
-                    max-height: 100%;">
-                <div class="card-body" style="padding:0;">
-                  <h5 class="card-title company-name"
-                    style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
-                    oNE oNE Matters</h5>
-                  <p class="card-text company-desc"
-                    style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
-                  </p>
-                </div>
+    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs  flex-nowrap"
+      style="  overflow-x: scroll; overflow-y: hidden; height:5vh; ">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>All</a>
+        <ng-template ngbNavContent  >
+          <button class="btn" style="margin-left: 85%; position:static; margin-top: 1.25%;"><img src="../../../assets/img/filter.svg" height="20vh"
+              width="20vh" alt="filter icon"></button>
+          <div class="scroll-wrapper" style="margin-top: 2vh; height:60vh;">
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
               </div>
-              <div class="card column" style=" padding: 0;">
-                <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
-                    max-height: 100%;">
-                <div class="card-body" style="padding:0;">
-                  <h5 class="card-title company-name"
-                    style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
-                    One Two Matters</h5>
-                  <p class="card-text company-desc"
-                    style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
-                  </p>
-                </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
               </div>
-
-
-
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                  max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
             </div>
 
 
-  </ng-template>
-  </ngb-tab>
-  <ngb-tab title="Two">
-    <ng-template ngbTabContent>
-      <button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.svg" height="20vh" width="20vh"
-          alt="filter icon"></button>
-      <div class="scroll-wrapper">
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
-                    max-height: 100%;">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name"
-              style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
-              Two One Matters</h5>
-            <p class="card-text company-desc"
-              style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
-            </p>
           </div>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>New</a>
+        <ng-template ngbNavContent>
+          <button class="btn" style="margin-left: 85%; position:static; margin-top: 1.25%;"><img src="../../../assets/img/filter.svg" height="20vh"
+            width="20vh" alt="filter icon"></button>
+        <div class="scroll-wrapper" style="margin-top: 2vh;">
+          <div class="card column" style=" padding: 0;">
+            <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                max-height: 100%;">
+            <div class="card-body" style="padding:0;">
+              <h5 class="card-title company-name"
+                style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                TwoNE Matters</h5>
+              <p class="card-text company-desc"
+                style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+              </p>
+            </div>
+          </div>
+          <div class="card column" style=" padding: 0;">
+            <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                max-height: 100%;">
+            <div class="card-body" style="padding:0;">
+              <h5 class="card-title company-name"
+                style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                Two Two Matters</h5>
+              <p class="card-text company-desc"
+                style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+              </p>
+            </div>
+          </div>
+
+
+
         </div>
-        <div class="card column" style=" padding: 0;">
-          <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+
+
+
+
+          
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="3">
+        <a ngbNavLink>Fashion</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="4">
+        <a ngbNavLink>Electronics</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="5">
+        <a ngbNavLink>Accessories</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="6">
+        <a ngbNavLink>Sports</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="7">
+        <a ngbNavLink>Siimple</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="8">
+        <a ngbNavLink>Personal</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="9">
+        <a ngbNavLink>Office</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+      <li [ngbNavItem]="10">
+        <a ngbNavLink>School</a>
+        <ng-template ngbNavContent>
+
+        </ng-template>
+
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+    <!-- <ngb-tabset>
+      <ngb-tab title="One">
+        <ng-template ngbTabContent>
+          <button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.svg" height="20vh"
+              width="20vh" alt="filter icon"></button>
+          <div class="scroll-wrapper">
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
                     max-height: 100%;">
-          <div class="card-body" style="padding:0;">
-            <h5 class="card-title company-name"
-              style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
-              Two Two Matters</h5>
-            <p class="card-text company-desc"
-              style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
-            </p>
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  oNE oNE Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                    max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  One Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+
+
+
           </div>
+
+
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Two">
+        <ng-template ngbTabContent>
+          <button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.svg" height="20vh"
+              width="20vh" alt="filter icon"></button>
+          <div class="scroll-wrapper">
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                    max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  Two One Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+            <div class="card column" style=" padding: 0;">
+              <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+                    max-height: 100%;">
+              <div class="card-body" style="padding:0;">
+                <h5 class="card-title company-name"
+                  style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+                  Two Two Matters</h5>
+                <p class="card-text company-desc"
+                  style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Three">
+        <ng-template ngbTabContent>
+          <p></p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Four">
+        <ng-template ngbTabContent>
+          <p></p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Five">
+        <ng-template ngbTabContent>
+          <p></p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Six">
+        <ng-template ngbTabContent>
+          <p></p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Two">
+        <ng-template ngbTabContent>
+          <p></p>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Two">
+        <ng-template ngbTabContent>
+          <p></p>
+        </ng-template>
+      </ngb-tab>
+
+      </ngb-tabset> -->
+    <!-- <button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.svg" height="20vh" width="20vh"
+        alt="filter icon"></button>
+    <div class="scroll-wrapper">
+      <div class="card column" style=" padding: 0;">
+        <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+              max-height: 100%;">
+        <div class="card-body" style="padding:0;">
+          <h5 class="card-title company-name"
+            style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+            Man Matters</h5>
+          <p class="card-text company-desc"
+            style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+          </p>
+        </div>
+      </div>
+      <div class="card column" style=" padding: 0;">
+        <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
+              max-height: 100%;">
+        <div class="card-body" style="padding:0;">
+          <h5 class="card-title company-name"
+            style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
+            Man Matters</h5>
+          <p class="card-text company-desc"
+            style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
+          </p>
         </div>
       </div>
 
 
 
-</ng-template>
-</ngb-tab>
-<ngb-tab title="Three">
-  <ng-template ngbTabContent>
-    <p>Because default values have been customized.</p>
-  </ng-template>
-</ngb-tab>
-<ngb-tab title="Four">
-  <ng-template ngbTabContent>
-    <p>Because default values have been customized.</p>
-  </ng-template>
-</ngb-tab>
-<ngb-tab title="Five">
-  <ng-template ngbTabContent>
-    <p>Because default values have been customized.</p>
-  </ng-template>
-</ngb-tab>
-<ngb-tab title="Six">
-  <ng-template ngbTabContent>
-    <p>Because default values have been customized.</p>
-  </ng-template>
-</ngb-tab>
-<ngb-tab title="Two">
-  <ng-template ngbTabContent>
-    <p>Because default values have been customized.</p>
-  </ng-template>
-</ngb-tab>
-<ngb-tab title="Two">
-  <ng-template ngbTabContent>
-    <p>Because default values have been customized.</p>
-  </ng-template>
-</ngb-tab>
 
-</ngb-tabset>
-<button class="btn" style="margin-left: 85%;"><img src="../../../assets/img/filter.svg" height="20vh" width="20vh"
-    alt="filter icon"></button>
-<div class="scroll-wrapper">
-  <div class="card column" style=" padding: 0;">
-    <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
-              max-height: 100%;">
-    <div class="card-body" style="padding:0;">
-      <h5 class="card-title company-name"
-        style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
-        Man Matters</h5>
-      <p class="card-text company-desc"
-        style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
-      </p>
-    </div>
-  </div>
-  <div class="card column" style=" padding: 0;">
-    <img class="card-img-top" src="../../../assets/img/logos/plain-white-background.jpg" style="border: 1px solid rgba(0,0,0,0.125); margin-bottom:0.7em;width: 100%; height:17vh; border-radius:25px; object-fit: cover; max-width: 100%;
-              max-height: 100%;">
-    <div class="card-body" style="padding:0;">
-      <h5 class="card-title company-name"
-        style="  margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; font-size:14px; text-align: left; font-weight:600;">
-        Man Matters</h5>
-      <p class="card-text company-desc"
-        style="margin: 0 0.25em 0 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif;font-size: 12px; text-align: left; font-weight: 400; ">
-      </p>
-    </div>
-  </div>
-
-
-
-</div>
-</div>
-</div>
+    </div> -->

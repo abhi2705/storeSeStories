@@ -1,3 +1,31 @@
+.nav {
+  display: flex;
+  /* flex-wrap: wrap; */
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  
+}
+
+.nav::-webkit-scrollbar{
+  display:none;
+}
+.nav-tabs  .nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: #fff;
+  border-color: #FFF;
+}
+.nav-link.active{
+  font-weight: 900;
+    // margin-bottom: 0;
+    border-color: #fff;
+    padding-bottom: 2px;
+    border-bottom: 4px solid #000;
+
+}
+.nav-tabs {
+border-bottom: 0px solid #dee2e6;
+}
 // .nav{
 //   display: flex;
 //   flex-wrap: nowrap !important;
@@ -19,17 +47,17 @@
 //   overflow-x: scroll;
 //   overflow-y: hidden;
 // }
-a{
-  color: dimgrey;
-  text-decoration: none;
-  background-color: transparent;
-}
+// a{
+//   color: dimgrey;
+//   text-decoration: none;
+//   background-color: transparent;
+// }
 
-.nav-tabs .nav-link {
-  border: 0px solid transparent;
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
-}
+// .nav-tabs .nav-link {
+//   border: 0px solid transparent;
+//   border-top-left-radius: 0.25rem;
+//   border-top-right-radius: 0.25rem;
+// }
 // .tabbable .nav-tabs {
 //     overflow-x: auto;
 //     overflow-y:hidden;
@@ -47,7 +75,7 @@ a{
   flex: 1 58%;
   position: relative;
   margin: 0.8rem 0.2rem;
-  width: 100%;
+  width: 97%;
   border-radius: 20px;
 }
 
@@ -77,10 +105,10 @@ a{
 // .nav-tabs{
 //   border-bottom: 0 solid #ffffff;
 // }
-.tabbable[_ngcontent-ncg-c211] .nav-tabs[_ngcontent-ncg-c211] .nav-link[_ngcontent-ncg-c211] {
-  white-space: nowrap;
-  color: dimgray;
-}
+// .tabbable[_ngcontent-ncg-c211] .nav-tabs[_ngcontent-ncg-c211] .nav-link[_ngcontent-ncg-c211] {
+//   white-space: nowrap;
+//   color: dimgray;
+// }
 a {
   color: lightslategrey;
   text-decoration: none;
@@ -100,6 +128,7 @@ a {
   height:75vh;
   width:auto;
   overflow:scroll;
+  margin-left:8px;
 
 }
 
@@ -108,13 +137,13 @@ a {
   border: 0 solid rgba(255, 255, 255, 1);
   box-shadow: none;
 }
-.nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
-  color: black;
-  background-color: #fff;
-  border-color: #fff #fff #fff;
-  border-bottom: 4px solid #000;
-  overflow: scroll;
-}
+// .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+//   color: black;
+//   background-color: #fff;
+//   border-color: #fff #fff #fff;
+//   border-bottom: 4px solid #000;
+//   overflow: scroll;
+// }
 .card-img-top{
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 

@@ -6,22 +6,33 @@
     <div class="blog-page-date">AuthorXYZ  ·  15th Aug 2020</div>
     <div class="blog-content">What is Lorem Ipsum?
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+
+
     </div>
-    <div class="button-strap" style="margin-left: 30%;">
-        <div class="button-wrap" >
+
+ 
+
+
+
+
+    <div class="button-strap container" >
+        <div class="button-wrap" style="margin-left: 30%;">
             <button class="btn share" (click)="likePage(currentBlog)">
                 <img [hidden]="isLiked" class="blog-button" src="../../../assets/blog-icons/heart.svg"/>
                 <img [hidden]="!isLiked" class="blog-button" src="../../../assets/blog-icons/heart_liked.png"/>
             </button>
         </div>
-        <div class="button-wrap">
+        <div class="button-wrap" >
             <button class="btn share" (click)="bookmarkPage(currentBlog)">
                 <img [hidden]="isBookmarked" class="blog-button" src="../../../assets/blog-icons/bookmark.svg"/>
                 <img [hidden]="!isBookmarked" class="blog-button" src="../../../assets/blog-icons/share.svg"/>
 
             </button>
         </div>
-        <div class="button-wrap">
+        <div class="button-wrap"  style="margin-right: 30%;">
             <button class="btn share" (click)="activateShare()">
                 <img class="blog-button" src="../../../assets/blog-icons/share.svg"/>
             </button>

@@ -15,13 +15,13 @@
   }
   .content-wrapper {
       width: 100%;
-      height: 81%;
+      height: 100%;
       overflow-y: hidden;
   }
 
   @include media-breakpoint-up(xl) {
     .content-wrapper{
-      height: 85%;
+      height: 100%;
       overflow-y: hidden;
     }
   }

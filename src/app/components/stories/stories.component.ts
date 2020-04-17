@@ -92,4 +92,23 @@ export class StoriesComponent implements OnInit {
     this.active[prevind] = "dot";
     this.active[curind] = "dot_active";
   }
+
+  swipe_left(i){
+    console.log("left", i);
+    if(i == this.active.length - 1){
+      return;
+    }
+    this.active[i] = "dot";
+    this.active[i + 1] = "dot_active";
+  }
+
+  swipe_right(i){
+    console.log("right", i);
+    if(i == 0){
+      return;
+    }
+    this.active[i] = "dot";
+    this.active[i - 1] = "dot_active";
+  }
+
 }

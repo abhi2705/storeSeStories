@@ -23,6 +23,9 @@ import { BrandNavComponent } from './components/brand-nav/brand-nav.component';
 import { BlogNavComponent } from './components/blog-nav/blog-nav.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
+import { StoriedBlogsComponent } from './components/storied-blogs/storied-blogs.component';
+import { AccountPageComponent } from './components/account-page/account-page.component';
+import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component'
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -48,7 +51,10 @@ export class MyHammerConfig extends HammerGestureConfig {
     BrandNavComponent,
     BlogNavComponent,
     BlogPageComponent,
-    BottomMenuComponent
+    BottomMenuComponent,
+    StoriedBlogsComponent,
+    AccountPageComponent,
+    BoomarkedBlogsComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,7 @@ export class MyHammerConfig extends HammerGestureConfig {
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig
-  },BlogsService],
+  }],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

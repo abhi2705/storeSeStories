@@ -61,10 +61,14 @@ export class StoriesComponent implements OnInit {
     const diffTime = Math.abs(utc_date2.getTime() - date1.getTime());
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
+    const diffMins = Math.ceil(diffTime / (1000 * 60 ));
     if (diffHours >= 24) {
       return diffDays.toString() + ' d';
     }
-    return diffHours.toString() + ' h';
+    else if (diffMins >= 60){
+      return diffHours.toString() + ' h';
+    }
+    return diffMins.toString() + ' m';
   }
 
   activateShare(brandUrl: string) {

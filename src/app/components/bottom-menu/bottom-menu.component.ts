@@ -1,26 +1,46 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-bottom-menu',
   templateUrl: './bottom-menu.component.html',
   styleUrls: ['./bottom-menu.component.scss']
 })
-export class BottomMenuComponent implements OnInit {
+export class BottomMenuComponent implements OnInit, OnDestroy {
 
   active: number;
-  constructor() { }
+  private mapping = {
+    blogs: 0,
+    feed: 1,
+    brands: 2,
+    account: 3
+  }
+  private sub: Subscription;
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.active = 1;
+    this.active = this.getTabFromUrl(this.router.url);
+    this.sub = this.router.events.pipe(filter( event => true || event instanceof  NavigationEnd))
+    .subscribe((e: NavigationEnd) => {
+      this.active = this.getTabFromUrl(e.urlAfterRedirects);
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  private getTabFromUrl(url: string): number {
+    return this.mapping[url.split('/')[1]];
   }
 
   handleClick(target: number): void {
-    // Do nothing if the target is currently active
     if (target === this.active) {
       return;
     }
     this.active = target;
-    // TODO: Trigger page change here
   }
 
 }

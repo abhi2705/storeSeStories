@@ -1,4 +1,28 @@
+.nav {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
 
+.nav::-webkit-scrollbar{
+  display:none;
+}
+.nav-tabs  .nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: #fff;
+  border-color: #FFF;
+}
+.nav-link.active{
+    font-weight: 900;
+    border-color: #fff;
+    padding-bottom: 2px;
+    border-bottom: 4px solid #000;
+
+}
+.nav-tabs {
+border-bottom: 0px solid #dee2e6;
+}
 
 
 .tabbable .nav-tabs {
@@ -45,22 +69,14 @@
   border: none;
 
 }
-// .nav-tabs{
-//   border-bottom: 0 solid #ffffff;
-// }
-// .tabbable[_ngcontent-ncg-c211] .nav-tabs[_ngcontent-ncg-c211] .nav-link[_ngcontent-ncg-c211] {
-//   white-space: nowrap;
-//   color: dimgray;
-// }
+
 a {
   color: lightslategrey;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
 }
-// .navbar-default .navbar-nav > li > a:focus {
-//   color: #fff;
-// }
+
 
 .column {
   float: left;
@@ -80,13 +96,7 @@ a {
   border: 0 solid rgba(255, 255, 255, 1);
   box-shadow: none;
 }
-// .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
-//   color: black;
-//   background-color: #fff;
-//   border-color: #fff #fff #fff;
-//   border-bottom: 4px solid #000;
-//   overflow: scroll;
-// }
+
 .card-img-top{
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 

@@ -6,9 +6,14 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 @import '~bootstrap/scss/bootstrap';
 
+html {
+  height: 100%;
+  width: 100%;
+}
 body {
   font-family: 'Montserrat', sans-serif;
-  height: 100vh !important;
+  height: 100%;
+  width: 100%;
 }
 html,body
 {

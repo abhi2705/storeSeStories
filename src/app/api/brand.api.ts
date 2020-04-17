@@ -16,7 +16,7 @@ export class BrandApi extends BaseApi {
    * @param [id] - The id of the story.
    * @returns An observable that must be subscribed to get the brand(s).
    */
-  get(id?: number): Observable<Brands> {
+  get(id?: number): Observable<Brands | Brand> {
     let urlParam = '';
 
     // Get all stories if idx is not given.

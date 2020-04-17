@@ -1,13 +1,18 @@
-<div class="view-1">
-  <div *ngFor="let story of (stories$ | async)?.stories; let i = index">
-    <span [ngClass]=active[i]></span>
+<!-- <div class="view-1">
+  <div *ngFor="let x of active; let ind = index">
+    <span [ngClass]=active[ind]></span>
   </div>
-</div>
+</div> -->
 <div class="container view">
   <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.03 overscrollable (postchange)=change_dots($event) id="carousel" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carousel_style" >
     <ons-carousel-item *ngFor="let story of (stories$ | async)?.stories; let i = index" class="carousel_item_style">
       <div class="card  card-wrapper">
         <div class="card card-wrapper-2">
+          <div class="view-1">
+            <div *ngFor="let x of active; let ind = index">
+              <span [ngClass]=active[ind]></span>
+            </div>
+          </div>
           <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
           <p class="text">{{get_duration(story)}}</p>
           <button class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button>

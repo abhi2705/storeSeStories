@@ -1,0 +1,103 @@
+.acc-top-bar{
+    height: 22%;
+    width: 100%;
+    background-color: rgb(35, 45, 96);
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+    position: relative;
+}
+.acc-img{
+    width: 75px;
+    position: absolute;
+    height: 75px;
+    border-radius: 100%;
+    background-color: gray;
+    margin-left: 25px;
+    // margin-top:25%;
+    // margin :  auto;
+    margin-top: 33px;
+
+}
+.acc-name{
+    position: absolute;
+    height:36px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 20px; 
+    text-align: left;
+    font-weight: 400;
+    color: ivory;
+    margin-left: 110px;
+    margin-top: 38px;
+}
+.acc-info{
+    position: absolute;
+    height:36px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 12px; 
+    text-align: left;
+    font-weight: 400;
+    color: ivory;
+    margin-left: 110px;
+    margin-top: 80px;
+}
+.edit-acc{
+    width: 15px;
+    position: absolute;
+    height: 15px;
+    background-color: gray;
+    margin-left: 90%;
+    // margin-right: -25px;
+    // margin-top:25%;
+    // margin :  auto;
+    margin-top: 50px;   
+}
+.acc-options{
+
+   
+    height:56px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 16px; 
+    text-align: left;
+    font-weight: 1000;
+    color: black;
+    width: 100%;
+    position: relative;
+   
+
+}
+.acc-sub-options{
+    position: relative;
+    height:46px;
+    font-family: 'Montserrat',sans-serif;
+    font-size: 16px; 
+    text-align: left;
+    font-weight: 1000;
+    color: black;
+    width:100%
+
+}
+.sub-option-text{
+    position: absolute;
+    margin-top: 25px; 
+    margin-left: 50px;
+}
+.acc-option-text{
+    position: absolute; 
+    margin-top: 25px; 
+    margin-left: 25px;
+   
+}
+.arrows{
+    width: 20px;
+    position: absolute;
+    height: 20px;
+    margin-left: 90%;
+    margin-top: 20px;  
+}
+
+.scroll-wrapper{
+    height:60vh;
+    width:auto;
+    overflow:scroll;
+}
+
+

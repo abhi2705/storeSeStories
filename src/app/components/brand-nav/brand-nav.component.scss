@@ -1,7 +1,11 @@
+
+.nav-link {
+  display: block;
+  padding: 0rem 1rem;
+}
 .nav {
   display: flex;
   padding-left: 0;
-  margin-bottom: 0;
   list-style: none;
 }
 
@@ -9,17 +13,18 @@
   display:none;
 }
 .card-img, .card-img-top {
-    /* border-top-left-radius: calc(0.25rem - 1px); */
-    /* border-top-right-radius: calc(0.25rem - 1px); */
-    padding-top: 50%;
+    padding-top: 75%;
 }
 .card{
-  padding-top: 50%;
+  padding-top: 75%;
 }
+
 .nav-tabs  .nav-tabs .nav-item.show .nav-link {
   color: #495057;
   background-color: #fff;
   border-color: #FFF;
+  padding: 0.0rem 1rem;
+
 }
 .nav-link.active{
     font-weight: 900;
@@ -123,17 +128,25 @@ a {
 // .navbar-default .navbar-nav > li > a:focus {
 //   color: #fff;
 // }
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 0;
+  margin-left: 0;
+  margin-right:0;
+  width:100%;
+}
 
 .column {
-  float: left;
-  width: 20%;
-  padding: 0 0px;
+  flex: 21%;
+  max-width: 25%;
+  padding: 0 0;
 }
 @media only screen and (max-width: 600px) {
   .column {
-    float: left;
-    width: 45%;
-    padding: 0 0px;
+  flex: 50%;
+  max-width:45%;
+  padding: 0 0;
   }
 }
 .scroll-wrapper{

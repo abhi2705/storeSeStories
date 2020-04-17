@@ -1,87 +1,31 @@
-    <div class="wholething">
-            <div class="track-block">
-            <div class="search-wrap">
-                <img alt="search icon" src="../../../assets/blog-icons/search.svg">
-                <input aria-label="search your apartment" onkeyup="search(event)" placeholder="Search for brand or product" type="text">
-            </div>
-        </div>
-        <div class="container-fluid" >
-            <nav class="tabbable">
-              <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist" >
-                <a class="nav-item nav-link" id="nav-home-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-home" aria-selected=" false">Storied Blog</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="javascript:void(0) " role="tab" aria-controls="nav-profile" aria-selected="false">Brand Stories</a>
-              </div>
-            </nav>
-        </div>
-
-
-        <div class="scroll-wrapper">
-            <div class="card column" style=" padding: 0;">
-                <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-                <div style="padding:8px;">
-                  <div class="blog-date" >15th Aug 2020</div>
-                  <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <div class="blog-tag">TAGTAG</div>
-                </div>
-              </a>
-            </div>
-            <div class="card column" style=" padding: 0;">
-                <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-                <div style="padding:8px;">
-                  <div class="blog-date" >15th Aug 2020</div>
-                  <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <div class="blog-tag">TAGTAG</div>
-                </div>
-              </a>
-            </div>
-            <div class="card column" style=" padding: 0;">
-                <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-                <div style="padding:8px;">
-                  <div class="blog-date" >15th Aug 2020</div>
-                  <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <div class="blog-tag">TAGTAG</div>
-                </div>
-              </a>
-            </div>
-            <div class="card column" style=" padding: 0;">
-                <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-                <div style="padding:8px;">
-                  <div class="blog-date" >15th Aug 2020</div>
-                  <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <div class="blog-tag">TAGTAG</div>
-                </div>
-              </a>
-            </div>
-            <div class="card column" style=" padding: 0;">
-                <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-                <div style="padding:8px;">
-                  <div class="blog-date" >15th Aug 2020</div>
-                  <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <div class="blog-tag">TAGTAG</div>
-                </div>
-              </a>
-            </div>
-            <div class="card column" style=" padding: 0;">
-                <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-                <div style="padding:8px;">
-                  <div class="blog-date" >15th Aug 2020</div>
-                  <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-                  <div class="blog-tag">TAGTAG</div>
-                </div>
-              </a>
-            </div>
-
-
-        </div>
-
-
-
-
-
-
-    </div>
-
-
-
-
-
+<div class="track-block">
+  <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
+    <img alt="search icon" src="../../../assets/blog-icons/search.svg">
+    <input aria-label="search your apartment" onkeyup="search(event)" placeholder="Search for brand or product"
+      type="text">
+  </div>
+</div>
+<div class="component-wrapper" style="height: 100vh;" >
+  <div class="inner-wrapper">
+    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs  flex-nowrap justify-content-center"
+      style="  overflow-x: scroll; overflow-y: hidden; height:5vh; ">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Storied Blogs</a>
+        <ng-template ngbNavContent  >
+          <div class="scroll-wrapper" style=" height:67vh;">
+              <app-storied-blogs></app-storied-blogs>
+          </div>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Brand Stories</a>
+        <ng-template ngbNavContent>
+        <div class="scroll-wrapper" style="margin-top: 2vh;">
+            Brand Stories
+        </div>    
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>

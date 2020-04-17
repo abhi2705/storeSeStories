@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 // Component framework imports
-import {MatTabsModule} from '@angular/material/tabs';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnsenModule } from 'ngx-onsenui';
 import { IonicModule } from '@ionic/angular';
@@ -58,12 +57,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     NgbModule,
     OnsenModule,
     IonicModule.forRoot(),
-    MatTabsModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
     useClass: MyHammerConfig
-  }],
+  },BlogsService],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

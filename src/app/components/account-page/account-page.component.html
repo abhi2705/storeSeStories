@@ -1,0 +1,115 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<div class="acc-top-bar">
+    <div class="acc-img">
+
+    </div>
+    <div class="acc-name">Anil Jangid</div>
+    <div class="acc-info">9876543209 · xyz@gmail.com</div>
+    <div class="edit-acc">
+
+    </div>
+</div>
+
+
+
+<div class="scroll-wrapper">
+    
+    <div class="acc-options" (click)="isCollapsedAcc = !isCollapsedAcc" [attr.aria-expanded]="!isCollapsedAcc" aria-controls="myAccount">
+        <div class="acc-option-text">My Account</div>
+        <img [hidden]="!isCollapsedAcc" class="arrows" src="https://www.vippng.com/png/detail/210-2108608_down-arrow-html-white-arrow-down-psd.png" alt=""/>
+        <img [hidden]="isCollapsedAcc" class="arrows" src="https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_4-512.png" alt=""/>
+    </div>
+    <div id="myAccount" [ngbCollapse]="isCollapsedAcc">
+        <div class="drop-down">
+                
+                
+                <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text" >Address Book</div>
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Options</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Liked Cards</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Bookmarks</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Offers</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+                </div>     
+        </div>
+    </div>
+
+
+
+    <div class="acc-options" (click)="isCollapsedHelp = !isCollapsedHelp" [attr.aria-expanded]="!isCollapsedHelp" aria-controls="help">
+        <div class="acc-option-text">Help</div>
+        <img [hidden]="!isCollapsedHelp" class="arrows" src="https://www.vippng.com/png/detail/210-2108608_down-arrow-html-white-arrow-down-psd.png" alt=""/>
+        <img [hidden]="isCollapsedHelp" class="arrows" src="https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_4-512.png" alt=""/>
+    </div>
+    <div id="help" [ngbCollapse]="isCollapsedHelp">
+        <div class="drop-down">
+                
+                <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text" >About Us</div>
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">FAQs</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Terms & Conditions</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+
+                </div>
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Privacy Policy</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+
+                </div>
+            
+                <div class="acc-sub-options">
+                    <div class="sub-option-text">Contact Us</div> 
+                    <img class="arrows" src="https://image.flaticon.com/icons/svg/60/60758.svg" alt=""/>
+                </div>   
+            </div>  
+    </div>
+
+
+
+    <div class="acc-options" (click)="isCollapsedOrders = !isCollapsedOrders" [attr.aria-expanded]="!isCollapsedOrders" aria-controls="orders">
+        <div class="acc-option-text">Orders</div>
+        <img [hidden]="!isCollapsedOrders" class="arrows" src="https://www.vippng.com/png/detail/210-2108608_down-arrow-html-white-arrow-down-psd.png" alt=""/>
+        <img [hidden]="isCollapsedOrders" class="arrows" src="https://cdn1.iconfinder.com/data/icons/basic-ui-7/100/Artboard_4-512.png" alt=""/>
+    </div>
+    <div id="orders" [ngbCollapse]="isCollapsedOrders">
+        <div class="drop-down">
+                
+            <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>            
+        
+            </div>  
+    </div>
+
+    <div class="acc-options" >
+        <div class="acc-option-text">Logout</div>
+        <img  class="arrows" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/logout-1-110657.png" alt=""/>
+    </div>
+</div>
+
+
+
+

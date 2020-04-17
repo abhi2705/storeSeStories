@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {StoriedBlogsComponent} from 'src/app/components/storied-blogs/storied-blogs.component';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-blog-nav',

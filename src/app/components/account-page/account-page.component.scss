@@ -43,12 +43,8 @@
     width: 15px;
     position: absolute;
     height: 15px;
-    background-color: gray;
-    margin-left: 90%;
-    // margin-right: -25px;
-    // margin-top:25%;
-    // margin :  auto;
-    margin-top: 50px;   
+    margin-left: 87%;
+    margin-top: 60px;   
 }
 .acc-options{
 
@@ -87,11 +83,11 @@
    
 }
 .arrows{
-    width: 20px;
+    width: 16px;
     position: absolute;
-    height: 20px;
+    height: 16px;
     margin-left: 90%;
-    margin-top: 20px;  
+    margin-top: 24px;  
 }
 
 .scroll-wrapper{
@@ -100,4 +96,19 @@
     overflow:scroll;
 }
 
+.rotateimg90 {
+    -webkit-transform:rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+
+  .rotateimgm90 {
+    -webkit-transform:rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+  }
 

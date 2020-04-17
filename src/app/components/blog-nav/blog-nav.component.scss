@@ -25,18 +25,6 @@ border-bottom: 0px solid #dee2e6;
 }
 
 
-.tabbable .nav-tabs {
-    overflow-x: auto;
-    overflow-y:hidden;
-    flex-wrap: nowrap;
- }
- .tabbable .nav-tabs .nav-link {
-   white-space: nowrap;
- }
- .nav-tabs::-webkit-scrollbar{
-    display:none;
-  }
-  
 .search-wrap {
   display: flex;
   flex: 1 58%;

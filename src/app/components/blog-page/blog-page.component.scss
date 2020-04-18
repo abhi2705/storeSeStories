@@ -8,7 +8,7 @@
 .blog-page-tag{
     height:36px;
     margin-top: 18px;
-    margin-left: 12px;
+    // margin-left: 12px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
     font-size: 14px; 
@@ -18,7 +18,7 @@
 .blog-title{
     position: relative;
     // margin-top: 10px;
-    margin-left: 12px;
+    // margin-left: 12px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
     font-size:16px; 
@@ -32,14 +32,14 @@
     font-size: 14px; 
     text-align: left;
     font-weight: 400;
-    margin-left: 12px;
+    // margin-left: 12px;
     margin-top: 16px;
 }
 
 .blog-content{
     position: relative;
     margin-top: 0px;
-    margin-left: 12px;
+    // margin-left: 12px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
     font-size:14px; 
@@ -47,7 +47,7 @@
     font-weight:500;
 }
 .scroll-wrapper{
-    height:80vh;
+    height:75vh;
     width:auto;
     overflow-y:scroll;
     overflow-x: hidden;
@@ -122,7 +122,7 @@
     height:36px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
-    font-size: 12px; 
+    // font-size: 12px; 
     text-align: left;
     font-weight: 400;
 }
@@ -146,14 +146,14 @@
     margin-bottom: -18px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
-    font-size: 12px; 
+    // font-size: 12px; 
     text-align: left;
     font-weight: 400;
 }
 .column {
     float: left;
     width: 44%;
-    margin-left: 13px;
+    margin-left: 14px;
     border-radius: 16px 16px 16px 16px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
 }

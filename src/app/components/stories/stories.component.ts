@@ -17,8 +17,8 @@ import * as kf from './keyframes';
     trigger('cardAnimator', [
       transition('* => swiperight', animate(200, keyframes(kf.swiperight))),
       transition('* => swipeleft', animate(200, keyframes(kf.swipeleft))),
-      transition('swiperight => *', animate('200ms ease-in' , keyframes(kf.slidefromleft))),
-      transition('swipeleft => *', animate('200ms ease-in'  , keyframes(kf.slidefromright)))
+      transition('swiperight => *', animate(200 , keyframes(kf.slidefromleft))),
+      transition('swipeleft => *', animate(200 , keyframes(kf.slidefromright)))
       // transition(':enter', animate(500, keyframes(kf.enter)))
     ])
   ]

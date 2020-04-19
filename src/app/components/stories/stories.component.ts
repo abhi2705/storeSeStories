@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-stories',
@@ -12,6 +13,8 @@ import { ShareTabService } from 'src/app/services/share-tab.service';
   styleUrls: ['./stories.component.scss'],
 })
 export class StoriesComponent implements OnInit {
+
+  @ViewChild("mySlider") slides: IonSlides;
 
   favourite_stories = [];
   liked = [];
@@ -113,6 +116,10 @@ export class StoriesComponent implements OnInit {
     }
     this.active[i] = "dot";
     this.active[i - 1] = "dot_active";
+  }
+
+  slidesDidLoad() {
+    this.slides.startAutoplay();
   }
 
 }

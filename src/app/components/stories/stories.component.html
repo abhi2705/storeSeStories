@@ -25,7 +25,7 @@
 </div>
 <br> -->
 
-<div class="container view drag-scroll" data-overflowing="both">
+<!-- <div class="container view dragscroll" data-overflowing="both">
   <ion-slides #mySlider *ngIf="(stories$ | async)?.stories" (ionSlidesDidLoad)="slidesDidLoad()" pager="true" autoplay="5000" speed="500">
     <ion-slide *ngFor="let story of (stories$ | async)?.stories; let i = index">
       <div class="card  card-wrapper">
@@ -39,5 +39,41 @@
       </div>
     </ion-slide>
   </ion-slides>
+</div>
+<br> -->
+
+<!-- <div class="container" [@cardAnimator]="animationState"
+      (@cardAnimator.done)="resetAnimationState($event)"
+      (swipeleft)='startAnimation("swipeleft")' 
+      (swiperight)='startAnimation("swiperight")'
+     >
+      <img [src]="images[i]" title="tphoto" alt="Photo" style="width: 200px; height: 300px;"/>
+      <p>{{i}}</p>
+    </div> -->
+
+
+<div class="container view drag-scroll">
+  <!-- <ons-carousel #carousel swipeable centered auto-scroll auto-scroll-ratio=0.0005 overscrollable (postchange)=change_dots($event) id="carousel" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 carousel_style" > -->
+    <!-- <ons-carousel-item *ngFor="let story of images; let i = index" class="carousel_item_style"> -->
+      <div class="card  card-wrapper"
+      [@cardAnimator]="animationState"
+      (@cardAnimator.done)="resetAnimationState($event)"
+      (swipeleft)='startAnimation("swipeleft")' 
+      (swiperight)='startAnimation("swiperight")'>
+        <div class="card card-wrapper-2">
+          <div class="view-1">
+            <div *ngFor="let x of active; let ind = index">
+              <span [ngClass]=active[ind]></span>
+            </div>
+          </div>
+          <img [src]="images[i]" alt="images[i]" class="card-img-top img-fluid img">
+          <!-- <p class="text">{{get_duration(story)}}</p>
+          <button class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> -->
+          <!-- <button class="btn share" (click)="activateShare(story.targetUrl)"></button> -->
+          <button class="btn gradient-button gradient-button-1" (click)="shop_now(images)">SHOP NOW</button>
+        </div>
+      </div>
+    <!-- </ons-carousel-item> -->
+  <!-- </ons-carousel> -->
 </div>
 <br>

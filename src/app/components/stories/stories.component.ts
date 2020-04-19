@@ -2,15 +2,26 @@ import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATF
 import { ViewChild } from 'ngx-onsenui';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
 import { IonSlides } from '@ionic/angular';
+import { trigger, keyframes, animate, transition } from "@angular/animations";
+import * as kf from './keyframes';
 
 @Component({
   selector: 'app-stories',
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.scss'],
+  animations: [
+    trigger('cardAnimator', [
+      transition('* => swiperight', animate(200, keyframes(kf.swiperight))),
+      transition('* => swipeleft', animate(200, keyframes(kf.swipeleft))),
+      transition('swiperight => *', animate('200ms ease-in' , keyframes(kf.slidefromleft))),
+      transition('swipeleft => *', animate('200ms ease-in'  , keyframes(kf.slidefromright)))
+      // transition(':enter', animate(500, keyframes(kf.enter)))
+    ])
+  ]
 })
 export class StoriesComponent implements OnInit {
 
@@ -19,6 +30,9 @@ export class StoriesComponent implements OnInit {
   favourite_stories = [];
   liked = [];
   active = [];
+
+  i = 0;
+  animationState: string;
 
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
@@ -39,6 +53,13 @@ export class StoriesComponent implements OnInit {
       }
       this.active[0] = "dot_active";
     });
+    var ind;
+    for(ind = 0; ind < 10; ind++){
+      this.liked.push("like_n");
+      this.active.push("dot");
+    }
+    this.active[0] = "dot_active";
+    this.startAnimation(this.images);
   }
 
   // prev() {
@@ -100,26 +121,58 @@ export class StoriesComponent implements OnInit {
     this.active[curind] = "dot_active";
   }
 
-  swipe_left(i){
-    console.log("left", i);
-    if(i == this.active.length - 1){
-      return;
-    }
-    this.active[i] = "dot";
-    this.active[i + 1] = "dot_active";
-  }
+  // swipe_left(i){
+  //   console.log("left", i);
+  //   if(i == this.active.length - 1){
+  //     return;
+  //   }
+  //   this.active[i] = "dot";
+  //   this.active[i + 1] = "dot_active";
+  // }
 
-  swipe_right(i){
-    console.log("right", i);
-    if(i == 0){
-      return;
-    }
-    this.active[i] = "dot";
-    this.active[i - 1] = "dot_active";
-  }
+  // swipe_right(i){
+  //   console.log("right", i);
+  //   if(i == 0){
+  //     return;
+  //   }
+  //   this.active[i] = "dot";
+  //   this.active[i - 1] = "dot_active";
+  // }
 
   slidesDidLoad() {
     this.slides.startAutoplay();
+  }
+
+
+  startAnimation(state) {
+    
+    if (!this.animationState) {
+      this.animationState = state;
+    }
+    // console.log("start ", state);
+  }
+
+  resetAnimationState(state) {
+    console.log("reset ", state);
+    if(state.toState == "swipeleft"){
+      console.log("left");
+      this.i = this.i + 1;
+      if(this.i == 10)
+        this.i = 9;
+
+      this.active[this.i] = "dot_active";
+      this.active[this.i - 1] = "dot";
+    }
+    else if(state.toState == "swiperight"){
+      console.log('right');
+      this.i = this.i - 1;
+      if(this.i == -1)
+        this.i = 0;
+
+      this.active[this.i] = "dot_active";
+      this.active[this.i + 1] = "dot";
+    }
+    this.animationState = '';
   }
 
 }

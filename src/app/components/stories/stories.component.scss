@@ -13,12 +13,11 @@ $img-height: 90%;
     // top: 10px
   }
 
-  ion-slides.swiper-container-horizontal>.swiper-pagination-bullets {
+  .swiper-pagination-fraction .swiper-pagination-custom .swiper-container-horizontal>.swiper-pagination-bullets {
     top: 10px;
     left: 0;
     width: 100%;
   }
-
 
   .view {
     display: flex;

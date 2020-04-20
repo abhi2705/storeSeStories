@@ -26,14 +26,14 @@
 <br> -->
 
 <div class="container view dragscroll" data-overflowing="both">
-  <ion-slides #mySlider *ngIf="images" (ionSlidesDidLoad)="slidesDidLoad()" pager="true" [options]="slideOpts">
-    <ion-slide *ngFor="let story of images">
+  <ion-slides #mySlider *ngIf="(stories$ | async)?.stories" (ionSlidesDidLoad)="slidesDidLoad()" pager="true" [options]="slideOpts" >
+    <ion-slide *ngFor="let story of (stories$ | async)?.stories">
       <div class="card  card-wrapper">
         <div class="card card-wrapper-2">
-          <img [src]="story" alt="{{story.content}}" class="card-img-top img-fluid img">
-          <!-- <p class="text">{{get_duration(story)}}</p>
+          <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
+          <p class="text">{{get_duration(story)}}</p>
           <button class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> 
-          <button class="btn share" (click)="activateShare(story.targetUrl)"></button> -->
+          <button class="btn share" (click)="activateShare(story.targetUrl)"></button>
           <button class="btn gradient-button gradient-button-1" (click)="shop_now(story)">VISIT BRAND</button>
         </div>
       </div>

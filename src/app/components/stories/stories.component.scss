@@ -7,17 +7,11 @@ $img-height: 90%;
 // For mobile screen sizes
 @media only screen and (max-width: 575px) {
 
-  // ion-slides {
-  //   --bullet-background: #bbb;
-  //   --bullet-background-active: orangered;
-  //   // top: 10px
-  // }
-
-  // .swiper-pagination-fraction .swiper-pagination-custom .swiper-container-horizontal>.swiper-pagination-bullets {
-  //   top: 10px;
-  //   left: 0;
-  //   width: 100%;
-  // }
+  ion-slides {
+    --bullet-background: black;
+    --bullet-background-active: orangered;
+    // top: 10px
+  }
 
   .view {
     display: flex;

@@ -263,6 +263,11 @@ export class StoriesComponent implements OnInit {
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
           .transition(duration);
       }
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      dynamicBullets: true,
     }
+    
   }
 }

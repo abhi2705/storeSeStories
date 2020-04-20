@@ -15,10 +15,11 @@ import * as kf from './keyframes';
   styleUrls: ['./stories.component.scss'],
   animations: [
     trigger('cardAnimator', [
-      transition('* => swiperight', animate(200, keyframes(kf.swiperight))),
-      transition('* => swipeleft', animate(200, keyframes(kf.swipeleft))),
-      transition('swiperight => *', animate(200 , keyframes(kf.slidefromleft))),
-      transition('swipeleft => *', animate(200 , keyframes(kf.slidefromright)))
+      transition('* => swiperight', animate(500, keyframes(kf.swiperight))),
+      transition('* => swipeleft', animate(500, keyframes(kf.swipeleft))),
+      transition('* => *', animate(250 , keyframes(kf.fadein))),
+      // transition('swipeleft => *', animate(250 , keyframes(kf.slidefromright))),
+      // transition('swiperight => *', animate(250 , keyframes(kf.slidefromleft)))
       // transition(':enter', animate(500, keyframes(kf.enter)))
     ])
   ]

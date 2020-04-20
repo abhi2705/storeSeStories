@@ -7,17 +7,17 @@ $img-height: 90%;
 // For mobile screen sizes
 @media only screen and (max-width: 575px) {
 
-  ion-slides {
-    --bullet-background: #bbb;
-    --bullet-background-active: orangered;
-    // top: 10px
-  }
+  // ion-slides {
+  //   --bullet-background: #bbb;
+  //   --bullet-background-active: orangered;
+  //   // top: 10px
+  // }
 
-  .swiper-pagination-fraction .swiper-pagination-custom .swiper-container-horizontal>.swiper-pagination-bullets {
-    top: 10px;
-    left: 0;
-    width: 100%;
-  }
+  // .swiper-pagination-fraction .swiper-pagination-custom .swiper-container-horizontal>.swiper-pagination-bullets {
+  //   top: 10px;
+  //   left: 0;
+  //   width: 100%;
+  // }
 
   .view {
     display: flex;
@@ -86,6 +86,7 @@ $img-height: 90%;
     border-width: 0px;
     align-items: center;
     margin-bottom: 0.5vh;
+    border-radius: 12pt;
   }
 
   .card-wrapper-2 {

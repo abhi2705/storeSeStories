@@ -1,7 +1,8 @@
 import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Component framework imports
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -26,6 +27,9 @@ import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.compon
 import { StoriedBlogsComponent } from './components/storied-blogs/storied-blogs.component';
 import { AccountPageComponent } from './components/account-page/account-page.component';
 import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component'
+import { LoginComponent } from './components/login/login.component';
+import { BearerInterceptorService } from './services/bearer-interceptor.service';
+import { AuthService } from './services/auth.service';
 
 export class MyHammerConfig extends HammerGestureConfig {
   overrides = {
@@ -54,20 +58,30 @@ export class MyHammerConfig extends HammerGestureConfig {
     BottomMenuComponent,
     StoriedBlogsComponent,
     AccountPageComponent,
-    BoomarkedBlogsComponent
+    BoomarkedBlogsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgbModule,
     OnsenModule,
     IonicModule.forRoot(),
   ],
-  providers: [{
-    provide: HAMMER_GESTURE_CONFIG,
-    useClass: MyHammerConfig
-  }],
+  providers: [
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: BearerInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

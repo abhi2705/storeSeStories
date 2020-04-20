@@ -1,0 +1,77 @@
+@import "../../../variables";
+
+.app-login {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: $overlay-bg;
+  z-index: 9997;
+
+  .login-modal {
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    min-width: 25vw;
+    max-width: 90vw;
+    justify-content: center;
+
+    h1, h2, h3, h4, h5 {
+      font-weight: bold;
+      font-size: 0.9rem;
+      text-align: center;
+      margin: 2px;
+    }
+
+    label {
+      font-size: 0.75rem;
+    }
+
+    .register-stage {
+      border-radius: 15px;
+      background: #ffffff;
+    }
+
+    .register-stage.otp {
+      input {
+        text-align: center;
+        border-radius: 10px;
+      }
+    }
+
+    button {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #ffffff;
+
+      border-radius: 12px;
+      max-width: 80%;
+      min-width: 50%;
+      background: rgb(245,132,31);
+      background: -moz-linear-gradient(90deg, rgba(245,132,31,1) 0%, rgba(249,25,100,1) 100%);
+      background: -webkit-linear-gradient(90deg, rgba(245,132,31,1) 0%, rgba(249,25,100,1) 100%);
+      background: linear-gradient(90deg, rgba(245,132,31,1) 0%, rgba(249,25,100,1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f5841f",endColorstr="#f91964",GradientType=1);
+    }
+  }
+}
+
+.app-login.active {
+  display: flex;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

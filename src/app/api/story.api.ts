@@ -31,7 +31,7 @@ export class StoryApi extends BaseApi {
     }
 
     return this.http.get<Stories>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
-      retry(3),
+      retry(this.Retries),
       catchError(this.handleError)
     );
   }
@@ -44,7 +44,7 @@ export class StoryApi extends BaseApi {
   save(story: Story) {
     const urlParam = 'save';
     return this.http.post<Story>(this.endpointUrl + urlParam, story, this.GlobalOpts).pipe(
-      retry(3),
+      retry(this.Retries),
       catchError(this.handleError)
     );
   }

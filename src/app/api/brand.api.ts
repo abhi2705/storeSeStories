@@ -26,7 +26,7 @@ export class BrandApi extends BaseApi {
       urlParam += id;
     }
     return this.http.get<Brands>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
-      retry(3), // TODO: Move no. of retries to a variable in baseapi.
+      retry(this.Retries),
       catchError(this.handleError)
     );
   }
@@ -39,7 +39,7 @@ export class BrandApi extends BaseApi {
   activate(id: number): Observable<Brand> {
     const urlParam = 'activate/' + id;
     return this.http.post<Brand>(this.endpointUrl + urlParam, {}, this.GlobalOpts).pipe(
-      retry(3),
+      retry(this.Retries),
       catchError(this.handleError)
     );
   }
@@ -52,7 +52,7 @@ export class BrandApi extends BaseApi {
   deactivate(id: number): Observable<Brand> {
     const urlParam = 'deactivate/' + id;
     return this.http.post<Brand>(this.endpointUrl + urlParam, {}, this.GlobalOpts).pipe(
-      retry(3),
+      retry(this.Retries),
       catchError(this.handleError)
     );
   }
@@ -65,7 +65,7 @@ export class BrandApi extends BaseApi {
   save(brand: Brand): Observable<Brand> {
     const urlParam = 'save';
     return this.http.post<Brand>(this.endpointUrl + urlParam, brand, this.GlobalOpts).pipe(
-      retry(3),
+      retry(this.Retries),
       catchError(this.handleError)
     );
   }

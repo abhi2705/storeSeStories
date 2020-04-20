@@ -8,6 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OnsenModule } from 'ngx-onsenui';
 import { IonicModule } from '@ionic/angular';
+import { SwipeCardLibModule } from 'ng-swipe-card';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -70,6 +72,8 @@ export class MyHammerConfig extends HammerGestureConfig {
     NgbModule,
     OnsenModule,
     IonicModule.forRoot(),
+    SwipeCardLibModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {

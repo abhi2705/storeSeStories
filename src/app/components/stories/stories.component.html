@@ -1,9 +1,14 @@
 
 <div class="container view dragscroll" data-overflowing="both">
-  <ion-slides #mySlider *ngIf="all_stories" (ionSlidesDidLoad)="slidesDidLoad()" pager="true" [options]="slideOpts" >
+  <ion-slides #mySlider *ngIf="all_stories" (ionSlidesDidLoad)="slidesDidLoad()" [options]="slideOpts" >
     <ion-slide *ngFor="let story of all_stories; let i = index">
       <div class="card  card-wrapper">
         <div class="card card-wrapper-2">
+          <div class="view-1">
+            <div *ngFor="let x of active; let ind = index">
+              <span [ngClass]="get_class(i, ind)"></span>
+            </div>
+          </div>
           <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
           <p class="text">{{get_duration(story)}}</p>
           <button class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> 

@@ -35,6 +35,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
   i = 0;
   animationState: string;
+  len = 0;
 
   private sub: Subscription;
 
@@ -56,9 +57,11 @@ export class StoriesComponent implements OnInit, OnDestroy {
           this.liked.push("like_y");
         else
           this.liked.push("like_n");
-        this.active.push("dot");
+        if(i < 7)
+          this.active.push("dot");
       }
-      this.active[0] = "dot_active";
+      this.len = l;
+      // this.active[0] = "dot_active";
     });
     // var ind;
     // for(ind = 0; ind < 10; ind++){
@@ -67,6 +70,49 @@ export class StoriesComponent implements OnInit, OnDestroy {
     // }
     // this.active[0] = "dot_active";
     // this.startAnimation(this.images);
+  }
+
+  get_class(i, ind){
+    if(i < 6){
+      if(this.len > 7){
+        if(ind == 6){
+          return "dot_small";
+        }
+      }
+      if(i == ind){
+        return "dot_active";
+      }
+      else{
+        return "dot";
+      }
+    }
+    else if(i > (this.len - 7)){
+      if(this.len > 7){
+        if(ind == 0){
+          return "dot_small";
+        }
+      }
+      var j = 7;
+      for(j = 7; j >= 1; j--){
+        if(ind == i - j){
+          return "dot_active";
+        }
+        else {
+          return "dot";
+        }
+      }
+    }
+    else {
+      if(ind == 0 || ind == 6){
+        return "dot_small";
+      }
+      if(ind == 3){
+        return "dot_active";
+      }
+      else{
+        return "dot";
+      }
+    }
   }
 
   // prev() {

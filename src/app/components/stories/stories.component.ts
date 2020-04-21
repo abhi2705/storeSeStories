@@ -1,8 +1,8 @@
-import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATFORMS } from '@angular/core';
+import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATFORMS, OnDestroy } from '@angular/core';
 import { ViewChild } from 'ngx-onsenui';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
 import { IonSlides } from '@ionic/angular';
@@ -24,16 +24,19 @@ import * as kf from './keyframes';
     ])
   ]
 })
-export class StoriesComponent implements OnInit {
+export class StoriesComponent implements OnInit, OnDestroy {
 
   @ViewChild("mySlider") slides: IonSlides;
 
   favourite_stories = [];
+  all_stories;
   liked = [];
   active = [];
 
   i = 0;
   animationState: string;
+
+  private sub: Subscription;
 
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
@@ -43,24 +46,27 @@ export class StoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.stories$ = this.apiservice.stories.get();
-    this.stories$.subscribe((data: Stories) => {
+    this.sub = this.stories$.subscribe((data: Stories) => {
       console.log(data);
-      var all_stories = data.stories;
-      var l = all_stories.length;
+      this.all_stories = data.stories;
+      var l = this.all_stories.length;
       var i = 0;
       for(i = 0; i < l; i++){
-        this.liked.push("like_n");
+        if(this.all_stories[i].isLiked)
+          this.liked.push("like_y");
+        else
+          this.liked.push("like_n");
         this.active.push("dot");
       }
       this.active[0] = "dot_active";
     });
-    var ind;
-    for(ind = 0; ind < 10; ind++){
-      this.liked.push("like_n");
-      this.active.push("dot");
-    }
-    this.active[0] = "dot_active";
-    this.startAnimation(this.images);
+    // var ind;
+    // for(ind = 0; ind < 10; ind++){
+    //   this.liked.push("like_n");
+    //   this.active.push("dot");
+    // }
+    // this.active[0] = "dot_active";
+    // this.startAnimation(this.images);
   }
 
   // prev() {
@@ -270,4 +276,9 @@ export class StoriesComponent implements OnInit {
     }
     
   }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
 }

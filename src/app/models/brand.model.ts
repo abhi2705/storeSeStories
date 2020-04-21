@@ -5,6 +5,7 @@ export interface Brand {
   logoUrl: string;
   brandUrl: string;
   isActive: boolean;
+  collectionId: string;
 }
 
 export interface Brands {

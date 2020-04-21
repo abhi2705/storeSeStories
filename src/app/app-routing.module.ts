@@ -7,8 +7,9 @@ import { StoriesComponent } from './components/stories/stories.component';
 import { BlogNavComponent } from './components/blog-nav/blog-nav.component';
 import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { FavouritesComponent } from './components/favourites/favourites.component';
-import { AccountPageComponent} from './components/account-page/account-page.component'
-import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component'
+import { AccountPageComponent} from './components/account-page/account-page.component';
+import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component';
+import { BrandPageComponent } from './components/brand-page/brand-page.component';
 const routes: Routes = [
   {
     path: '',
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'brands',
         component: BrandNavComponent
+      },
+      {
+        path: 'brand/:id',
+        component: BrandPageComponent
       },
       {
         path: 'feed',

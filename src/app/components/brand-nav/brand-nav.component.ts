@@ -3,7 +3,7 @@ import {NgbTabsetConfig} from '@ng-bootstrap/ng-bootstrap';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
-import { Brands } from 'src/app/models/brand.model';
+import { Brands, Brand } from 'src/app/models/brand.model';
 
 @Component({
   selector: 'app-brand-nav',
@@ -12,7 +12,7 @@ import { Brands } from 'src/app/models/brand.model';
 })
 export class BrandNavComponent implements OnInit {
   sidebarIsActive = false;
-  brands$: Observable<Brands>;
+  brands$: Observable<Brands | Brand>;
   constructor(@Inject(DOCUMENT) private document: Document,
               private apiservice: ApiService,
               config: NgbTabsetConfig) {}

@@ -92,14 +92,11 @@ export class StoriesComponent implements OnInit, OnDestroy {
           return "dot_small";
         }
       }
-      var j = 7;
-      for(j = 7; j >= 1; j--){
-        if(ind == i - j){
-          return "dot_active";
-        }
-        else {
-          return "dot";
-        }
+      if(i - ind + 7 == this.len){
+        return "dot_active";
+      }
+      else {
+        return "dot";
       }
     }
     else {

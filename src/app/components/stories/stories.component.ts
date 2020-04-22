@@ -13,16 +13,6 @@ import * as kf from './keyframes';
   selector: 'app-stories',
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.scss'],
-  animations: [
-    trigger('cardAnimator', [
-      transition('* => swiperight', animate(500, keyframes(kf.swiperight))),
-      transition('* => swipeleft', animate(500, keyframes(kf.swipeleft))),
-      // transition('* => *', animate(250 , keyframes(kf.fadein))),
-      transition('swipeleft => *', animate(250 , keyframes(kf.slidefromright))),
-      transition('swiperight => *', animate(250 , keyframes(kf.slidefromleft)))
-      // transition(':enter', animate(500, keyframes(kf.enter)))
-    ])
-  ]
 })
 export class StoriesComponent implements OnInit, OnDestroy {
 
@@ -36,6 +26,8 @@ export class StoriesComponent implements OnInit, OnDestroy {
   i = 0;
   animationState: string;
   len = 0;
+
+  slidesLoaded = false;
 
   private sub: Subscription;
 
@@ -61,18 +53,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
           this.active.push("dot");
       }
       this.len = l;
-      // this.active[0] = "dot_active";
     });
-    // var ind;
-    // for(ind = 0; ind < 10; ind++){
-    //   this.liked.push("like_n");
-    //   this.active.push("dot");
-    // }
-    // this.active[0] = "dot_active";
-    // this.startAnimation(this.images);
   }
 
-  get_class(i, ind){
+  get_class(ind){
+    var i = parseInt(this.document.getElementsByClassName("swiper-slide-active")[0].id);
+    // console.log(i);
     if(i < 6){
       if(this.len > 7){
         if(ind == 6){
@@ -111,17 +97,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
       }
     }
   }
-
-  // prev() {
-  //   console.log("here prev");
-  //   console.log(this.carousel);
-  //   this.carousel.nativeElement.prev();
-  // }
-  // next() {
-  //   console.log("here next");
-  //   console.log(this.carousel);
-  //   this.carousel.nativeElement.next();
-  // }
 
   shop_now(story){
     this.document.location.href = story.targetUrl;
@@ -171,26 +146,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.active[curind] = "dot_active";
   }
 
-  // swipe_left(i){
-  //   console.log("left", i);
-  //   if(i == this.active.length - 1){
-  //     return;
-  //   }
-  //   this.active[i] = "dot";
-  //   this.active[i + 1] = "dot_active";
-  // }
-
-  // swipe_right(i){
-  //   console.log("right", i);
-  //   if(i == 0){
-  //     return;
-  //   }
-  //   this.active[i] = "dot";
-  //   this.active[i - 1] = "dot_active";
-  // }
-
-  slidesDidLoad() {
+  slidesDidChange() {
     // this.slides.startAutoplay();
+    // console.log("here");
+    this.slidesLoaded = true;
+    this.active.push(0);
+    this.active.pop();
   }
 
 

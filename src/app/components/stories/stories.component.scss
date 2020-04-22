@@ -12,8 +12,6 @@ $img-height: 90%;
     --bullet-background-active: orangered;
   }
 
-  
-
   .view {
     display: flex;
     justify-content: center;
@@ -30,6 +28,7 @@ $img-height: 90%;
     margin: 0;
     padding: 0;
     align-items: center;
+    z-index: 1;
   }
 
   .text{
@@ -157,6 +156,16 @@ $img-height: 90%;
     text-align: center;
   }
 
+  // .redirect_like {
+  //   height: 7vh;
+  //   width: 7vh;
+  //   border-radius: 50%;
+  //   background-image: url('src/assets/img/shareables/heart_liked.png');
+  //   background-size: 50%;
+  //   background-position: 50%, 50%;
+  //   background-repeat: no-repeat;
+  // }
+
   .img{
     height: ($img-height);
     width: 100%;
@@ -230,7 +239,7 @@ $img-height: 90%;
   }
 
   .view-1 {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -420,6 +429,18 @@ $img-height: 90%;
     margin-bottom: 0;
   }
 
+  .dot_small {
+    height: 4px;
+    width: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2.2vh;
+    margin-bottom: 0;
+  }
+
   .dot_active {
     height: 8px;
     width: 8px;
@@ -449,7 +470,7 @@ $img-height: 90%;
 
   .view-1 {
     display: flex;
-    position: absolute;
+    position: fixed;
     // justify-content: center;
     margin: 0;
     padding: 0;
@@ -681,7 +702,7 @@ $img-height: 90%;
 
   .view-1 {
     display: flex;
-    position: absolute;
+    position: fixed;
     // justify-content: center;
     margin: 0;
     padding: 0;
@@ -867,6 +888,18 @@ $img-height: 90%;
     align-self: center;
     margin: 2px;
     margin-top: 2.1vh;
+    margin-bottom: 0;
+  }
+
+  .dot_small {
+    height: 4px;
+    width: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2.2vh;
     margin-bottom: 0;
   }
 

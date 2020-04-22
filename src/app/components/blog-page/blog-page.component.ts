@@ -1,6 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+
 import {ShareTabService } from 'src/app/services/share-tab.service'
 import {BlogsService } from 'src/app/services/blogs.service'
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATFORMS } from '@angular/core';
+import {NgbTabsetConfig} from '@ng-bootstrap/ng-bootstrap';
+import { DOCUMENT } from '@angular/common';
+import { ApiService } from '../../services/api.service';
+import { Observable } from 'rxjs';
+import { Blogs, Blog } from 'src/app/models/blog.model';
 @Component({
   selector: 'app-blog-page',
   templateUrl: './blog-page.component.html',
@@ -10,59 +18,72 @@ export class BlogPageComponent implements OnInit {
 
   currentBlog : any;
   likedBlogs : Array<any>;
-  isLiked : boolean;
+  isLiked : Boolean;
   bookmarkedBlogs : Array<any>;
-  isBookmarked : boolean;
+  isBookmarked : Boolean;
   brandUrl : string;
+  blogId : number;
 
-  constructor(private shareTabService: ShareTabService, private blogService : BlogsService, ) {
-    this.likedBlogs=this.blogService.likedBlogs;
-    this.bookmarkedBlogs=this.blogService.bookmarkedBlogs;
-    this.isLiked=false;
-    this.isBookmarked=false;
+
+  
+   blogpage : any;
+   constructor(@Inject(DOCUMENT) private document: Document,
+               private apiservice: ApiService,
+               config: NgbTabsetConfig,private blogService : BlogsService,
+               private shareTabService: ShareTabService, private router : Router,
+               private route : ActivatedRoute) {
+                this.likedBlogs=this.blogService.likedBlogs;
+                  this.bookmarkedBlogs=this.blogService.bookmarkedBlogs;
+                  this.isLiked=false;
+                  this.isBookmarked=false;
+               }
+ 
+   ngOnInit(): void {
+
+     this.blogId = this.route.snapshot.params['id']
+     this.apiservice.blogs.get(this.blogId).subscribe((data: Blogs) => {
+      this.blogpage = data;
+      // console.log(this.blogpage)
+    });
+
+    this.apiservice.blogs.isbookmarked(this.blogId).subscribe((data : Boolean)=> {
+      this.isBookmarked = data
+    });
+
+    this.apiservice.blogs.isliked(this.blogId).subscribe((data : Boolean)=> {
+      this.isLiked = data
+    });
+
    }
 
-  ngOnInit(): void {
-    this.currentBlog={
-      "img" : "",
-      "title" : ""
-    }
-
-  }
-
   activateShare() {
-    this.brandUrl='www.google.com'
-    console.log('activating share');
-    this.shareTabService.activate(this.brandUrl);
+    this.shareTabService.activate(window.location.href);
   }
 
   bookmarkPage(currentBlog){
     if(this.isBookmarked==false){
-      this.blogService.bookmarkedBlogs.push(currentBlog);
-      this.isBookmarked=true;
+      this.apiservice.blogs.bookmark(this.blogId).subscribe((data : Boolean)=> {
+        this.isBookmarked = data
+      });
     }
     else{
-      for( var i = 0; i < this.blogService.bookmarkedBlogs.length; i++){
-         if (this.blogService.bookmarkedBlogs[i] === currentBlog) {
-          this.blogService.bookmarkedBlogs.splice(i, 1);
-         }
-        }
-      this.isBookmarked=false;
+      this.apiservice.blogs.unbookmark(this.blogId).subscribe((data : Boolean)=> {
+        this.isBookmarked = data
+      });
     }
   }
 
   likePage(currentBlog){
     if(this.isLiked==false){
-      this.blogService.likedBlogs.push(currentBlog);
-      this.isLiked=true;
+      this.apiservice.blogs.like(this.blogId).subscribe((data : Boolean)=> {
+        this.isLiked = data
+      });
     }
     else{
-      for( var i = 0; i < this.blogService.likedBlogs.length; i++){
-         if (this.blogService.likedBlogs[i] === currentBlog) {
-          this.blogService.likedBlogs.splice(i, 1);
-         }
-        }
-      this.isLiked=false;
+      this.apiservice.blogs.unlike(this.blogId).subscribe((data : Boolean)=> {
+        this.isLiked = data
+      });
+   
     }
   }
 

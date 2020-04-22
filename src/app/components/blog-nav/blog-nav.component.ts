@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import {StoriedBlogsComponent} from 'src/app/components/storied-blogs/storied-blogs.component';
-import { DecimalPipe } from '@angular/common';
+
+import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATFORMS } from '@angular/core';
+import {NgbTabsetConfig} from '@ng-bootstrap/ng-bootstrap';
+import { DOCUMENT } from '@angular/common';
+import { ApiService } from '../../services/api.service';
+import { Observable } from 'rxjs';
+import { Blogs, Blog } from 'src/app/models/blog.model';
 
 @Component({
   selector: 'app-blog-nav',
@@ -8,52 +12,29 @@ import { DecimalPipe } from '@angular/common';
   styleUrls: ['./blog-nav.component.scss']
 })
 export class BlogNavComponent implements OnInit {
-
-  blogs:Array<any>
-
-  constructor() {
-    this.blogs=new Array<any>()
-  }
+  sidebarIsActive = false;
+  blogs$: Observable<Blogs>;
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private apiservice: ApiService,
+              config: NgbTabsetConfig) {}
 
   ngOnInit(): void {
-      this.blogs=[
-        {
-          "blog-url":"#",
-          "image-url":"https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png",
-          "date":"xyz",
-          "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          "Tag":"TAGTAG"
-        },
-        {
-          "blog-url":"#",
-          "image-url":"https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png",
-          "date":"xyz",
-          "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          "Tag":"TAGTAG"
-        },
-        {
-          "blog-url":"#",
-          "image-url":"https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png",
-          "date":"xyz",
-          "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          "Tag":"TAGTAG"
-        },
-        {
-          "blog-url":"#",
-          "image-url":"https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png",
-          "date":"xyz",
-          "content":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-          "Tag":"TAGTAG"
-        }
-      ]
-
-
+    this.blogs$ = this.apiservice.blogs.getblogs();
+    this.blogs$.subscribe((data: Blogs) => {
+      console.log(data);
+      var all_brands = data.blogs;
+      var l = all_brands.length;
+    });
   }
 
-  get_duration(){
-    const date2 = new Date();
-    return date2;
+  selectedTab = "All";
 
+  toggleSidebar(): boolean {
+    this.sidebarIsActive = !this.sidebarIsActive;
+    return this.sidebarIsActive;
   }
+
+ 
+
 
 }

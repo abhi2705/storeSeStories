@@ -11,9 +11,10 @@ import { Brands, Brand } from 'src/app/models/brand.model';
   styleUrls: ['./brand-nav.component.scss']
 })
 export class BrandNavComponent implements OnInit {
-  sidebarIsActive = false;
+  
   brands$: Observable<Brands | Brand>;
   private sub: Subscription;
+  all_brands;
   constructor(@Inject(DOCUMENT) private document: Document,
               private apiservice: ApiService,
               config: NgbTabsetConfig) {}
@@ -22,15 +23,11 @@ export class BrandNavComponent implements OnInit {
     this.brands$ = this.apiservice.brands.get();
     this.sub=this.brands$.subscribe((data: Brands) => {
       console.log(data);
+      this.all_brands=data.brands;
     });
   }
 
   selectedTab = "All";
-
-  toggleSidebar(): boolean {
-    this.sidebarIsActive = !this.sidebarIsActive;
-    return this.sidebarIsActive;
-  }
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }

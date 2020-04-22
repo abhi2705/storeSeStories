@@ -17,7 +17,7 @@
           <div class="scroll-wrapper" style="margin-top: 2vh; height:65vh; justify-content: center; width: 100%">
             <div class="row">
 
-            <div class="card column" style=" padding: 0;" *ngFor="let brand of (brands$ | async)?.brands; let i = index" >
+            <div class="card column" style=" padding: 0;" *ngFor="let brand of all_brands; let i = index" >
               <a routerLink="/brand/{{brand.brandId}}" ><img class="card-img-top" src="{{brand.logoUrl}}" style="">
               <div class="card-body" style="padding:0;">
                 <h5 class="card-title company-name"
@@ -40,7 +40,7 @@
         <div class="scroll-wrapper" style="margin-top: 2vh; height:65vh; justify-content: center; width: 100%">
           <div class="row">
 
-          <div class="card column" style=" padding: 0;" *ngFor="let brand of (brands$ | async)?.brands; let i = index" >
+          <div class="card column" style=" padding: 0;" *ngFor="let brand of all_brands; let i = index" >
             <a routerLink="/brand/{{brand.brandId}}" ><img class="card-img-top" src="{{brand.logoUrl}}" style="">
             <div class="card-body" style="padding:0;">
               <h5 class="card-title company-name"

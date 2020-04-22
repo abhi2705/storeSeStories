@@ -29,6 +29,7 @@ $img-height: 90%;
     padding: 0;
     align-items: center;
     z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -156,16 +157,6 @@ $img-height: 90%;
     text-align: center;
   }
 
-  // .redirect_like {
-  //   height: 7vh;
-  //   width: 7vh;
-  //   border-radius: 50%;
-  //   background-image: url('src/assets/img/shareables/heart_liked.png');
-  //   background-size: 50%;
-  //   background-position: 50%, 50%;
-  //   background-repeat: no-repeat;
-  // }
-
   .img{
     height: ($img-height);
     width: 100%;
@@ -246,7 +237,8 @@ $img-height: 90%;
     padding: 0;
     // width: 100vw;
     align-items: center;
-
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -476,6 +468,8 @@ $img-height: 90%;
     padding: 0;
     align-items: center;
     // width: 100vw;
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -708,6 +702,8 @@ $img-height: 90%;
     padding: 0;
     align-items: center;
     // width: 100vw;
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{

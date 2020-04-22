@@ -8,9 +8,8 @@ $img-height: 90%;
 @media only screen and (max-width: 575px) {
 
   ion-slides {
-    --bullet-background: black;
+    --bullet-background: #bbb;
     --bullet-background-active: orangered;
-    // top: 10px
   }
 
   .view {
@@ -23,12 +22,14 @@ $img-height: 90%;
   }
 
   .view-1 {
-    position: absolute;
+    position: fixed;
     display: flex;
     // justify-content: center;
     margin: 0;
     padding: 0;
     align-items: center;
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -181,6 +182,18 @@ $img-height: 90%;
     margin-bottom: 0;
   }
 
+  .dot_small {
+    height: 4px;
+    width: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2.2vh;
+    margin-bottom: 0;
+  }
+
   .dot_active {
     height: 8px;
     width: 8px;
@@ -217,14 +230,15 @@ $img-height: 90%;
   }
 
   .view-1 {
-    position: absolute;
+    position: fixed;
     display: flex;
     justify-content: center;
     margin: 0;
     padding: 0;
     // width: 100vw;
     align-items: center;
-
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -407,6 +421,18 @@ $img-height: 90%;
     margin-bottom: 0;
   }
 
+  .dot_small {
+    height: 4px;
+    width: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2.2vh;
+    margin-bottom: 0;
+  }
+
   .dot_active {
     height: 8px;
     width: 8px;
@@ -422,6 +448,11 @@ $img-height: 90%;
 
 // For smaller laptop size screens 
 @media only screen and (min-width: 769px) and (max-width: 999px){
+  ion-slides {
+    --bullet-background: #bbb;
+    --bullet-background-active: orangered;
+  }
+
   .view {
     display: flex;
     justify-content: center;
@@ -431,12 +462,14 @@ $img-height: 90%;
 
   .view-1 {
     display: flex;
-    position: absolute;
+    position: fixed;
     // justify-content: center;
     margin: 0;
     padding: 0;
     align-items: center;
     // width: 100vw;
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -622,6 +655,18 @@ $img-height: 90%;
     margin-bottom: 0;
   }
 
+  .dot_small {
+    height: 4px;
+    width: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 2px;
+    margin-top: 2.1vh;
+    margin-bottom: 0;
+  }
+
   .dot_active {
     height: 8px;
     width: 8px;
@@ -637,6 +682,11 @@ $img-height: 90%;
 
 // For large laptop screens
 @media only screen and (min-width: 1000px) {
+  ion-slides {
+    --bullet-background: #bbb;
+    --bullet-background-active: orangered;
+  }
+  
   .view {
     display: flex;
     justify-content: center;
@@ -646,12 +696,14 @@ $img-height: 90%;
 
   .view-1 {
     display: flex;
-    position: absolute;
+    position: fixed;
     // justify-content: center;
     margin: 0;
     padding: 0;
     align-items: center;
     // width: 100vw;
+    z-index: 1;
+    margin-top: 3%;
   }
 
   .text{
@@ -832,6 +884,18 @@ $img-height: 90%;
     align-self: center;
     margin: 2px;
     margin-top: 2.1vh;
+    margin-bottom: 0;
+  }
+
+  .dot_small {
+    height: 4px;
+    width: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    align-self: center;
+    margin: 3px;
+    margin-top: 2.2vh;
     margin-bottom: 0;
   }
 

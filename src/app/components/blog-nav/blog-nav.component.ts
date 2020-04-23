@@ -15,7 +15,5 @@ export class BlogNavComponent implements OnInit {
 
   ngOnInit(): void {
     this.blogs$ = this.apiservice.blogs.get();
-    this.blogs$.subscribe((data: Blogs) => {
-    });
   }
 }

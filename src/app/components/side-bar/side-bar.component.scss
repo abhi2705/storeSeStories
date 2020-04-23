@@ -1,0 +1,90 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+$sidebar-width: 250px;
+$header-bg-color: #000839;
+$header-font-size: 1em;
+$header-font-weight: bold;
+$header-color: #fafafa;
+$border-color: #f5f5f5;
+$overlay-bg: rgba(0, 0, 0, 0.7);
+$sidebar-z: 999;
+
+.component-wrapper {
+  display: inline-flex;
+  width: fit-content;
+  height: 100vh;
+}
+
+.sidebar {
+  min-width: $sidebar-width;
+  max-width: $sidebar-width;
+  height: 100vh;
+  color: #0a0a0a;
+  transition: all 0.3s;
+  border: none;
+  z-index: $sidebar-z;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-left: (-$sidebar-width);;
+}
+
+.sidebar {
+  .sidebar-heading {
+    padding: 20px;
+    background: $header-bg-color;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+
+    h5, h4, h3, h2, h1 {
+      color: $header-color;
+      font-size: $header-font-size;
+      font-weight: $header-font-weight;
+      padding: 0 15px;
+      margin: 0;
+    }
+  }
+
+  ul {
+    li {
+      a {
+        padding: 5px;
+        padding-left: 10px;
+        font-size: 1em;
+        font-weight: bold;
+        display: block;
+      }
+    }
+  }
+}
+
+.sidebar.active {
+  margin-left: 0px;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: $overlay-bg;
+  z-index: ($sidebar-z - 1);
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}

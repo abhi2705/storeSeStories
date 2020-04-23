@@ -1,0 +1,17 @@
+name: Build Image
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: docker.pkg.github.com/${GITHUB_REPOSITORY}/brandid:latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build docker image
+      run: docker build -t $IMAGE_TAG .
+    - name: Login to Github packages
+      run: echo ${{secrets.GITHUB_TOKEN}} | docker login docker.pkg.github.com -u ${GITHUB_ACTOR} --password-stdin
+    - name: Push image to Github packages
+      run: docker push $IMAGE_TAG

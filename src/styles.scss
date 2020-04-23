@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/onsenui/css/onsenui.css';
+@import '../node_modules/onsenui/css/onsen-css-components.css';
+@import 'variables';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import '~bootstrap/scss/bootstrap';
+
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: 'Montserrat', sans-serif !important;
+  height: 100%;
+  width: 100%;
+}
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+
+.overlay {
+  z-index: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  display: none;
+  background: $overlay-bg;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+.swiper-pagination-bullets {
+  top: 3% !important;
+}
+
+.swiper-pagination-bullet {
+  opacity: 1;
+}

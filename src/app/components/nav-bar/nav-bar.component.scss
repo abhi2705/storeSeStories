@@ -1,0 +1,34 @@
+.component-wrapper {
+  width: 100%;
+  -webkit-box-shadow: 0px 2px 6px 1px rgba(33,33,33,0.55);
+  -moz-box-shadow: 0px 2px 6px 1px rgba(33,33,33,0.55);
+  box-shadow: 0px 2px 6px 1px rgba(33,33,33,0.55);
+}
+
+img.navbar-brand {
+  width: 110px;
+}
+
+img.icon {
+  width: 25px;
+}
+
+.btn{
+  position: absolute;
+  right: 5%;
+  border: none;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+}
+
+.liked_btn {
+  background-color: #1d2a5b;
+  background-image: url('src/assets/img/shareables/heart_liked.png');
+}
+.bookmark_btn {
+  background-image: url('src/assets/blog-icons/bookmark.svg');
+}

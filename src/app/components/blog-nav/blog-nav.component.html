@@ -1,0 +1,46 @@
+<div class="track-block">
+  <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
+    <img alt="search icon" src="../../../assets/img/logos/search.svg">
+    <input aria-label="search your apartment" onkeyup="search(event)" placeholder="Search for brand or product"
+      type="text">
+  </div>
+</div>
+<div class="component-wrapper" style="height: 100vh;" >
+  <div class="inner-wrapper">
+    <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs  flex-nowrap justify-content-center"
+      style="  overflow-x: scroll; overflow-y: hidden; height:5vh; ">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Storied Blogs</a>
+        <ng-template ngbNavContent  >
+          <div class="scroll-wrapper"  style="margin-top: 2vh; height:60vh; justify-content: center; width: 100%">
+              
+
+              <div class="card column" style=" padding: 0;" *ngFor="let blog of (blogs$ | async)?.blogs; let i = index" >
+              <div class="row" routerLink="/blog/{{blog.blogId}}">
+                <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
+                  <div style="padding:8px;">
+                    <div class="blog-date" >15th Aug 2020</div>
+                    <div class=" blog-desc">{{blog.title}}</div>
+                    <div class="blog-tag">{{blog.tags}}</div>
+                  </div>
+                </a>
+
+              </div>      
+              </div> 
+
+          </div>
+        </ng-template>
+      </li>
+
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Brand Stories</a>
+        <ng-template ngbNavContent>
+        <div class="scroll-wrapper" style="margin-top: 2vh;">
+            Brand Stories
+        </div>    
+        </ng-template>
+      </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </div>
+</div>

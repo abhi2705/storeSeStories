@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { DOCUMENT } from '@angular/common';
 import { ShareTabService } from 'src/app/services/share-tab.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-favourites',
@@ -26,7 +27,8 @@ export class FavouritesComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private document: Document, 
                                 private apiservice: ApiService,
-                                private shareTabService: ShareTabService) { }
+                                private shareTabService: ShareTabService,
+                                private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.stories$ = this.apiservice.stories.get();
@@ -59,6 +61,7 @@ export class FavouritesComponent implements OnInit {
     this.time = this.get_duration(story);
     this.ind = i;
     this.like = this.liked[i];
+
     this.document.getElementById("modal01").style.display = "block";
   }
 
@@ -78,11 +81,41 @@ export class FavouritesComponent implements OnInit {
   activateShare(brandUrl: string) {
     console.log('activating share');
     this.shareTabService.activate(brandUrl);
+    this.document.getElementById("modal01").style.display = "block";
+
   }
 
   remove_like(i){
     this.liked[i] = "like_n";
+    this.document.getElementById("modal01").style.display = "none";
     return;
   }
+
+  back_to_list() {
+    this.document.getElementById("modal01").style.display = "none";
+  }
+
+  // open(content) {
+  //   // this.source = story.imageUrl;
+  //   // this.target = story.targetUrl;
+  //   // this.time = this.get_duration(story);
+  //   // this.ind = i;
+  //   // this.like = this.liked[i];
+  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //     console.log(result);
+  //   }, (reason) => {
+  //     console.log(reason);
+  //   });
+  // }
+
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
 
 }

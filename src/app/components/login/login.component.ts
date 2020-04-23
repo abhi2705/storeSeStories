@@ -21,13 +21,23 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this.auth.loginState.subscribe(s => { this.state = {...s}; });
     this.loginForm = this.formBuilder.group({
-      mobile: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]]
     });
     this.registerForm = this.formBuilder.group({
-      mobile: ['', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)]],
       firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]],
+      cfPassword: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(30),
+      ]))
+    }, {
+      validators: this.cfPasswordValidator.bind(this)
     });
+
     this.otpForm = this.formBuilder.group({
       d0: ['', [Validators.required, Validators.pattern('[0-9]')]],
       d1: ['', [Validators.required, Validators.pattern('[0-9]')]],
@@ -39,19 +49,12 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (this.state.mode === 'mob') {
-      this.auth.sendOtp(this.mobile.value);
-      this.auth.showLogin('otp');
-      return;
+    console.log('submit called', this.state.mode);
+    if (this.state.mode === 'reg') {
+      this.auth.register(this.email.value, this.password.value, this.firstName.value, this.lastName.value);
+    } else if (this.state.mode === 'log') {
+      this.auth.login(this.email.value, this.password.value);
     }
-    let otpString = '';
-    for (let i = 0; i < 6; i++) {
-      otpString += this.otp(i).value;
-    }
-
-    console.log(otpString);
-    this.auth.verifyOtp(this.loginForm.get('mobile').value, otpString);
-    this.form.reset();
   }
 
   get firstName(): AbstractControl {
@@ -68,13 +71,25 @@ export class LoginComponent implements OnInit {
 
   get form(): FormGroup {
     switch (this.state.mode) {
-      case 'mob':
+      case 'log':
         return this.loginForm;
-      case 'otp':
-        return this.otpForm;
+      case 'reg':
+        return this.registerForm;
       default:
         return undefined as FormGroup;
     }
+  }
+
+  get email(): AbstractControl {
+    return this.form.get('email');
+  }
+
+  get password(): AbstractControl {
+    return this.form.get('password');
+  }
+
+  get cfPassword(): AbstractControl {
+    return this.form.get('cfPassword');
   }
 
   otp(digit: number): AbstractControl {
@@ -91,4 +106,14 @@ export class LoginComponent implements OnInit {
     console.log(event);
   }
 
+  cfPasswordValidator(fg: FormGroup) {
+    const { value: pass } = fg.get('password');
+    const { value: cfpass } = fg.get('cfPassword');
+    return pass === cfpass ? null : { passwordNotMatch: true };
+  }
+
+  switchMode(mode: string) {
+    this.form.reset();
+    this.auth.showLogin(mode);
+  }
 }

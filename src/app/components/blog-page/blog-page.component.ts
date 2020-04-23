@@ -1,12 +1,11 @@
 
 import {ShareTabService } from 'src/app/services/share-tab.service'
-import { Router, ActivatedRoute } from '@angular/router';
-
-import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATFORMS } from '@angular/core';
-import {NgbTabsetConfig} from '@ng-bootstrap/ng-bootstrap';
-import { DOCUMENT } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Blogs, Blog } from 'src/app/models/blog.model';
+import { Blogs } from 'src/app/models/blog.model';
+import { BlogsService } from '../../services/blogs.service';
+import { Subscription, Observable } from 'rxjs';
 @Component({
   selector: 'app-blog-page',
   templateUrl: './blog-page.component.html',
@@ -19,21 +18,18 @@ export class BlogPageComponent implements OnInit {
   isBookmarked : Boolean;
   blogId : number;
   comments : number;
-
-
-  
-   blogpage : any;
-   constructor(@Inject(DOCUMENT) private document: Document,
-               private apiservice: ApiService,
-               config: NgbTabsetConfig,
-               private shareTabService: ShareTabService, private router : Router,
-               private route : ActivatedRoute) {
+  private sub2: Subscription;
+  favBtnEnabled: boolean;
+  blogpage : any;
+   constructor(private apiservice: ApiService,
+               private shareTabService: ShareTabService, 
+               private route : ActivatedRoute,
+               private bookmarkButtonService: BlogsService) {
                   this.isLiked=false;
                   this.isBookmarked=false;
                }
  
    ngOnInit(): void {
-
      this.blogId = this.route.snapshot.params['id']
      this.apiservice.blogs.get(this.blogId).subscribe((data: Blogs) => {
       this.blogpage = data;
@@ -50,6 +46,9 @@ export class BlogPageComponent implements OnInit {
     this.apiservice.blogs.getCommentsCount(this.blogId).subscribe((data : number)=> {
       this.comments = data;
     });
+
+    this.sub2 = this.bookmarkButtonService.boomkmarkEnabled.subscribe(enabled => this.favBtnEnabled = enabled);
+    this.bookmarkButtonService.toggleBookmarkBtnView(true);
 
    }
 
@@ -82,6 +81,11 @@ export class BlogPageComponent implements OnInit {
       });
    
     }
+  }
+
+  ngOnDestroy(): void {
+    this.bookmarkButtonService.toggleBookmarkBtnView(false);
+    this.sub2.unsubscribe();
   }
 
 }

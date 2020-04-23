@@ -6,7 +6,7 @@ export interface Blog {
     imageUrl: string;
     tags: string;
     title: string;
-    date: Date;
+    postedAt: Date;
 }
   
 export interface Blogs {

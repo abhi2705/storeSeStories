@@ -15,29 +15,16 @@ export class BlogApi extends BaseApi {
   get(id?: number): Observable<Blogs | Blog> {
     let urlParam = '';
 
-    // Get all stories if idx is not given.
     if (id === undefined) {
       urlParam += 'all';
     } else {
       urlParam += id;
     }
-    return this.http.get<Blogs>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.get<Blogs | Blog>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
   }
-
-  getblogs(): Observable<Blogs> {
-    let urlParam =''
-     urlParam += 'all';
-   
-    return this.http.get<Blogs>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
-      retry(this.Retries),
-      catchError(this.handleError)
-    );
-  }
-
-  
 
   isbookmarked(id: number): Observable<Boolean> {
     const urlParam = 'isbookmarked/' + id;
@@ -95,5 +82,4 @@ export class BlogApi extends BaseApi {
     );
   }
 
-  
 }

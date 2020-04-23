@@ -1,7 +1,7 @@
 
 import {ShareTabService } from 'src/app/services/share-tab.service'
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Blogs } from 'src/app/models/blog.model';
 import { BlogsService } from '../../services/blogs.service';
@@ -11,7 +11,7 @@ import { Subscription, Observable } from 'rxjs';
   templateUrl: './blog-page.component.html',
   styleUrls: ['./blog-page.component.scss']
 })
-export class BlogPageComponent implements OnInit {
+export class BlogPageComponent implements OnInit, OnDestroy {
 
  
   isLiked : Boolean;

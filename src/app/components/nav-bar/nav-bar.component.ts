@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,OnDestroy } from '@angular/core';
 import { FavButtonService } from '../../services/fav-button.service';
 import { BlogsService } from '../../services/blogs.service'
 import { Subscription } from 'rxjs';
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy{
 
   readonly logoImg = 'assets/img/logos/Storese_branding-01.png';
 
@@ -22,7 +22,6 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
     this.sub = this.favBtnService.favEnabled.subscribe(enabled => this.fav_btn_enabled = enabled);
     this.bookmarkSub = this.bookmarkBtnService.boomkmarkEnabled.subscribe(enabled => this.bookmark_btn_enabled = enabled);
-    console.log(this.fav_btn_enabled,this.bookmark_btn_enabled)
   }
 
   ngOnDestroy(): void {

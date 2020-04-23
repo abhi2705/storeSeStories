@@ -52,6 +52,7 @@ export class FavouritesComponent implements OnInit {
   }
 
   shop_now(targetUrl){
+    this.document.getElementById("modal01").style.display = "block !important";
     this.document.location.href = targetUrl;
   }
 
@@ -81,7 +82,7 @@ export class FavouritesComponent implements OnInit {
   activateShare(brandUrl: string) {
     console.log('activating share');
     this.shareTabService.activate(brandUrl);
-    this.document.getElementById("modal01").style.display = "block";
+    this.document.getElementById("modal01").style.display = "block !important";
 
   }
 

@@ -1,15 +1,15 @@
-name: Build Latest Image
+name: Build Dev Image
 on:
   push:
-    branches: [ master ]
+    branches: [ development ]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Build docker image
-      run: docker build -t docker build -t docker.pkg.github.com/abhi2705/storesestories/brandid:latest .
+      run: docker build -t docker.pkg.github.com/abhi2705/storesestories/brandid:dev .
     - name: Login to Github packages
       run: echo ${{secrets.GITHUB_TOKEN}} | docker login docker.pkg.github.com -u ${GITHUB_ACTOR} --password-stdin
     - name: Push image to Github packages
-      run: docker push docker build -t docker.pkg.github.com/abhi2705/storesestories/brandid:latest
+      run: docker push docker.pkg.github.com/abhi2705/storesestories/brandid:dev

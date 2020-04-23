@@ -3,6 +3,7 @@
     <div class="container-fluid justify-content-start">
         <img class="navbar-brand" src={{logoImg}}>
         <button *ngIf=fav_btn_enabled class="btn liked_btn" routerLink="/liked"></button>
+        <button *ngIf=bookmark_btn_enabled class="btn bookmark_btn" routerLink="/bookmarked"></button>        
     </div>
   </nav>
 </div>

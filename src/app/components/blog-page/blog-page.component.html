@@ -6,25 +6,19 @@
     <div class="container">
             <div class="blog-page-tag">{{blogpage.tag}}</div>
             <div class="blog-title">{{blogpage.title}}</div>
-            <div class="blog-page-date">{{blogpage.author}}  ·  15th Aug 2020</div>
+            <div class="blog-page-date">{{blogpage.author}}  ·  {{blogpage.date}}</div>
             <div class="blog-content">{{blogpage.content}}</div>
     </div>
     
-
- 
-
-
-
-
     <div class="button-strap container" >
         <div class="button-wrap" style="margin-left: 30%;">
-            <button class="btn share" (click)="likePage(currentBlog)">
+            <button class="btn share" (click)="likePage()">
                 <img [hidden]="isLiked" class="blog-button" src="../../../assets/blog-icons/heart.svg"/>
                 <img [hidden]="!isLiked" class="blog-button" src="../../../assets/blog-icons/heart_liked.png"/>
             </button>
         </div>
         <div class="button-wrap" >
-            <button class="btn share" (click)="bookmarkPage(currentBlog)">
+            <button class="btn share" (click)="bookmarkPage()">
                 <img [hidden]="isBookmarked" class="blog-button" src="../../../assets/blog-icons/bookmark.svg"/>
                 <img [hidden]="!isBookmarked" class="blog-button" src="../../../assets/blog-icons/share.svg"/>
 
@@ -38,11 +32,10 @@
     </div>
     <div class="track-block">
         <div class="search-wrap">
-            <!-- <img alt="search icon" src="../../../assets/img/logos/search.svg"> -->
             <input aria-label="write a comment" onkeyup="storecomment(event)" placeholder="Write a comment" type="text">
         </div>
     </div>
-    <div class="blog-page-date container">Comments(22)</div>
+    <div class="blog-page-date container">Comments({{comments}})</div>
     <div class="blog-content container" style="font-size: 12px; font-weight: 600;">You may also like</div>
 
     </div>

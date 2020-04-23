@@ -6,6 +6,7 @@ export interface Blog {
     imageUrl: string;
     tags: string;
     title: string;
+    date: Date;
 }
   
 export interface Blogs {

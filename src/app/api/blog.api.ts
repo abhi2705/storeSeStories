@@ -11,11 +11,7 @@ export class BlogApi extends BaseApi {
     this.endpointUrl = this.baseUrl + endpoint;
   }
 
-  /**
-   * Get a particular story or all stories.
-   * @param [id] - The id of the story.
-   * @returns An observable that must be subscribed to get the brand(s).
-   */
+
   get(id?: number): Observable<Blogs | Blog> {
     let urlParam = '';
 
@@ -43,11 +39,6 @@ export class BlogApi extends BaseApi {
 
   
 
-  /**
-   * Activate a particular brand, given its brandId.
-   * @param id - The brand id.
-   * @returns An observable that must be subscribed to update the brand.
-   */
   isbookmarked(id: number): Observable<Boolean> {
     const urlParam = 'isbookmarked/' + id;
     return this.http.get<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
@@ -96,29 +87,13 @@ export class BlogApi extends BaseApi {
     );
   }
 
-  /**
-   * Dectivate a particular brand, given its brandId.
-   * @param id - The brand id.
-   * @returns An observable that must be subscribed to update the brand.
-   */
-  // deactivate(id: number): Observable<Brand> {
-  //   const urlParam = 'deactivate/' + id;
-  //   return this.http.post<Brand>(this.endpointUrl + urlParam, {}, this.GlobalOpts).pipe(
-  //     retry(this.Retries),
-  //     catchError(this.handleError)
-  //   );
-  // }
+  getCommentsCount(id : number): Observable<number>{
+    const urlParam = 'comments-count/' + id;
+    return this.http.get<number>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+  }
 
-  // /**
-  //  * Create a new brand in the backend.
-  //  * @param brand - The new brand to be created.
-  //  * @returns An observable that must be subscribed to update the brand.
-  //  */
-  // save(brand: Brand): Observable<Brand> {
-  //   const urlParam = 'save';
-  //   return this.http.post<Brand>(this.endpointUrl + urlParam, brand, this.GlobalOpts).pipe(
-  //     retry(this.Retries),
-  //     catchError(this.handleError)
-  //   );
-  // }
+  
 }

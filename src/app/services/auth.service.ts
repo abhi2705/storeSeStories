@@ -34,16 +34,35 @@ export class AuthService {
 
   refreshToken(): void {
     this.token = this.getLocalToken();
-    this.api.auth.verifyToken(this.token).subscribe(
-      res => this.verificationSuccessfull(),
-      err => this.showLogin('mob', 'Session expired!')
-    );
+    if(this.token) {
+      this.api.auth.verifyToken(this.token).subscribe(
+        res => this.verificationSuccessfull(),
+        err => this.showLogin('log', 'Session expired!')
+      );
+    } else {
+      this.showLogin('log');
+    }
+  }
+
+  login(email: string, password: string): void {
+    this.api.auth.login(email, password).subscribe(res => {
+      this.setToken(res.authToken);
+      this.verificationSuccessfull();
+    },
+    err => {
+      this.showLogin('log', 'Invalid credentials!');
+    });
   }
 
   sendOtp(mobile: string): void {
-    this.api.auth.getOtp(mobile).subscribe(
-      res => {},
-    );
+    this.api.auth.getOtp(mobile).subscribe();
+  }
+
+  register(email: string, password: string, firstName: string, lastName: string): void {
+    this.api.auth.register(email, password, firstName,  lastName).subscribe(res => {
+      console.log('register', res);
+      this.login(email, password);
+    });
   }
 
   verifyOtp(mobile: string, otp: string): void {
@@ -53,8 +72,7 @@ export class AuthService {
     );
   }
 
-  showLogin(mode?: string, msg?: string): void {
-    mode = mode || 'mob';
+  showLogin(mode: string = 'log', msg?: string): void {
     if (msg) {
       this._loginState.next({active: true, mode, msg});
     }

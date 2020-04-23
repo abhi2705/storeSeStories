@@ -18,6 +18,18 @@ export class AuthApi extends BaseApi {
     );
   }
 
+  login(emailId: string, password: string): Observable<any> {
+    return this.http.post(this.endpointUrl + 'authenticate/', {emailId, password}).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  register(emailId: string, password: string, firstName: string, lastName: string): Observable<any> {
+    return this.http.post(this.endpointUrl + 'register/', {emailId, password, firstName, lastName}, {
+      responseType: 'text'
+    });
+  }
+
   verifyOtp(mobileNumber: string, otp: string): Observable<any> {
     return this.http.post(this.endpointUrl + 'authenticate', {
       mobileNumber,

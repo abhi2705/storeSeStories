@@ -1,13 +1,10 @@
 <div class="app-login active" *ngIf="state.active">
   <div class="login-modal" [ngSwitch]="state.mode">
-    <ng-container *ngSwitchCase="'mob'">
+    <ng-container *ngSwitchCase="'log'">
       <ng-container *ngTemplateOutlet="l"></ng-container>
     </ng-container>
-    <ng-container *ngSwitchCase="'r'">
+    <ng-container *ngSwitchCase="'reg'">
       <ng-container *ngTemplateOutlet="r"></ng-container>
-    </ng-container>
-    <ng-container *ngSwitchCase="'otp'">
-      <ng-container *ngTemplateOutlet="o"></ng-container>
     </ng-container>
   </div>
 </div>
@@ -30,14 +27,33 @@
       </div>
       <div class="form-row">
         <div class="from-group col mb-3">
-          <label for="mobile">Mobile No.</label>
-          <input type="number" class="form-control" formControlName="mobile"
-          [class.is-invalid]="(mobile.hasError('required') || mobile.hasError('pattern'))  && (mobile.dirty || mobile.touched)">
+          <label for="mobile">Email</label>
+          <input type="email" class="form-control" formControlName="email" email required
+          [class.is-invalid]="(email.invalid && (email.dirty || email.touched))">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="from-group col mb-3">
+          <label for="mobile">Password</label>
+          <input type="password" class="form-control" formControlName="password" required
+          [class.is-invalid]="(password.invalid  && (password.dirty || password.touched))">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="from-group col mb-3">
+          <label for="mobile">Confirm Password</label>
+          <input type="password" class="form-control" formControlName="cfPassword" required
+          [class.is-invalid]="((cfPassword.invalid || registerForm.hasError('passwordNotMatch'))  && (cfPassword.dirty || cfPassword.touched))">
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="col mb-3 d-flex justify-content-center">
+          <button class="switch-mode" (click)="switchMode('log')">Already have an account?</button>
         </div>
       </div>
       <div class="from-row">
         <div class="col-9 ml-auto mr-auto d-flex justify-content-center">
-          <button type="submit" class="btn" [disabled]="registerForm.invalid">Get Otp</button>
+          <button type="submit" class="btn" [disabled]="registerForm.invalid">Register</button>
         </div>
       </div>
     </form>
@@ -45,6 +61,38 @@
 </ng-template>
 
 <ng-template #l>
+  <div class="p-3 register-stage container">
+    <h5 class="mb-3">Login</h5>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="from-group col mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" formControlName="email" email required
+          [class.is-invalid]="(email.invalid && (email.dirty || email.touched))">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="from-group col mb-3">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName="password" required
+          [class.is-invalid]="(password.invalid  && (password.dirty || password.touched))">
+        </div>
+      </div>
+      <div class="form-row justify-content-center">
+        <div class="col mb-3 d-flex justify-content-center">
+          <button class="switch-mode" (click)="switchMode('reg')">Create an account</button>
+        </div>
+      </div>
+      <div class="from-row">
+        <div class="col-9 ml-auto mr-auto d-flex justify-content-center">
+          <button type="submit" class="btn" [disabled]="loginForm.invalid">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #ol>
   <div class="p-3 register-stage container">
     <h5 class="mb-3">Login</h5>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">

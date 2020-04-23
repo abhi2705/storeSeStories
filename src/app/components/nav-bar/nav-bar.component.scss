@@ -12,3 +12,17 @@ img.navbar-brand {
 img.icon {
   width: 25px;
 }
+
+.liked_btn {
+  position: absolute;
+  right: 5%;
+  border: none;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  background-color: #1d2a5b;
+  background-image: url('src/assets/img/shareables/heart_liked.png');
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+}

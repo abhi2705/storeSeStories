@@ -6,8 +6,7 @@ import { Observable, Subject, Subscription } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
 import { IonSlides } from '@ionic/angular';
-import { trigger, keyframes, animate, transition } from "@angular/animations";
-import * as kf from './keyframes';
+import { FavButtonService } from '../../services/fav-button.service';
 
 @Component({
   selector: 'app-stories',
@@ -31,11 +30,15 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
+  private sub2: Subscription;
+  favBtnEnabled: boolean;
+
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
   constructor(@Inject(DOCUMENT) private document: Document,
               private apiservice: ApiService,
-              private shareTabService: ShareTabService) {}
+              private shareTabService: ShareTabService,
+              private favButtonService: FavButtonService ) {}
 
   ngOnInit(): void {
     this.stories$ = this.apiservice.stories.get();
@@ -54,6 +57,9 @@ export class StoriesComponent implements OnInit, OnDestroy {
       }
       this.len = l;
     });
+
+    this.sub2 = this.favButtonService.favEnabled.subscribe(enabled => this.favBtnEnabled = enabled);
+    this.favButtonService.toggleBtnView(true);
   }
 
   get_class(ind){
@@ -282,7 +288,9 @@ export class StoriesComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    this.favButtonService.toggleBtnView(false);
     this.sub.unsubscribe();
+    this.sub2.unsubscribe();
   }
 
 }

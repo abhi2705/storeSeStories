@@ -1,3 +1,6 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
 
 .nav-link {
   display: block;
@@ -14,7 +17,7 @@
 }
 .card-img, .card-img-top {
     // padding-top: 75%;
-    
+
 }
 .card{
   // padding-top: 75%;
@@ -24,7 +27,7 @@
   width: 100%;
   height: 150px;
   border-radius: 20px;
-  
+
 }
 
 .nav-tabs  .nav-tabs .nav-item.show .nav-link {
@@ -161,14 +164,14 @@ a {
   height:75vh;
   width:auto;
   overflow:scroll;
-  margin-left:8px;
-
 }
 
 
 .card{
   border: 0 solid rgba(255, 255, 255, 1);
   box-shadow: none;
+  font-weight: 400;
+  // margin: 2%
 }
 // .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
 //   color: black;
@@ -186,6 +189,12 @@ a {
   .inner-wrapper {
     height: 100%;
     overflow: scroll;
+  }
+}
+.card-title {
+  font-size: 1rem;
+  @include media-breakpoint-down(xs){
+    font-size: 0.86rem;
   }
 }
 

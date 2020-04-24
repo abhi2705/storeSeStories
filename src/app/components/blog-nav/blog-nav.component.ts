@@ -15,7 +15,7 @@ export class BlogNavComponent implements OnInit, OnDestroy {
   private sub2: Subscription;
   favBtnEnabled: boolean;
   constructor(private apiservice: ApiService,
-    private bookmarkButtonService: BlogsService) {}
+    private bookmarkButtonService: BlogsService) { }
 
   ngOnInit(): void {
     this.blogs$ = this.apiservice.blogs.get();
@@ -23,29 +23,29 @@ export class BlogNavComponent implements OnInit, OnDestroy {
     this.bookmarkButtonService.toggleBookmarkBtnView(true);
   }
 
-  getDayNumberSuffix(day : number) {
+  getDayNumberSuffix(day: number) {
     if (day >= 11 && day <= 13) {
-        return "th";
+      return "th";
     }
     switch (day % 10) {
-    case 1:
+      case 1:
         return "st";
-    case 2:
+      case 2:
         return "nd";
-    case 3:
+      case 3:
         return "rd";
-    default:
+      default:
         return "th";
     }
-}
+  }
 
-  getDate(blog){
+  getDate(blog) {
     const date = new Date(blog.postedAt)
     let year = date.getFullYear();
     let month = date.toLocaleString('default', { month: 'short' })
     let day = date.getUTCDate();
     let suffix = this.getDayNumberSuffix(day)
-    return day+suffix+" "+month+" "+year;
+    return day + suffix + " " + month + " " + year;
   }
 
   ngOnDestroy(): void {

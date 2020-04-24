@@ -5,28 +5,28 @@
       type="text">
   </div>
 </div>
-<div class="component-wrapper" style="height: 100vh;" >
+<div class="component-wrapper" style="height: 100vh;">
   <div class="inner-wrapper">
     <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs  flex-nowrap justify-content-center"
       style="  overflow-x: scroll; overflow-y: hidden; height:5vh; ">
       <li [ngbNavItem]="1">
         <a ngbNavLink>Storied Blogs</a>
-        <ng-template ngbNavContent  >
-          <div class="scroll-wrapper"  style="margin-top: 2vh; height:60vh; justify-content: center; width: 100%">
-              
+        <ng-template ngbNavContent>
+          <div class="scroll-wrapper" style="margin-top: 2vh; height:60vh; justify-content: center; width: 100%">
 
-              <div class="card column" style=" padding: 0;" *ngFor="let blog of (blogs$ | async)?.blogs; let i = index" >
+
+            <div class="card column" style=" padding: 0;" *ngFor="let blog of (blogs$ | async)?.blogs; let i = index">
               <div class="row" routerLink="/blog/{{blog.blogId}}">
                 <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
                   <div style="padding:8px;">
-                    <div class="blog-date" >{{getDate(blog)}}</div>
+                    <div class="blog-date">{{getDate(blog)}}</div>
                     <div class=" blog-desc">{{blog.title}}</div>
                     <div class="blog-tag">{{blog.tags}}</div>
                   </div>
                 </a>
 
-              </div>      
-              </div> 
+              </div>
+            </div>
 
           </div>
         </ng-template>
@@ -35,9 +35,9 @@
       <li [ngbNavItem]="2">
         <a ngbNavLink>Brand Stories</a>
         <ng-template ngbNavContent>
-        <div class="scroll-wrapper" style="margin-top: 2vh;">
+          <div class="scroll-wrapper" style="margin-top: 2vh;">
             Brand Stories
-        </div>    
+          </div>
         </ng-template>
       </li>
     </ul>

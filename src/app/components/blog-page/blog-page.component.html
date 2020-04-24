@@ -1,83 +1,58 @@
-<div  class="scroll-wrapper" >
+<div class="scroll-wrapper">
     <div class="blog-page">
-        
+
         <img class="blog-img" src="{{blogpage.imageUrl}}">
 
-    <div class="container">
+        <div class="container">
             <div class="blog-page-tag">{{blogpage.tags}}</div>
             <div class="blog-title">{{blogpage.title}}</div>
-            <div class="blog-page-date">{{blogpage.author}}  ·  {{getDate()}}</div>
+            <div class="blog-page-date">{{blogpage.author}} · {{getDate(blogpage)}}</div>
             <div class="blog-content">{{blogpage.content}}</div>
-    </div>
-    
-    <div class="button-strap container" >
-        <div class="button-wrap" style="margin-left: 30%;">
-            <button class="btn share" (click)="likePage()">
-                <img [hidden]="isLiked" class="blog-button" src="../../../assets/blog-icons/heart.svg"/>
-                <img [hidden]="!isLiked" class="blog-button" src="../../../assets/blog-icons/heart_liked.png"/>
-            </button>
         </div>
-        <div class="button-wrap" >
-            <button class="btn share" (click)="bookmarkPage()">
-                <img [hidden]="isBookmarked" class="blog-button" src="../../../assets/blog-icons/bookmark.svg"/>
-                <img [hidden]="!isBookmarked" class="blog-button" src="../../../assets/blog-icons/share.svg"/>
 
-            </button>
+        <div class="button-strap container">
+            <div class="button-wrap" style="margin-left: 30%;">
+                <button class="btn share" (click)="likePage()">
+                    <img [hidden]="isLiked" class="blog-button" src="../../../assets/blog-icons/heart.svg" />
+                    <img [hidden]="!isLiked" class="blog-button" src="../../../assets/blog-icons/heart_liked.png" />
+                </button>
+            </div>
+            <div class="button-wrap">
+                <button class="btn share" (click)="bookmarkPage()">
+                    <img [hidden]="isBookmarked" class="blog-button" src="../../../assets/blog-icons/bookmark.svg" />
+                    <img [hidden]="!isBookmarked" class="blog-button" src="../../../assets/blog-icons/share.svg" />
+
+                </button>
+            </div>
+            <div class="button-wrap" style="margin-right: 30%;">
+                <button class="btn share" (click)="activateShare()">
+                    <img class="blog-button" src="../../../assets/blog-icons/share.svg" />
+                </button>
+            </div>
         </div>
-        <div class="button-wrap"  style="margin-right: 30%;">
-            <button class="btn share" (click)="activateShare()">
-                <img class="blog-button" src="../../../assets/blog-icons/share.svg"/>
-            </button>
+
+        <div class="search-wrap" style="margin: 6vh 1vh 1vh 1vh;">
+            <input aria-label="write a comment" #box (keyup.enter)="onEnter(box.value)" placeholder="Write a comment"
+                type="text">
         </div>
-    </div>
-    <!-- <div class="track-block">
-        <div class="search-wrap">
-            <input aria-label="write a comment" #box (keyup.enter)="onEnter(box.value)" placeholder="Write a comment" type="text">
-        </div>
-    </div> -->
-    <div class="search-wrap" style="margin: 6vh 1vh 1vh 1vh;">
-        <!-- <img alt="search icon" src="../../../assets/img/logos/search.svg"> -->
-        <input aria-label="write a comment" #box (keyup.enter)="onEnter(box.value)" placeholder="Write a comment" type="text">
-    </div>
 
-
-
-
-
-
-    <div class="blog-page-date container">Comments({{comments}})</div>
-    <div class="blog-content container" style="font-size: 12px; font-weight: 600;">You may also like</div>
+        <div class="blog-page-date container">Comments({{comments}})</div>
+        <div class="blog-content container" style="font-size: 12px; font-weight: 600;"
+            *ngIf="recommendedBlogs.length > 0">You may also like</div>
 
     </div>
 
-    <div class="card column" style=" padding: 0;" routerLink="/blog/1">
-        <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-        <div style="padding:8px;">
-          <div class="blog-date" >15th Aug 2020</div>
-          <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-          <div class="blog-tag">TAGTAG</div>
-        </div>
-      </a>
+
+    <div class="card column" style=" padding: 0;" routerLink="/blog/{{blog.blogId}}"
+        *ngFor="let blog of recommendedBlogs; let i = index">
+        <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
+            <div style="padding:8px;">
+                <div class="blog-date">{{getDate(blog)}}</div>
+                <div class=" blog-desc">{{blog.title}}</div>
+                <div class="blog-tag">{{blog.tags}}</div>
+            </div>
+        </a>
     </div>
-    <div class="card column" style=" padding: 0;" routerLink="/blog/1">
-        <a href="#" target="_blank"><img class="card-img-top" src="https://www.webnode.com/blog/wp-content/uploads/2019/04/blog2.png">
-        <div style="padding:8px;">
-          <div class="blog-date" >15th Aug 2020</div>
-          <div class=" blog-desc">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</div>
-          <div class="blog-tag">TAGTAG</div>
-        </div>
-      </a>
-    </div>
-
-
-
-
 
 </div>
 <app-share-tab></app-share-tab>
-
-
-
-
-
-

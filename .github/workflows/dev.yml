@@ -7,9 +7,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Build docker image
+
+    - name: Checking cahce for dependencies
+      id: cache-deps
+      uses: actions/cache@v1.1.2
+      with:
+        path: ./node_modules
+        key: ${{ runner.os }}-storese-node-deps-${{ hashFiles('./package-lock.json') }}
+
+    - name: Installing dependencies
+      if: steps.cache-deps.outputs.cache-hit != 'true'
+      run: npm ci --no-progress
+
+    - name: Using dependency cache
+      if: steps.cache-deps.outputs.cache-hit == 'true'
+      run: echo -n
+
+    - name: Building application
+      run: npm run build
+
+    - name: Packing in docker image
       run: docker build -t docker.pkg.github.com/abhi2705/storesestories/brandid:dev .
-    - name: Login to Github packages
-      run: echo ${{secrets.GITHUB_TOKEN}} | docker login docker.pkg.github.com -u ${GITHUB_ACTOR} --password-stdin
-    - name: Push image to Github packages
-      run: docker push docker.pkg.github.com/abhi2705/storesestories/brandid:dev
+
+    - name: Pushing image to Github packages
+      run: |
+        echo ${{secrets.GITHUB_TOKEN}} | docker login docker.pkg.github.com -u ${GITHUB_ACTOR} --password-stdin
+        docker push docker.pkg.github.com/abhi2705/storesestories/brandid:dev

@@ -1,7 +1,5 @@
-node_modules
-e2e
-.vscode
-.github
-.git
-.gitignore
-.editorconfig
+# Ignore everything
+**
+
+#Allow only dist folder
+!/dist/**

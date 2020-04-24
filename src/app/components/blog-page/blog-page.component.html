@@ -4,9 +4,9 @@
         <img class="blog-img" src="{{blogpage.imageUrl}}">
 
     <div class="container">
-            <div class="blog-page-tag">{{blogpage.tag}}</div>
+            <div class="blog-page-tag">{{blogpage.tags}}</div>
             <div class="blog-title">{{blogpage.title}}</div>
-            <div class="blog-page-date">{{blogpage.author}}  ·  {{blogpage.postedAt}}</div>
+            <div class="blog-page-date">{{blogpage.author}}  ·  {{getDate()}}</div>
             <div class="blog-content">{{blogpage.content}}</div>
     </div>
     
@@ -30,11 +30,21 @@
             </button>
         </div>
     </div>
-    <div class="track-block">
+    <!-- <div class="track-block">
         <div class="search-wrap">
-            <input aria-label="write a comment" onkeyup="storecomment(event)" placeholder="Write a comment" type="text">
+            <input aria-label="write a comment" #box (keyup.enter)="onEnter(box.value)" placeholder="Write a comment" type="text">
         </div>
+    </div> -->
+    <div class="search-wrap" style="margin: 6vh 1vh 1vh 1vh;">
+        <!-- <img alt="search icon" src="../../../assets/img/logos/search.svg"> -->
+        <input aria-label="write a comment" #box (keyup.enter)="onEnter(box.value)" placeholder="Write a comment" type="text">
     </div>
+
+
+
+
+
+
     <div class="blog-page-date container">Comments({{comments}})</div>
     <div class="blog-content container" style="font-size: 12px; font-weight: 600;">You may also like</div>
 

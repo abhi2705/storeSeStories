@@ -57,4 +57,12 @@ export class AuthApi extends BaseApi {
       return super.handleError(error);
     }
   }
+
+  logout (): Observable<any> {
+    const urlParam = 'logout';
+    return this.http.post<any>(this.endpointUrl + urlParam,this.GlobalOpts)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 }

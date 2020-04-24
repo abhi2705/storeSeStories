@@ -3,6 +3,7 @@ import { BaseApi } from './base.api';
 import { Observable } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Blogs, Blog } from '../models/blog.model';
+import { Comment,Comments} from '../models/comment.model';
 
 export class BlogApi extends BaseApi {
   private endpointUrl: string;
@@ -81,5 +82,15 @@ export class BlogApi extends BaseApi {
       catchError(this.handleError)
     );
   }
+
+  addComment (comment: Comment): Observable<Comment> {
+    const urlParam = 'add-comment/';
+    return this.http.post<Comment>(this.endpointUrl + urlParam, comment, this.GlobalOpts)
+      .pipe(
+        retry(this.Retries),
+        catchError(this.handleError)
+      );
+  }
+
 
 }

@@ -19,7 +19,7 @@
               <div class="row" routerLink="/blog/{{blog.blogId}}">
                 <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
                   <div style="padding:8px;">
-                    <div class="blog-date" >15th Aug 2020</div>
+                    <div class="blog-date" >{{getDate(blog)}}</div>
                     <div class=" blog-desc">{{blog.title}}</div>
                     <div class="blog-tag">{{blog.tags}}</div>
                   </div>

@@ -1,8 +1,7 @@
-import { Component, OnInit, Inject, Output, EventEmitter, ɵALLOW_MULTIPLE_PLATFORMS, OnDestroy } from '@angular/core';
-import { ViewChild } from 'ngx-onsenui';
+import { Component, OnInit, Inject, OnDestroy, ViewChild } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../services/api.service';
-import { Observable, Subject, Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
 import { IonSlides } from '@ionic/angular';
@@ -162,7 +161,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
 
   startAnimation(state) {
-    
+
     if (!this.animationState) {
       this.animationState = state;
     }
@@ -205,10 +204,10 @@ export class StoriesComponent implements OnInit, OnDestroy {
     on: {
       beforeInit() {
         const swiper = this;
-  
+
         swiper.classNames.push(`${swiper.params.containerModifierClass}coverflow`);
         swiper.classNames.push(`${swiper.params.containerModifierClass}3d`);
-  
+
         swiper.params.watchSlidesProgress = true;
         swiper.originalParams.watchSlidesProgress = true;
       },
@@ -229,24 +228,24 @@ export class StoriesComponent implements OnInit, OnDestroy {
           const slideSize = slidesSizesGrid[i];
           const slideOffset = $slideEl[0].swiperSlideOffset;
           const offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
-  
+
            let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
           let rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
           // var rotateZ = 0
           let translateZ = -translate * Math.abs(offsetMultiplier);
-  
+
            let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
           let translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-  
+
            // Fix for ultra small values
           if (Math.abs(translateX) < 0.001) translateX = 0;
           if (Math.abs(translateY) < 0.001) translateY = 0;
           if (Math.abs(translateZ) < 0.001) translateZ = 0;
           if (Math.abs(rotateY) < 0.001) rotateY = 0;
           if (Math.abs(rotateX) < 0.001) rotateX = 0;
-  
+
            const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  
+
            $slideEl.transform(slideTransform);
           $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
           // if (params.slideShadows) {
@@ -265,7 +264,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
           //   if ($shadowAfterEl.length) $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0;
           // }
         }
-  
+
          // Set correct perspective for IE10
         if (swiper.support.pointerEvents || swiper.support.prefixedPointerEvents) {
           const ws = $wrapperEl[0].style;
@@ -284,7 +283,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
       el: '.swiper-pagination',
       dynamicBullets: true,
     }
-    
+
   }
 
   ngOnDestroy(): void {

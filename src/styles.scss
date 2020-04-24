@@ -1,6 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/onsenui/css/onsenui.css';
-@import '../node_modules/onsenui/css/onsen-css-components.css';
 @import 'variables';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
@@ -21,7 +19,7 @@ html,body
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .overlay {

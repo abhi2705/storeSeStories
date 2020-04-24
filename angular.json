@@ -33,8 +33,6 @@
               }
             ],
             "styles": [
-              "node_modules/onsenui/css/onsenui.css",
-              "node_modules/onsenui/css/onsen-css-components.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -64,7 +62,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "12kb"
                 }
               ]
             }

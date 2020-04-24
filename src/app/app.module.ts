@@ -1,4 +1,4 @@
-import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Component framework imports
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { OnsenModule } from 'ngx-onsenui';
 import { IonicModule } from '@ionic/angular';
 import { SwipeCardLibModule } from 'ng-swipe-card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
@@ -19,8 +18,6 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { ShareTabComponent } from './components/share-tab/share-tab.component';
 import { UrlEncodePipe } from './pipes/url-encode.pipe';
-import { HammerGestureConfig } from '@angular/platform-browser';
-import * as hammer from 'hammerjs';
 import { FavouritesComponent } from './components/favourites/favourites.component';
 import { BrandNavComponent } from './components/brand-nav/brand-nav.component';
 import { BlogNavComponent } from './components/blog-nav/blog-nav.component';
@@ -31,18 +28,6 @@ import { AccountPageComponent } from './components/account-page/account-page.com
 import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component'
 import { LoginComponent } from './components/login/login.component';
 import { BearerInterceptorService } from './services/bearer-interceptor.service';
-import { AuthService } from './services/auth.service';
-
-export class MyHammerConfig extends HammerGestureConfig {
-  overrides = {
-    swipe: { direction: hammer.DIRECTION_VERTICAL },
-    pinch: { enable: false },
-    rotate: { enable: false }
-  } as any;
-}
-
-
-
 
 @NgModule({
   declarations: [
@@ -70,16 +55,11 @@ export class MyHammerConfig extends HammerGestureConfig {
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    OnsenModule,
     IonicModule.forRoot(),
     SwipeCardLibModule,
     BrowserAnimationsModule
   ],
   providers: [
-    {
-      provide: HAMMER_GESTURE_CONFIG,
-      useClass: MyHammerConfig
-    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BearerInterceptorService,

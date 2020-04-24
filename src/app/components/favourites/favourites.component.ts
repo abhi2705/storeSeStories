@@ -88,35 +88,12 @@ export class FavouritesComponent implements OnInit {
 
   remove_like(i){
     this.liked[i] = "like_n";
-    this.document.getElementById("modal01").style.display = "none";
+    this.document.getElementById("modal01").style.display = "block !important";
+    location.reload();
     return;
   }
 
   back_to_list() {
     this.document.getElementById("modal01").style.display = "none";
   }
-
-  // open(content) {
-  //   // this.source = story.imageUrl;
-  //   // this.target = story.targetUrl;
-  //   // this.time = this.get_duration(story);
-  //   // this.ind = i;
-  //   // this.like = this.liked[i];
-  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-  //     console.log(result);
-  //   }, (reason) => {
-  //     console.log(reason);
-  //   });
-  // }
-
-  // private getDismissReason(reason: any): string {
-  //   if (reason === ModalDismissReasons.ESC) {
-  //     return 'by pressing ESC';
-  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-  //     return 'by clicking on a backdrop';
-  //   } else {
-  //     return `with: ${reason}`;
-  //   }
-  // }
-
 }

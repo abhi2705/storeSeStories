@@ -222,3 +222,8 @@ $btn-width: $img-width;
     color: #fefefe;
     font-family: 'Montserrat';
   }
+
+.modal {
+  align-items: center;
+  z-index: 100 !important;
+}

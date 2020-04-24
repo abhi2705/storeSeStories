@@ -24,7 +24,7 @@ jobs:
       run: echo -n
 
     - name: Building application
-      run: npm run build
+      run: npm run build:prod
 
     - name: Packing in docker image
       run: docker build -t docker.pkg.github.com/abhi2705/storesestories/brandid:latest .

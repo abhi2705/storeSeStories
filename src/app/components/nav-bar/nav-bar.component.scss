@@ -32,3 +32,13 @@ img.icon {
 .bookmark_btn {
   background-image: url('src/assets/blog-icons/bookmark.svg');
 }
+.back_btn {
+  background-image: url('../../../assets/account-icons/next.svg');
+}
+.back {
+  -webkit-transform:rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}

@@ -4,14 +4,14 @@
         <img class="blog-img" src="{{blogpage.imageUrl}}">
 
         <div class="container">
-            <div class="blog-page-tag">{{blogpage.tags}}</div>
-            <div class="blog-title">{{blogpage.title}}</div>
-            <div class="blog-page-date">{{blogpage.author}} · {{getDate(blogpage)}}</div>
-            <div class="blog-content">{{blogpage.content}}</div>
+            <div class="blog-page-tag ow">{{blogpage.tags}}</div>
+            <div class="blog-title ow">{{blogpage.title}}</div>
+            <div class="blog-page-date ow">{{blogpage.author}} · {{getDate(blogpage)}}</div>
+            <div class="blog-content ow" >{{blogpage.content}}</div>
         </div>
 
         <div class="button-strap container">
-            <div class="button-wrap" style="margin-left: 30%;">
+            <div class="button-wrap" >
                 <button class="btn share" (click)="likePage()">
                     <img [hidden]="isLiked" class="blog-button" src="../../../assets/blog-icons/heart.svg" />
                     <img [hidden]="!isLiked" class="blog-button" src="../../../assets/blog-icons/heart_liked.png" />
@@ -24,20 +24,20 @@
 
                 </button>
             </div>
-            <div class="button-wrap" style="margin-right: 30%;">
+            <div class="button-wrap" >
                 <button class="btn share" (click)="activateShare()">
                     <img class="blog-button" src="../../../assets/blog-icons/share.svg" />
                 </button>
             </div>
         </div>
 
-        <div class="search-wrap" style="margin: 6vh 1vh 1vh 1vh;">
+        <!-- <div class="search-wrap" style="margin: 6vh 1vh 1vh 1vh;">
             <input aria-label="write a comment" #box (keyup.enter)="onEnter(box.value)" placeholder="Write a comment"
                 type="text">
         </div>
 
-        <div class="blog-page-date container">Comments({{comments}})</div>
-        <div class="blog-content container" style="font-size: 12px; font-weight: 600;"
+        <div class="blog-page-date container">Comments({{comments}})</div> -->
+        <div class="blog-content container" style="font-size: 12px; font-weight: 600; margin-bottom: 8px;margin-top: 16px;"
             *ngIf="recommendedBlogs.length > 0">You may also like</div>
 
     </div>

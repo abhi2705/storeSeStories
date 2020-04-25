@@ -20,6 +20,15 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   blogId: number;
   comments: number;
   private sub2: Subscription;
+  private isbook: Subscription;
+  private book: Subscription;
+  private unbook: Subscription;
+  private islike: Subscription;
+  private like: Subscription;
+  private unlike: Subscription;
+  private commentCount: Subscription;
+  private saveComment: Subscription;
+  private blogsub: Subscription;
   favBtnEnabled: boolean;
   blogpage: any;
   newComment: Comment;
@@ -36,21 +45,21 @@ export class BlogPageComponent implements OnInit, OnDestroy {
     this.recommendedBlogs = []
     this.newComment = { "commentId": 0, "content": '', "sourceId": 0, "userId": 0 }
     this.blogId = this.route.snapshot.params['id']
-    this.apiservice.blogs.get(this.blogId).subscribe((data: Blogs) => {
+    this.blogsub = this.apiservice.blogs.get(this.blogId).subscribe((data: Blogs) => {
       this.blogpage = data;
     });
 
-    this.apiservice.blogs.isbookmarked(this.blogId).subscribe((data: Boolean) => {
+    this.isbook = this.apiservice.blogs.isbookmarked(this.blogId).subscribe((data: Boolean) => {
       this.isBookmarked = data;
     });
 
-    this.apiservice.blogs.isliked(this.blogId).subscribe((data: Boolean) => {
+    this.islike = this.apiservice.blogs.isliked(this.blogId).subscribe((data: Boolean) => {
       this.isLiked = data;
     });
 
     this.getCommentCount();
 
-    this.apiservice.blogs.get().subscribe((data: Blogs) => {
+    this.blogsub = this.apiservice.blogs.get().subscribe((data: Blogs) => {
       for (let i in data.blogs) {
 
         if (data.blogs[i].blogId != this.blogId)
@@ -65,7 +74,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   }
 
   getCommentCount() {
-    this.apiservice.blogs.getCommentsCount(this.blogId).subscribe((data: number) => {
+    this.commentCount = this.apiservice.blogs.getCommentsCount(this.blogId).subscribe((data: number) => {
       this.comments = data;
     });
 
@@ -77,12 +86,12 @@ export class BlogPageComponent implements OnInit, OnDestroy {
 
   bookmarkPage() {
     if (this.isBookmarked == false) {
-      this.apiservice.blogs.bookmark(this.blogId).subscribe((data: Boolean) => {
+      this.book = this.apiservice.blogs.bookmark(this.blogId).subscribe((data: Boolean) => {
         this.isBookmarked = data
       });
     }
     else {
-      this.apiservice.blogs.unbookmark(this.blogId).subscribe((data: Boolean) => {
+      this.unbook = this.apiservice.blogs.unbookmark(this.blogId).subscribe((data: Boolean) => {
         this.isBookmarked = data
       });
     }
@@ -90,12 +99,12 @@ export class BlogPageComponent implements OnInit, OnDestroy {
 
   likePage() {
     if (this.isLiked == false) {
-      this.apiservice.blogs.like(this.blogId).subscribe((data: Boolean) => {
+      this.like = this.apiservice.blogs.like(this.blogId).subscribe((data: Boolean) => {
         this.isLiked = data
       });
     }
     else {
-      this.apiservice.blogs.unlike(this.blogId).subscribe((data: Boolean) => {
+      this.unlike = this.apiservice.blogs.unlike(this.blogId).subscribe((data: Boolean) => {
         this.isLiked = data
       });
 
@@ -131,7 +140,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
     this.newComment.content = comment
     this.newComment.sourceId = this.blogId
 
-    this.apiservice.blogs.addComment(this.newComment).subscribe((data: Comment) => { });
+    this.saveComment = this.apiservice.blogs.addComment(this.newComment).subscribe((data: Comment) => { });
 
     this.getCommentCount();
 
@@ -140,6 +149,15 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.bookmarkButtonService.toggleBookmarkBtnView(false);
     this.sub2.unsubscribe();
+    this.isbook.unsubscribe();
+    this.book.unsubscribe();
+    this.unbook.unsubscribe();
+    this.like.unsubscribe();
+    this.islike.unsubscribe();
+    this.unlike.unsubscribe();
+    this.commentCount.unsubscribe();
+    this.saveComment.unsubscribe();
+    this.blogsub.unsubscribe();
   }
 
 }

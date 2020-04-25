@@ -5,6 +5,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Blogs, Blog } from 'src/app/models/blog.model';
 import { BlogsService } from '../../services/blogs.service';
 
+
 @Component({
   selector: 'app-blog-nav',
   templateUrl: './blog-nav.component.html',

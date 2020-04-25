@@ -48,6 +48,9 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
     if(status == null) {
       return "Pending";
     }
+    else if(status == "fulfilled") {
+      return "Fulfilled";
+    }
     else {
       return status;
     }

@@ -79,18 +79,18 @@
 
 
 
-    <div class="acc-options" (click)="isCollapsedOrders = !isCollapsedOrders" [attr.aria-expanded]="!isCollapsedOrders" aria-controls="orders">
+    <div class="acc-options" aria-controls="orders" routerLink="/myOrders">
         <div class="acc-option-text">Orders</div>
-        <img [hidden]="!isCollapsedOrders" class="arrows rotateimg90" src="../../../assets/account-icons/next.svg" alt=""/>
-        <img [hidden]="isCollapsedOrders" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg" alt=""/>
+        <img class="arrows " src="../../../assets/account-icons/next.svg" alt=""/>
+        <!-- <img [hidden]="isCollapsedOrders" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg" alt=""/> -->
     </div>
-    <div id="orders" [ngbCollapse]="isCollapsedOrders">
+    <!-- <div id="orders" [ngbCollapse]="isCollapsedOrders">
         <div class="drop-down">
                 
             <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>            
         
             </div>  
-    </div>
+    </div> -->
 
     <div class="acc-options" >
         <div class="acc-option-text">Logout</div>

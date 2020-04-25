@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Blogs } from '../models/blog.model'
 import { User } from '../models/user.model'
-import { Orders } from '../models/order.model';
+import { Orders, Order } from '../models/order.model';
 import { Stories } from '../models';
 
 
@@ -45,6 +45,14 @@ export class AccountApi extends BaseApi {
 
   getLikedCards(): Observable<Stories> {
     return this.http.get<Stories>(this.endpointUrl + 'liked-cards', this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+  }
+
+  getOrder(id: number ): Observable<Order> {
+    const urlParams = 'order/' + id;
+    return this.http.get<Order>(this.endpointUrl + urlParams, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );

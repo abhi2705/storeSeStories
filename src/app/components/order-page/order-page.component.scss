@@ -1,0 +1,51 @@
+.app-order-page{
+  overflow-y: scroll;
+  height: 100%;
+  p {
+    margin: 0;
+  }
+  .banner {
+    height: 8%;
+  }
+  transition: all 1s ease-in-out 0.5s;
+  .order-items {
+    .row {
+      .pdt-img {
+        .pdt-img-wrapper{
+          position: relative;
+          width: fit-content;
+          margin: 0;
+          img {
+            max-width: 95%;
+            border-radius:10px;
+            border: 1px solid #eaeaea;
+          }
+          .pdt-count {
+            position: absolute;
+            top: -5%;
+            right: -5%;
+          }
+        }
+      }
+      p {
+        font-size: 0.8rem;
+        margin: 0;
+      }
+      .pdt-name {
+        text-align: justify;
+      }
+      .pdt-price {
+        text-align: right;
+      }
+    }
+  }
+  .cust-deets {
+    .card {
+      .card-body {
+        .card-text {
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { Blogs } from '../models/blog.model'
 import { Account } from '../models/account.model';
 import { Story, Stories } from '../models/story.model';
+import { Order, Orders } from '../models/order.model';
 
 export class AccountApi extends BaseApi {
   private endpointUrl: string;
@@ -22,6 +23,13 @@ export class AccountApi extends BaseApi {
 
   getLikedCards(): Observable<Stories> {
     return this.http.get<Stories>(this.endpointUrl + 'liked-cards', this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+  }
+
+  getMyOrders(): Observable<Orders> {
+    return this.http.get<Orders>(this.endpointUrl + 'my-orders', this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );

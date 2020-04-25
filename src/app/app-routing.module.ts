@@ -10,6 +10,8 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
 import { AccountPageComponent} from './components/account-page/account-page.component';
 import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component';
 import { BrandPageComponent } from './components/brand-page/brand-page.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -52,6 +54,10 @@ const routes: Routes = [
         path : 'bookmarked',
         component : BoomarkedBlogsComponent
       },
+      {
+        path: 'myOrders',
+        component: MyOrdersComponent
+      }
     ]
   }
 ];

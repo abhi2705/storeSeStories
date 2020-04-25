@@ -28,6 +28,8 @@ import { AccountPageComponent } from './components/account-page/account-page.com
 import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component'
 import { LoginComponent } from './components/login/login.component';
 import { BearerInterceptorService } from './services/bearer-interceptor.service';
+import { AuthService } from './services/auth.service';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { BearerInterceptorService } from './services/bearer-interceptor.service'
     StoriedBlogsComponent,
     AccountPageComponent,
     BoomarkedBlogsComponent,
-    LoginComponent
+    LoginComponent,
+    MyOrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -22,6 +22,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   source = "";
   target = "";
   time = "";
+  brandId = "";
 
   liked = [];
   like = "";
@@ -65,6 +66,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
     this.time = this.get_duration(story);
     this.ind = i;
     this.like = this.liked[i];
+    this.brandId = story.brandId;
 
     this.document.getElementById("modal01").style.display = "block";
   }
@@ -91,6 +93,8 @@ export class FavouritesComponent implements OnInit, OnDestroy {
 
   remove_like(i){
     this.liked[i] = "like_n";
+    console.log(this.liked_stories[i].storyId);
+    this.apiservice.stories.unlike(this.liked_stories[i].storyId).subscribe(()=> {});
     this.document.getElementById("modal01").style.display = "block !important";
     location.reload();
     return;

@@ -7,7 +7,7 @@
           <p class="text">{{get_duration(story)}}</p>
           <button class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> 
           <button class="btn share" (click)="activateShare(story.targetUrl)"></button>
-          <button class="btn gradient-button gradient-button-1" (click)="shop_now(story)">VISIT BRAND</button>
+          <button class="btn gradient-button gradient-button-1" routerLink="/brand/{{story.brandId}}">VISIT BRAND</button>
         </div>
       </div>
     </ion-slide>

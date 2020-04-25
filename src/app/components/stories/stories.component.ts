@@ -47,12 +47,18 @@ export class StoriesComponent implements OnInit, OnDestroy {
       var l = this.all_stories.length;
       var i = 0;
       for(i = 0; i < l; i++){
-        if(this.all_stories[i].isLiked)
-          this.liked.push("like_y");
-        else
-          this.liked.push("like_n");
+        this.apiservice.stories.isliked(this.all_stories[i].storyId).subscribe((data : Boolean)=> {
+          if(data) {
+            // console.log(data);
+            this.liked.push("like_y");
+          }
+          else {
+            // console.log(data);
+            this.liked.push("like_n");
+          }
+        });
         if(i < 7)
-          this.active.push("dot");
+        this.active.push("dot");
       }
       this.len = l;
     });
@@ -103,11 +109,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
     }
   }
 
-  shop_now(story){
-    this.document.location.href = story.targetUrl;
-    // console.log("stories: ",this.stories);
-  }
-
   get_duration(story){
     const date1 = new Date(story.postedAt);
     const date2 = new Date();
@@ -131,16 +132,14 @@ export class StoriesComponent implements OnInit, OnDestroy {
   }
 
   add_like(story, i){
-    var index = this.favourite_stories.indexOf(story);
-    if(index > -1){
+    if(this.liked[i] == "like_y") {
       this.liked[i] = "like_n";
-      this.favourite_stories.splice(index, 1);
-      console.log(this.favourite_stories);
-      return;
+      this.apiservice.stories.unlike(story.storyId).subscribe(()=> {});
     }
-    this.favourite_stories.push(story);
-    this.liked[i] = "like_y";
-    console.log(this.favourite_stories);
+    else {
+      this.liked[i] = "like_y";
+      this.apiservice.stories.like(story.storyId).subscribe(()=> {});
+    }
     return;
   }
 
@@ -157,38 +156,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.slidesLoaded = true;
     this.active.push(0);
     this.active.pop();
-  }
-
-
-  startAnimation(state) {
-
-    if (!this.animationState) {
-      this.animationState = state;
-    }
-    // console.log("start ", state);
-  }
-
-  resetAnimationState(state) {
-    console.log("reset ", state);
-    if(state.toState == "swipeleft"){
-      console.log("left");
-      this.i = this.i + 1;
-      if(this.i == 10)
-        this.i = 9;
-
-      this.active[this.i] = "dot_active";
-      this.active[this.i - 1] = "dot";
-    }
-    else if(state.toState == "swiperight"){
-      console.log('right');
-      this.i = this.i - 1;
-      if(this.i == -1)
-        this.i = 0;
-
-      this.active[this.i] = "dot_active";
-      this.active[this.i + 1] = "dot";
-    }
-    this.animationState = '';
   }
 
   // ==> Coverflow

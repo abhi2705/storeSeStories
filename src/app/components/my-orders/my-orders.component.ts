@@ -58,7 +58,7 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
 
   getItemImage(i) {
     var order = this.all_orders[i];
-    var item = order.line_items[0];
+    var itemId = order.line_items[0].product_id;
     return "";
   }
 

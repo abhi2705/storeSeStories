@@ -222,3 +222,19 @@ $btn-width: $img-width;
     color: #fefefe;
     font-family: 'Montserrat';
   }
+  .btn1{
+    position: absolute;
+    left: 5%;
+    border: none;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
+    background-size: 50%;
+    background-position: 50%, 50%;
+    background-repeat: no-repeat;
+  }
+  
+  .liked_btn {
+    background-color: #FFF;
+    background-image: url('../../../assets/account-icons/back.svg');
+  }

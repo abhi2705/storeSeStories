@@ -1,7 +1,11 @@
+
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="component-wrapper">
     <div class="content-wrapper">
       <div class="scroll-wrapper">
+        <a href="/feed"><button  class="btn1 liked_btn" routerLink="/feed"></button></a>
+          <br>
           <p class="heading">Liked Cards</p>
           <div class="card card-1 column"  *ngFor="let story of (stories$ | async)?.stories; let i = index" >
             <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story, i)" id="{{i}}">

@@ -1,4 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { Location } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Observable } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
@@ -28,7 +29,8 @@ export class FavouritesComponent implements OnInit {
   constructor(@Inject(DOCUMENT) private document: Document, 
                                 private apiservice: ApiService,
                                 private shareTabService: ShareTabService,
-                                private modalService: NgbModal) { }
+                                private modalService: NgbModal,
+                                private location: Location) { }
 
   ngOnInit(): void {
     this.stories$ = this.apiservice.stories.get();
@@ -95,7 +97,12 @@ export class FavouritesComponent implements OnInit {
   back_to_list() {
     this.document.getElementById("modal01").style.display = "none";
   }
+  goBack() {
+    // window.history.back();
+    this.location.back();
 
+    console.log( 'goBack()...' );
+  }
   // open(content) {
   //   // this.source = story.imageUrl;
   //   // this.target = story.targetUrl;
@@ -120,3 +127,5 @@ export class FavouritesComponent implements OnInit {
   // }
 
 }
+
+

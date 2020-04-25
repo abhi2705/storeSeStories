@@ -1,4 +1,5 @@
 
+import { Location } from '@angular/common';
 import {ShareTabService } from 'src/app/services/share-tab.service'
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -24,6 +25,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
    constructor(private apiservice: ApiService,
                private shareTabService: ShareTabService, 
                private route : ActivatedRoute,
+               private location: Location,
                private bookmarkButtonService: BlogsService) {
                   this.isLiked=false;
                   this.isBookmarked=false;
@@ -86,6 +88,12 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.bookmarkButtonService.toggleBookmarkBtnView(false);
     this.sub2.unsubscribe();
+  }
+  goBack() {
+    // window.history.back();
+    this.location.back();
+
+    console.log( 'goBack()...' );
   }
 
 }

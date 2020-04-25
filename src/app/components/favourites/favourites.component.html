@@ -4,9 +4,9 @@
 <div class="component-wrapper">
     <div class="content-wrapper">
       <div class="scroll-wrapper">
-        <a href="/feed"><button  class="btn1 liked_btn" routerLink="/feed"></button></a>
-          <br>
-          <p class="heading">Liked Cards</p>
+        <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
+          
+          <p class="heading" style="margin-left: 6vh;">Liked Cards</p>
           <div class="card card-1 column"  *ngFor="let story of (stories$ | async)?.stories; let i = index" >
             <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story, i)" id="{{i}}">
             <button class="btn gradient-button gradient-button-1" (click)="shop_now(story.targetUrl)">SHOP NOW</button>

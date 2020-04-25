@@ -4,10 +4,9 @@
       <input aria-label="search your apartment" onkeyup="search(event)" placeholder="Search for brand or product"
         type="text">
     </div>
-    <a href="/feed"><button  class="btn1 liked_btn" routerLink="/feed"></button></a>
+    <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
   </div>
-  <br>
-  <p>Bookmarked</p>
+  <p style="margin-left: 6vh; margin-top: 15px;">Bookmarked</p>
   <div class="scroll-wrapper" style=" height:75vh;">
     <app-storied-blogs></app-storied-blogs>
 </div>

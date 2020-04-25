@@ -238,3 +238,8 @@ $btn-width: $img-width;
     background-color: #FFF;
     background-image: url('../../../assets/account-icons/back.svg');
   }
+
+.modal {
+  align-items: center;
+  z-index: 100 !important;
+}

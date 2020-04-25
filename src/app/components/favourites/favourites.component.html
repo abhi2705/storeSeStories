@@ -9,36 +9,21 @@
           <p class="heading" style="margin-left: 6vh;">Liked Cards</p>
           <div class="card card-1 column"  *ngFor="let story of (stories$ | async)?.stories; let i = index" >
             <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story, i)" id="{{i}}">
-            <button class="btn gradient-button gradient-button-1" (click)="shop_now(story.targetUrl)">SHOP NOW</button>
+            <button class="btn gradient-button gradient-button-1" (click)="shop_now(story.targetUrl)">VISIT BRAND</button>
           </div>
       </div>
     </div>
 </div>
 
-<div id="modal01" class="w3-modal" style="align-items: center;">
-  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+<div id="modal01" class="w3-modal modal">
+  <span class="w3-button w3-hover-red w3-xlarge w3-display-topright" (click)="back_to_list()">&times;</span>
   <div class="w3-animate-zoom">
     <div class="card card-wrapper">
       <img [src]="source" id="img01" alt="Image Not Found" class="img2" (click)="back_to_list()">
       <p class="text">{{time}}</p>
       <button class="btn like" [ngClass]=like (click)="remove_like(ind)"></button>
       <button class="btn share" (click)="activateShare(target)" ></button>
-      <button class="btn gradient-button-2 gradient-button-3" (click)="shop_now(target)">SHOP NOW</button>
+      <button class="btn gradient-button-2 gradient-button-3" (click)="shop_now(target)">VISIT BRAND</button>
     </div>
   </div>
 </div>
-
-<!-- 
-<ng-template #content let-modal>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <div class="card card-wrapper">
-      <img [src]="source" id="img01" alt="Image Not Found" class="img2">
-      <p class="text">{{time}}</p>
-      <button class="btn like" [ngClass]=like (click)="remove_like(ind)"></button>
-      <button class="btn share" (click)="activateShare(target)"></button>
-      <button class="btn gradient-button-2 gradient-button-3" (click)="shop_now(target)">SHOP NOW</button>
-    </div>
-</ng-template>
-   -->

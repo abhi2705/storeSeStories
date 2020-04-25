@@ -1,0 +1,15 @@
+<div class="container main">
+    <p class="main-heading">My Orders</p>
+    <div class="card card-wrapper" *ngFor="let order of all_orders; let i = index">
+        <div class="card-body card-body-wrapper">
+            <div class="col-8">
+                <p class="product_name">{{getItemName(i)}}</p>
+            <p class="product_status">{{getProductStatus(i)}}</p>
+            </div>
+            <div class="col-4">
+                <img src=getItemImage(i) alt="Product Image" class="product_img">
+            </div>
+        </div>
+    </div>
+</div>
+

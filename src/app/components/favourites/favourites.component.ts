@@ -1,49 +1,52 @@
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
+import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { DOCUMENT } from '@angular/common';
 import { ShareTabService } from 'src/app/services/share-tab.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.scss']
 })
-export class FavouritesComponent implements OnInit {
+export class FavouritesComponent implements OnInit, OnDestroy {
 
   stories$: Observable<Stories>;
+  liked_stories = [];
 
   sidebarIsActive = false;
 
   source = "";
   target = "";
-  time = ""
+  time = "";
 
   liked = [];
-  like = ""
+  like = "";
   ind = 0;
+
+  private sub: Subscription;
 
   constructor(@Inject(DOCUMENT) private document: Document, 
                                 private apiservice: ApiService,
                                 private shareTabService: ShareTabService,
                                 private modalService: NgbModal,
-                                private location: Location) { }
+                                private location: Location,
+                                private shareTabService: ShareTabService) { }
+
 
   ngOnInit(): void {
-    this.stories$ = this.apiservice.stories.get();
-    this.stories$.subscribe((data: Stories) => {
+    this.stories$ = this.apiservice.account.getLikedCards();
+    this.sub = this.stories$.subscribe((data: Stories) => {
       console.log(data);
-      var all_stories = data.stories;
-      var l = all_stories.length;
+      this.liked_stories = data.stories;
+      var l = this.liked_stories.length;
       var i = 0;
       for(i = 0; i < l; i++){
-        // if(all_stories[i].isLiked == true)
           this.liked.push("like_y");
-        // else
-        //   this.liked.push("like_n");
       }
     });
   }
@@ -90,7 +93,8 @@ export class FavouritesComponent implements OnInit {
 
   remove_like(i){
     this.liked[i] = "like_n";
-    this.document.getElementById("modal01").style.display = "none";
+    this.document.getElementById("modal01").style.display = "block !important";
+    location.reload();
     return;
   }
 
@@ -126,6 +130,9 @@ export class FavouritesComponent implements OnInit {
   //   }
   // }
 
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 }
 
 

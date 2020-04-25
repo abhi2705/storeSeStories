@@ -10,12 +10,14 @@ import { BrandApi } from './brand.api';
 import {StoryApi } from './story.api';
 import { AuthApi } from './auth.api';
 import { BlogApi } from './blog.api';
+import { AccountApi } from './account.api';
 
 const ApiList = [
   {name: 'stories', endpoint: 'story/', class: StoryApi},
   {name: 'brands', endpoint: 'brand/', class: BrandApi},
   {name: 'auth', endpoint: 'auth/', class: AuthApi},
-  {name: 'blogs', endpoint: 'blog/', class: BlogApi}
+  {name: 'blogs', endpoint: 'blog/', class: BlogApi},
+  {name: 'account', endpoint: 'account/', class: AccountApi}
 ];
 
 
@@ -24,6 +26,7 @@ class Api {
   brands: BrandApi;
   auth: AuthApi;
   blogs: BlogApi;
+  account :  AccountApi;
 }
 
 export { ApiList, Api };

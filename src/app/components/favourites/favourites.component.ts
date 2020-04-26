@@ -1,5 +1,4 @@
 
-import { Component, OnInit, Inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
@@ -7,7 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { DOCUMENT } from '@angular/common';
 import { ShareTabService } from 'src/app/services/share-tab.service';
-
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',

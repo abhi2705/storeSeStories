@@ -8,6 +8,7 @@
     background-size: 50%;
     background-position: 50%, 50%;
     background-repeat: no-repeat;
+    margin-top: 10px;
   }
   
   .liked_btn {
@@ -15,7 +16,7 @@
     background-image: url('../../../assets/account-icons/back.svg');
   }
 .blog-img{
-    margin-top: 16px;
+    // margin-top: 16px;
     height: 250px;
     object-fit: cover;
     width: 100%;
@@ -23,7 +24,7 @@
 }
 .blog-page-tag{
     height:36px;
-    margin-top: 18px;
+    margin-top: 16px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
     font-size: 14px; 

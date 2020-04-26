@@ -34,8 +34,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
                                 private apiservice: ApiService,
                                 private shareTabService: ShareTabService,
                                 private modalService: NgbModal,
-                                private location: Location,
-                                private shareTabService: ShareTabService) { }
+                                private location: Location) { }
 
 
   ngOnInit(): void {

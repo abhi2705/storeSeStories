@@ -26,7 +26,7 @@ class Api {
   brands: BrandApi;
   auth: AuthApi;
   blogs: BlogApi;
-  account :  AccountApi;
+  account: AccountApi;
 }
 
 export { ApiList, Api };

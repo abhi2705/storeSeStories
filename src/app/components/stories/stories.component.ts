@@ -27,10 +27,14 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
   slidesLoaded = false;
 
-  private sub: Subscription;
+  sub: Subscription;
 
   private sub2: Subscription;
   favBtnEnabled: boolean;
+
+  private sub3: Subscription;
+  private sub4: Subscription = null;
+  private sub5: Subscription = null;
 
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
@@ -47,16 +51,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
       var l = this.all_stories.length;
       var i = 0;
       for(i = 0; i < l; i++){
-        this.apiservice.stories.isliked(this.all_stories[i].storyId).subscribe((data : Boolean)=> {
-          if(data) {
-            // console.log(data);
-            this.liked.push("like_y");
-          }
-          else {
-            // console.log(data);
-            this.liked.push("like_n");
-          }
-        });
+        if(this.all_stories[i].isLiked) {
+          this.liked.push("like_y");
+        }
+        else {
+          this.liked.push("like_n");
+        }
         if(i < 7)
         this.active.push("dot");
       }
@@ -69,7 +69,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
   get_class(ind){
     var i = parseInt(this.document.getElementsByClassName("swiper-slide-active")[0].id);
-    // console.log(i);
     if(i < 6){
       if(this.len > 7){
         if(ind == 6){
@@ -134,11 +133,11 @@ export class StoriesComponent implements OnInit, OnDestroy {
   add_like(story, i){
     if(this.liked[i] == "like_y") {
       this.liked[i] = "like_n";
-      this.apiservice.stories.unlike(story.storyId).subscribe(()=> {});
+      this.sub4 = this.apiservice.stories.unlike(story.storyId).subscribe(()=> {});
     }
     else {
       this.liked[i] = "like_y";
-      this.apiservice.stories.like(story.storyId).subscribe(()=> {});
+      this.sub5 = this.apiservice.stories.like(story.storyId).subscribe(()=> {});
     }
     return;
   }

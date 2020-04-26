@@ -10,8 +10,8 @@ export class BearerInterceptorService implements HttpInterceptor {
   constructor(private inj: Injector) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    // If request is to /api/auth or not to the api, then let it pass untouched.
-    if (/\/api\/auth/.test(req.url) || !(/\/api/.test(req.url))) {
+    // If request is to /api/auth (exception: /api/auth/logout) or not to the api, then let it pass untouched.
+    if (/\/api\/auth\/[^l]+/.test(req.url) || !(/\/api/.test(req.url))) {
       return next.handle(req);
     }
     if (!this.auth) {

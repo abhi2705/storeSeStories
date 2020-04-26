@@ -54,6 +54,13 @@ export class AuthService {
     });
   }
 
+  logout(): void {
+    this.api.auth.logout().subscribe(res => {
+      this.clearToken();
+      this.refreshToken();
+    });
+  }
+
   sendOtp(mobile: string): void {
     this.api.auth.getOtp(mobile).subscribe();
   }
@@ -94,6 +101,10 @@ export class AuthService {
   private setToken(token: string): void {
     localStorage.setItem('jwt', token);
     this.token = token;
+  }
+
+  private clearToken(): void {
+    localStorage.removeItem('jwt');
   }
 
   private getLocalToken(): string {

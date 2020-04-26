@@ -86,7 +86,7 @@
 
 
 
-    <div class="acc-options" aria-controls="orders" routerLink="/myOrders">
+    <div class="acc-options" aria-controls="orders" routerLink="/my-orders">
         <div class="acc-option-text">Orders</div>
         <img class="arrows " src="../../../assets/account-icons/next.svg" alt=""/>
         <!-- <img [hidden]="isCollapsedOrders" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg" alt=""/> -->
@@ -99,7 +99,7 @@
             </div>
     </div> -->
 
-    <div class="acc-options">
+    <div class="acc-options" (click)="onLogout()">
         <div class="acc-option-text">Logout</div>
         <img class="arrows" src="../../../assets/account-icons/off.svg" alt="" />
     </div>

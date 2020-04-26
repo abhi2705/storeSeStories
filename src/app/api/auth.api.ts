@@ -49,6 +49,12 @@ export class AuthApi extends BaseApi {
     );
   }
 
+  logout(): Observable<any> {
+    return this.http.post(this.endpointUrl + 'logout', {}).pipe(
+      catchError(this.handleError)
+    );
+  }
+
   protected handleError(error: HttpErrorResponse) {
     if (error.status === 403) {
       return throwError('Invalid');

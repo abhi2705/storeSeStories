@@ -11,6 +11,7 @@ import { AccountPageComponent} from './components/account-page/account-page.comp
 import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component';
 import { BrandPageComponent } from './components/brand-page/brand-page.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { OrderPageComponent } from './components/order-page/order-page.component';
 
 const routes: Routes = [
   {
@@ -55,8 +56,12 @@ const routes: Routes = [
         component : BoomarkedBlogsComponent
       },
       {
-        path: 'myOrders',
+        path: 'my-orders',
         component: MyOrdersComponent
+      },
+      {
+        path: 'order/:id',
+        component: OrderPageComponent
       }
     ]
   }

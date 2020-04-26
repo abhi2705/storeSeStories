@@ -337,7 +337,7 @@ ion-slides {
 
 }
 
-// For smaller laptop size screens 
+// For smaller laptop size screens
 @media only screen and (min-width: 769px) and (max-width: 999px){
 
   .view {
@@ -367,7 +367,7 @@ ion-slides {
     background-size: 200% auto;
     color: #FFF;
     box-shadow: 0 0 20px #eee;
-    width: 100%; 
+    width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;
@@ -474,7 +474,7 @@ ion-slides {
 
 // For large laptop screens
 @media only screen and (min-width: 1000px) {
-  
+
   .view {
     display: flex;
     justify-content: center;
@@ -502,7 +502,7 @@ ion-slides {
     background-size: 200% auto;
     color: #FFF;
     box-shadow: 0 0 20px #eee;
-    width: 100%; 
+    width: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     cursor: pointer;

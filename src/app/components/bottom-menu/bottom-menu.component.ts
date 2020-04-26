@@ -22,7 +22,7 @@ export class BottomMenuComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.active = this.getTabFromUrl(this.router.url);
-    this.sub = this.router.events.pipe(filter( event => true || event instanceof  NavigationEnd))
+    this.sub = this.router.events.pipe(filter( event => event instanceof  NavigationEnd))
     .subscribe((e: NavigationEnd) => {
       this.active = this.getTabFromUrl(e.urlAfterRedirects);
     });
@@ -33,7 +33,8 @@ export class BottomMenuComponent implements OnInit, OnDestroy {
   }
 
   private getTabFromUrl(url: string): number {
-    return this.mapping[url.split('/')[1]];
+    const tab = this.mapping[url.split('/')[1]];
+    return tab !== undefined ? tab : -1;
   }
 
   handleClick(target: number): void {

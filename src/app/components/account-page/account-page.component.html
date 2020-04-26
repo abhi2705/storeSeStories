@@ -1,103 +1,106 @@
 <div class="acc-top-bar">
-    <div >
-        <img class="acc-img" src="https://image.shutterstock.com/image-vector/user-account-profile-circle-flat-260nw-467503004.jpg"/>
+    <div>
+        <img class="acc-img"
+            src="https://image.shutterstock.com/image-vector/user-account-profile-circle-flat-260nw-467503004.jpg" />
     </div>
-    <div class="acc-name">Anil Jangid</div>
-    <div class="acc-info">9876543209 · xyz@gmail.com</div>
+    <div class="acc-name">{{accDetails.firstName}} {{accDetails.lastName}}</div>
+    <div class="acc-info">{{accDetails.emailId}}</div>
     <div class="edit-acc">
-        <img style="height: 25px; width: 25px;" src="../../../assets/account-icons/pen.svg"/>
+        <img style="height: 25px; width: 25px;" src="../../../assets/account-icons/pen.svg" />
     </div>
 </div>
 
 
 
 <div class="scroll-wrapper">
-    
-    <div class="acc-options" (click)="isCollapsedAcc = !isCollapsedAcc" [attr.aria-expanded]="!isCollapsedAcc" aria-controls="myAccount">
+
+    <div class="acc-options" (click)="isCollapsedAcc = !isCollapsedAcc" [attr.aria-expanded]="!isCollapsedAcc"
+        aria-controls="myAccount">
         <div class="acc-option-text">My Account</div>
-        <img [hidden]="!isCollapsedAcc" class="arrows rotateimg90" src="../../../assets/account-icons/next.svg" alt=""/>
-        <img [hidden]="isCollapsedAcc" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg" alt=""/>
+        <img [hidden]="!isCollapsedAcc" class="arrows rotateimg90" src="../../../assets/account-icons/next.svg"
+            alt="" />
+        <img [hidden]="isCollapsedAcc" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg"
+            alt="" />
     </div>
     <div id="myAccount" [ngbCollapse]="isCollapsedAcc">
         <div class="drop-down">
-                
-                
-                <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>
-                <div class="acc-sub-options">
+
+
+            <div style="border-top: 2px solid #E4E4E4;width: 80%;"></div>
+            <!-- <div class="acc-sub-options">
                     <div class="sub-option-text" >Address Book</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>
                 </div>
                 <div class="acc-sub-options">
-                    <div class="sub-option-text">Options</div> 
+                    <div class="sub-option-text">Options</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>
-                </div>
-                <div class="acc-sub-options" routerLink="/liked">
-                    <div class="sub-option-text">Liked Cards</div> 
-                    <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>
-                </div>
-                <div class="acc-sub-options" routerLink="/bookmarked">
-                    <div class="sub-option-text">Bookmarks</div> 
+                </div> -->
+            <div class="acc-sub-options" routerLink="/liked">
+                <div class="sub-option-text">Liked Cards</div>
+                <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt="" />
+            </div>
+            <div class="acc-sub-options" routerLink="/bookmarked">
+                <div class="sub-option-text">Bookmarks</div>
+                <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt="" />
+            </div>
+            <!-- <div class="acc-sub-options">
+                    <div class="sub-option-text">Offers</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>                </div>
-                <div class="acc-sub-options">
-                    <div class="sub-option-text">Offers</div> 
-                    <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>                </div>     
+                </div> -->
         </div>
     </div>
 
 
 
-    <div class="acc-options" (click)="isCollapsedHelp = !isCollapsedHelp" [attr.aria-expanded]="!isCollapsedHelp" aria-controls="help">
+    <!-- <div class="acc-options" (click)="isCollapsedHelp = !isCollapsedHelp" [attr.aria-expanded]="!isCollapsedHelp" aria-controls="help">
         <div class="acc-option-text">Help</div>
         <img [hidden]="!isCollapsedHelp" class="arrows rotateimg90" src="../../../assets/account-icons/next.svg" alt=""/>
         <img [hidden]="isCollapsedHelp" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg" alt=""/>
     </div>
     <div id="help" [ngbCollapse]="isCollapsedHelp">
         <div class="drop-down">
-                
+
                 <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>
                 <div class="acc-sub-options">
                     <div class="sub-option-text" >About Us</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>                </div>
                 <div class="acc-sub-options">
-                    <div class="sub-option-text">FAQs</div> 
+                    <div class="sub-option-text">FAQs</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>
                 </div>
                 <div class="acc-sub-options">
-                    <div class="sub-option-text">Terms & Conditions</div> 
+                    <div class="sub-option-text">Terms & Conditions</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>
                 </div>
                 <div class="acc-sub-options">
-                    <div class="sub-option-text">Privacy Policy</div> 
+                    <div class="sub-option-text">Privacy Policy</div>
                     <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>
                 </div>
-            
+
                 <div class="acc-sub-options">
-                    <div class="sub-option-text">Contact Us</div> 
-                    <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>                </div>   
-            </div>  
+                    <div class="sub-option-text">Contact Us</div>
+                    <img class="arrows" style="opacity: 50%;" src="../../../assets/account-icons/next.svg" alt=""/>                </div>
+            </div>
     </div>
+ -->
 
 
 
-    <div class="acc-options" aria-controls="orders" routerLink="/myOrders">
+    <div class="acc-options" aria-controls="orders" routerLink="/my-orders">
         <div class="acc-option-text">Orders</div>
         <img class="arrows " src="../../../assets/account-icons/next.svg" alt=""/>
         <!-- <img [hidden]="isCollapsedOrders" class="arrows rotateimgm90" src="../../../assets/account-icons/next.svg" alt=""/> -->
     </div>
     <!-- <div id="orders" [ngbCollapse]="isCollapsedOrders">
         <div class="drop-down">
-                
-            <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>            
-        
-            </div>  
+
+            <div style="border-top: 2px solid #E4E4E4;width: 80%;" ></div>
+
+            </div>
     </div> -->
 
-    <div class="acc-options" >
+    <div class="acc-options" (click)="onLogout()">
         <div class="acc-option-text">Logout</div>
-        <img  class="arrows" src="../../../assets/account-icons/off.svg" alt=""/>
+        <img class="arrows" src="../../../assets/account-icons/off.svg" alt="" />
     </div>
 </div>
-
-
-
-

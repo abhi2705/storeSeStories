@@ -1,0 +1,73 @@
+<div class="app-order-page" *ngIf ="order$|async as order">
+  <div class="banner bg-light row align-items-center">
+    <div class="col-6">
+      <p class="my-0 mx-3"><strong>Order summary</strong></p>
+    </div>
+  </div>
+  <hr>
+  <div class="container-fluid py-2 order-items bg-light">
+    <div class="row my-2 align-items-center" *ngFor="let i of order.line_items">
+      <div class="col-3 pdt-img">
+        <div class="row">
+          <div class="col-12 col-md-5">
+            <div class="pdt-img-wrapper">
+              <img alt="{{i.name}}" src = "{{(getProduct(i.product_id) | async)?.images[0]?.src}}">
+              <a class="badge badge-pill bg-dark text-light pdt-count">{{i.quantity}}</a>
+            </div>
+          </div>
+      </div>
+      </div>
+      <div class="col-6 pdt-name">
+        <p>{{i.title}}</p>
+      </div>
+      <div class="col-3 pdt-price">
+        <p>Rs. {{i.price}}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="row my-2 align-items-center">
+      <div class="col-5"><p>Subtotal</p></div>
+      <div class="col-7 pdt-price"><p>Rs. {{order.subtotal_price}}</p></div>
+    </div>
+    <div class="row my-2 align-items-center">
+      <div class="col-5"><p>Shipping</p></div>
+      <div class="col-7 pdt-price"><p>Rs. {{order.shipping_lines[0].price}}</p></div>
+    </div>
+    <div class="row my-2 align-items-center">
+      <div class="col-5"><p>Taxes</p></div>
+      <div class="col-7 pdt-price"><p>Rs. {{order.total_tax}}</p></div>
+    </div>
+    <hr>
+    <div class="row my-2 align-items-center">
+      <div class="col-5"><h6>Total</h6></div>
+      <div class="col-7 pdt-price"><h5>Rs. {{order.total_price}}</h5></div>
+    </div>
+  </div>
+  <div class="container mt-2 cust-deets mb-2">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title mb-4">
+          Customer information
+        </h5>
+        <h6 class="card-subtitle mb-2">
+          Contact information
+        </h6>
+        <p class="card-text text-muted">
+          {{order.contact_email}}
+        </p>
+        <hr>
+        <h6 class="card-subtitle mb-2">
+          Shipping Address
+        </h6>
+        <p class="card-text text-muted">
+          {{order.shipping_address.first_name}} {{order.shipping_address.last_name}}<br>
+          {{order.shipping_address.address1}}<br>
+          {{order.shipping_address.address2}}<br>
+          {{order.shipping_address.city}}<br>
+          {{order.shipping_address.province}}<br>
+          {{order.shipping_address.country}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

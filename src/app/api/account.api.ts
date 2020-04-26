@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { BaseApi } from './base.api';
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Blogs } from '../models/blog.model'
-import { Account } from '../models/account.model';
-import { Story, Stories } from '../models/story.model';
-import { Order, Orders } from '../models/order.model';
+import { User } from '../models/user.model'
+import { Orders, Order } from '../models/order.model';
+import { Stories } from '../models';
+
 
 export class AccountApi extends BaseApi {
   private endpointUrl: string;
@@ -21,8 +22,15 @@ export class AccountApi extends BaseApi {
     );
   }
 
-  getLikedCards(): Observable<Stories> {
-    return this.http.get<Stories>(this.endpointUrl + 'liked-cards', this.GlobalOpts).pipe(
+  getUserDetails(): Observable<User>{
+    return this.http.get<User>(this.endpointUrl + 'account_details', this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+  }
+
+  getMobile(): any{
+    return this.http.get<any>(this.endpointUrl + 'phoneNumber', this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
@@ -34,6 +42,20 @@ export class AccountApi extends BaseApi {
       catchError(this.handleError)
     );
   }
-  
+
+  getLikedCards(): Observable<Stories> {
+    return this.http.get<Stories>(this.endpointUrl + 'liked-cards', this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+  }
+
+  getOrder(id: number ): Observable<Order> {
+    const urlParams = 'order/' + id;
+    return this.http.get<Order>(this.endpointUrl + urlParams, this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+  }
 }
 

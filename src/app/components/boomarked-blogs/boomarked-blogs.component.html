@@ -6,7 +6,24 @@
     </div>
     <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
   </div>
-  <p style="margin-left: 6vh; margin-top: 15px;">Bookmarked</p>
-  <div class="scroll-wrapper" style=" height:75vh;">
-    <app-storied-blogs></app-storied-blogs>
-</div>
+
+  <div class = "container " style="margin-left: 6vh; margin-top: 15px;">Bookmarked</div>
+  
+    <div class="scroll-wrapper"  style="margin-top: 2vh; height:62vh; justify-content: center; width: 100%">
+              
+
+      <div class="card column" style=" padding: 0;" *ngFor="let blog of (blogs$ | async)?.blogs; let i = index" >
+      <div class="row" routerLink="/blog/{{blog.blogId}}">
+        <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
+          <div style="padding:8px;">
+            <div class="blog-date" >{{getDate(blog)}}</div>
+            <div class=" blog-desc">{{blog.title}}</div>
+            <div class="blog-tag">{{blog.tags}}</div>
+          </div>
+        </a>
+
+      </div>      
+      </div> 
+
+  </div>
+

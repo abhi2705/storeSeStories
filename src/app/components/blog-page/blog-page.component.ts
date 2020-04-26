@@ -1,5 +1,6 @@
 
-import { ShareTabService } from 'src/app/services/share-tab.service'
+import { Location } from '@angular/common';
+import {ShareTabService } from 'src/app/services/share-tab.service'
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
@@ -22,22 +23,25 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   comments: number;
   private sub2: Subscription;
   favBtnEnabled: boolean;
-  blogpage: any;
+
+  blogpage : any;
   newComment: Comment;
   recommendedBlogs: Array<Blog>;
-  constructor(private apiservice: ApiService,
-    private shareTabService: ShareTabService,
-    private route: ActivatedRoute,
-    private bookmarkButtonService: BlogsService) {
-    this.isLiked = false;
-    this.isBookmarked = false;
-  }
+   constructor(private apiservice: ApiService,
+               private shareTabService: ShareTabService, 
+               private route : ActivatedRoute,
+               private location: Location,
+               private bookmarkButtonService: BlogsService) {
+                  this.isLiked=false;
+                  this.isBookmarked=false;
+               }
+ 
+   ngOnInit(): void {
+     this.recommendedBlogs = []
+     this.newComment = { "commentId": 0, "content": '', "sourceId": 0, "userId": 0 }
+     this.blogId = this.route.snapshot.params['id']
+     this.apiservice.blogs.get(this.blogId).subscribe((data: Blogs) => {
 
-  ngOnInit(): void {
-    this.recommendedBlogs = []
-    this.newComment = { "commentId": 0, "content": '', "sourceId": 0, "userId": 0 }
-    this.blogId = this.route.snapshot.params['id']
-    this.apiservice.blogs.get(this.blogId).pipe(takeUntil(this.destroySubject$)).subscribe((data: Blogs) => {
       this.blogpage = data;
     });
 
@@ -143,6 +147,12 @@ export class BlogPageComponent implements OnInit, OnDestroy {
     this.sub2.unsubscribe();
     this.destroySubject$.next();
     this.destroySubject$.unsubscribe();
+  }
+  goBack() {
+    // window.history.back();
+    this.location.back();
+
+    console.log( 'goBack()...' );
   }
 
 }

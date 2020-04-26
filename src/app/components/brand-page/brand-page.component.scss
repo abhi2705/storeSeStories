@@ -3,3 +3,19 @@
   height: 100%;
   padding-top: 5px;
 }
+.btn{
+  position: absolute;
+  left: 5%;
+  border: none;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+}
+
+.liked_btn {
+  // background-color: #1d2a5b;
+  background-image: url('../../../assets/account-icons/back.svg');
+}

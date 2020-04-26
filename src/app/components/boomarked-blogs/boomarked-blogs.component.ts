@@ -1,4 +1,5 @@
 
+import { Location } from '@angular/common';
 import { Blogs } from 'src/app/models/blog.model';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
@@ -9,8 +10,11 @@ import { Observable } from 'rxjs';
   styleUrls: ['./boomarked-blogs.component.scss']
 })
 export class BoomarkedBlogsComponent implements OnInit {
+
   blogs$: Observable<Blogs>;
-  constructor(private apiservice: ApiService) { }
+  constructor(private location: Location,
+             private apiservice: ApiService) { }
+
 
   ngOnInit(): void {
     this.blogs$ = this.apiservice.account.getBookmarked();
@@ -39,6 +43,12 @@ export class BoomarkedBlogsComponent implements OnInit {
     let day = date.getUTCDate();
     let suffix = this.getDayNumberSuffix(day)
     return day+suffix+" "+month+" "+year;
+  }
+  goBack() {
+    // window.history.back();
+    this.location.back();
+
+    console.log( 'goBack()...' );
   }
 
 

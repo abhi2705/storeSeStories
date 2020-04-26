@@ -24,11 +24,23 @@ img.icon {
   background-position: 50%, 50%;
   background-repeat: no-repeat;
 }
+.btn1{
+  position: absolute;
+  right: 5%;
+  border: none;
+  height: 6vh;
+  width: 6vh;
+  border-radius: 50%;
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+}
 
 .liked_btn {
   background-color: #1d2a5b;
   background-image: url('src/assets/img/shareables/heart_liked.png');
 }
 .bookmark_btn {
-  background-image: url('src/assets/blog-icons/bookmark.svg');
+  background-color: #FFF;
+  background-image: url('src/assets/blog-icons/Bookmark Filled.svg');
 }

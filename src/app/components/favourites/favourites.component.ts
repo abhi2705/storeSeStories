@@ -1,10 +1,12 @@
+
+import { Location } from '@angular/common';
 import { Component, OnInit, Inject, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Observable, Subscription } from 'rxjs';
 import { Stories } from 'src/app/models/story.model';
 import { DOCUMENT } from '@angular/common';
 import { ShareTabService } from 'src/app/services/share-tab.service';
-
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-favourites',
   templateUrl: './favourites.component.html',
@@ -29,7 +31,10 @@ export class FavouritesComponent implements OnInit, OnDestroy {
 
   constructor(@Inject(DOCUMENT) private document: Document, 
                                 private apiservice: ApiService,
-                                private shareTabService: ShareTabService) { }
+                                private shareTabService: ShareTabService,
+                                private modalService: NgbModal,
+                                private location: Location) { }
+
 
   ngOnInit(): void {
     this.stories$ = this.apiservice.account.getLikedCards();
@@ -94,8 +99,38 @@ export class FavouritesComponent implements OnInit, OnDestroy {
   back_to_list() {
     this.document.getElementById("modal01").style.display = "none";
   }
+  goBack() {
+    // window.history.back();
+    this.location.back();
+
+    console.log( 'goBack()...' );
+  }
+  // open(content) {
+  //   // this.source = story.imageUrl;
+  //   // this.target = story.targetUrl;
+  //   // this.time = this.get_duration(story);
+  //   // this.ind = i;
+  //   // this.like = this.liked[i];
+  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //     console.log(result);
+  //   }, (reason) => {
+  //     console.log(reason);
+  //   });
+  // }
+
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 }
+
+

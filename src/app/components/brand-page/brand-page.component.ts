@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit, Renderer2, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from 'src/app/services/api.service';
@@ -18,6 +19,7 @@ export class BrandPageComponent implements OnInit {
   constructor(private ren2: Renderer2,
               @Inject(DOCUMENT) private document,
               private api: ApiService,
+              private location: Location,
               private route: ActivatedRoute
               ) { }
 
@@ -38,6 +40,12 @@ export class BrandPageComponent implements OnInit {
     s2.src = 'assets/js/shopify.js';
     s2.text = ``;
     this.ren2.appendChild(this.document.body, s2);
+  }
+  goBack() {
+    // window.history.back();
+    this.location.back();
+
+    console.log( 'goBack()...' );
   }
 
 }

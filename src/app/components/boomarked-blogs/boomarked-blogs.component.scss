@@ -1,1 +1,119 @@
+
 @import '../blog-nav/blog-nav.component.scss';
+.btn1{
+  position: absolute;
+  left: 1%;
+  border: none;
+  height: 5vh;
+  width: 5vh;
+  border-radius: 50%;
+  background-size: 50%;
+  background-position: 50%, 50%;
+  background-repeat: no-repeat;
+}
+
+.liked_btn {
+  background-color: #FFF;
+  background-image: url('../../../assets/account-icons/back.svg');
+}
+.nav {
+    display: flex;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+  }
+  
+  .nav::-webkit-scrollbar{
+    display:none;
+  }
+  .nav-tabs  .nav-tabs .nav-item.show .nav-link {
+    color: #495057;
+    background-color: #fff;
+    border-color: #FFF;
+  }
+  .nav-link.active{
+      font-weight: 900;
+      border-color: #fff;
+      padding-bottom: 2px;
+      border-bottom: 4px solid #000;
+  
+  }
+  .nav-tabs {
+  border-bottom: 0px solid #dee2e6;
+  }
+  
+  
+  .search-wrap {
+    display: flex;
+    flex: 1 58%;
+    position: relative;
+    margin: 0.8rem 0.2rem;
+    width: 97%;
+    border-radius: 20px;
+  }
+  
+  .search-wrap:hover, .order-track-wrap:hover {
+    box-shadow: -1px 2px 3px 0px rgba(10, 16, 20, .24), 0 0 8px rgba(10, 16, 20, .12);
+    transition: box-shadow 0.3s;
+    border-radius: 20px;
+  }
+  
+  .search-wrap > img, .order-track-wrap > img {
+    width: 1.7rem;
+    position: absolute;
+    bottom: 8px;
+    left: 10px;
+    border-radius: 20px;
+  }
+  
+  .search-wrap input, .order-track-wrap input {
+    width: 100%;
+    padding: 8px 0px 8px 51px;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: none;
+  
+  }
+  
+  a {
+    color: lightslategrey;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+  }
+  
+  
+  .column {
+    float: left;
+    width: 45%;
+    padding: 0 0px;
+  }
+  .scroll-wrapper{
+    height:75vh;
+    width:auto;
+    overflow:scroll;
+    margin-left:8px;
+  
+  }
+  
+  
+  .card{
+    border: 0 solid rgba(255, 255, 255, 1);
+    box-shadow: none;
+  }
+  
+  .card-img-top{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+  
+  }
+  .component-wrapper {
+    height: 100%;
+    .inner-wrapper {
+      height: 100%;
+      overflow: scroll;
+    }
+  }
+  
+  
+

@@ -17,10 +17,11 @@ export class ShopifyService {
 
   getProductById(id: string): Observable<any> {
     id = btoa(`gid://shopify/Product/${id}`);
-    const ret = new Subject<any>();
-    this.shopifyClient.product.fetch(id)
-    .then(pdt => ret.next(pdt))
-    .catch(err => ret.error(err));
-    return ret.asObservable();
+    const ret = new Observable<any>(subs => {
+      this.shopifyClient.product.fetch(id)
+    .then(pdt => subs.next(pdt))
+    .catch(err => subs.error(err));
+    });
+    return ret;
   }
 }

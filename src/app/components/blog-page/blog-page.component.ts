@@ -38,20 +38,20 @@ export class BlogPageComponent implements OnInit, OnDestroy {
  
    ngOnInit(): void {
      this.recommendedBlogs = []
+     this.blogpage = []
      this.newComment = { "commentId": 0, "content": '', "sourceId": 0, "userId": 0 }
      this.blogId = this.route.snapshot.params['id']
-     this.apiservice.blogs.get(this.blogId).subscribe((data: Blogs) => {
-
+     this.apiservice.blogs.get(this.blogId).subscribe((data: Blog) => {
       this.blogpage = data;
+      if(this.blogpage.isLiked==true){
+        this.isLiked = true
+      }
+      if(this.blogpage.isBookmarked==true){
+        this.isBookmarked = true
+      }
     });
 
-    this.apiservice.blogs.isbookmarked(this.blogId).pipe(takeUntil(this.destroySubject$)).subscribe((data: Boolean) => {
-      this.isBookmarked = data;
-    });
-
-    this.apiservice.blogs.isliked(this.blogId).pipe(takeUntil(this.destroySubject$)).subscribe((data: Boolean) => {
-      this.isLiked = data;
-    });
+  
 
     this.getCommentCount();
 
@@ -149,10 +149,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
     this.destroySubject$.unsubscribe();
   }
   goBack() {
-    // window.history.back();
     this.location.back();
-
-    console.log( 'goBack()...' );
   }
 
 }

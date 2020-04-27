@@ -1,8 +1,8 @@
 <div class="track-block">
   <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
     <img alt="search icon" src="../../../assets/img/logos/search.svg">
-    <input aria-label="search your apartment" onkeyup="search(event)" placeholder="Search for brand or product"
-      type="text">
+    <input aria-label="Search" onkeyup="search(event)" placeholder="Search for brand or product"
+      type="text" [(ngModel)]="searchText" name="search" >
   </div>
 </div>
 <div class="component-wrapper" style="height: 100vh; text-align: center;width:100%" >
@@ -15,7 +15,7 @@
           <!-- <button class="btn" style="margin-left: 85%; position:static; margin-top: 0%; "><img src="../../../assets/img/filter.svg" height="20vh" width="20vh" alt="filter icon"></button> -->
           <div class="scroll-wrapper container-fluid" style="margin-top: 2vh; height:65vh; justify-content: center; width: 100%">
             <div class="row">
-            <div class="card col-6 col-sm-3 col-lg-2 px-1 px-sm-2" style=" padding: 0;" *ngFor="let brand of all_brands; let i = index" >
+            <div class="card col-6 col-sm-3 col-lg-2 px-1 px-sm-2" style=" padding: 0;" *ngFor="let brand of all_brands | filter:searchText" >
               <a routerLink="/brand/{{brand.brandId}}" ><img class="card-img-top mb-1" src="{{brand.logoUrl}}" style="">
               <div class="card-body" style="padding:0;">
                 <h5 class="card-title company-name mb-2 mb-md-3"

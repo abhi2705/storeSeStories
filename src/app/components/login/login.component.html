@@ -6,6 +6,9 @@
     <ng-container *ngSwitchCase="'reg'">
       <ng-container *ngTemplateOutlet="r"></ng-container>
     </ng-container>
+    <ng-container *ngSwitchCase="'out'">
+      <ng-container *ngTemplateOutlet="out"></ng-container>
+    </ng-container>
   </div>
 </div>
 
@@ -48,7 +51,7 @@
       </div>
       <div class="form-row justify-content-center">
         <div class="col mb-3 d-flex justify-content-center">
-          <button class="switch-mode" (click)="switchMode('log')">Already have an account?</button>
+          <a class="switch-mode" (click)="switchMode('log')">Already have an account?</a>
         </div>
       </div>
       <div class="from-row">
@@ -80,12 +83,12 @@
       </div>
       <div class="form-row justify-content-center">
         <div class="col mb-3 d-flex justify-content-center">
-          <button class="switch-mode" (click)="switchMode('reg')">Create an account</button>
+          <a class="switch-mode" (click)="switchMode('reg')">Create an account</a>
         </div>
       </div>
       <div class="from-row">
         <div class="col-9 ml-auto mr-auto d-flex justify-content-center">
-          <button type="submit" class="btn" [disabled]="loginForm.invalid">Login</button>
+          <button class="btn" [disabled]="loginForm.invalid">Login</button>
         </div>
       </div>
     </form>
@@ -109,6 +112,21 @@
         </div>
       </div>
     </form>
+  </div>
+</ng-template>
+
+<ng-template #out>
+  <div class="p-3 register-stage container">
+    <h5 class="mb-3">Logout</h5>
+    <div class="row">
+      <div class="col-12 text-align-center">
+        <p>Are you sure you want to logout?</p>
+      </div>
+    </div>
+    <div class="col-12 d-flex justify-content-center">
+      <button type="button" class="btn btn-small mx-2" (click)="onSubmit()">Yes</button>
+      <button type="button" class="btn btn-small mx-2" (click)="cancelLogout()">No</button>
+    </div>
   </div>
 </ng-template>
 

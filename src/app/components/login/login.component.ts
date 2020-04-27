@@ -49,12 +49,17 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log('submit called', this.state.mode);
     if (this.state.mode === 'reg') {
       this.auth.register(this.email.value, this.password.value, this.firstName.value, this.lastName.value);
     } else if (this.state.mode === 'log') {
       this.auth.login(this.email.value, this.password.value);
+    } else if (this.state.mode === 'out') {
+      this.auth.logout(true);
     }
+  }
+
+  cancelLogout(): void {
+    this.auth.hideLogin();
   }
 
   get firstName(): AbstractControl {

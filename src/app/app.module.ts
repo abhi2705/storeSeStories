@@ -30,6 +30,7 @@ import { LoginComponent } from './components/login/login.component';
 import { BearerInterceptorService } from './services/bearer-interceptor.service';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderPageComponent } from './components/order-page/order-page.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { OrderPageComponent } from './components/order-page/order-page.component
     NgbModule,
     IonicModule.forRoot(),
     SwipeCardLibModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [
     {

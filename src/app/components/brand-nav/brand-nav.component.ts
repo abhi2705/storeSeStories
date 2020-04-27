@@ -12,6 +12,7 @@ import { Brands, Brand } from 'src/app/models/brand.model';
 })
 export class BrandNavComponent implements OnInit {
   
+  searchText;
   brands$: Observable<Brands | Brand>;
   private sub: Subscription;
   all_brands;

@@ -65,12 +65,4 @@ export class StoryApi extends BaseApi {
     );
   }
 
-  isliked(storyId: number): Observable<Boolean> {
-    const urlParam = "isliked/" + storyId;
-    return this.http.get<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
-      retry(this.Retries),
-      catchError(this.handleError)
-    );
-  }
-
 }

@@ -32,12 +32,12 @@
           "product": {
             "styles": {
               "product": {
-                "@media (min-width: 400px)": {
+                "@media (min-width: 300px)": {
                   "max-width": "calc(25% - 20px)",
                   "margin-left": "20px",
                   "margin-bottom": "50px",
                   "width": "calc(25% - 20px)",
-                  "min-width": "180px"
+                  "min-width": "40%"
 
                 },
                 "img": {
@@ -83,7 +83,7 @@
           "productSet": {
             "styles": {
               "products": {
-                "@media (min-width: 400px)": {
+                "@media (min-width: 300px)": {
                   "margin-left": "-20px"
                 }
               }
@@ -98,7 +98,7 @@
             },
             "styles": {
               "product": {
-                "@media (min-width: 400px)": {
+                "@media (min-width: 300px)": {
                   "max-width": "100%",
                   "margin-left": "0px",
                   "margin-bottom": "0px"

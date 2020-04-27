@@ -57,5 +57,13 @@ export class AccountApi extends BaseApi {
       catchError(this.handleError)
     );
   }
+
+  getPhoneNumber(): Observable<any>{
+    return this.http.get<any>(this.endpointUrl + 'phoneNumber', this.GlobalOpts).pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
+
+  }
 }
 

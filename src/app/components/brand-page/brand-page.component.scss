@@ -1,9 +1,10 @@
 .brand-page {
   overflow-y: scroll;
   height: 100%;
+  // margin-top: 10vh;
   padding-top: 5px;
 }
-.btn{
+.btn1{
   position: absolute;
   left: 5%;
   border: none;
@@ -17,6 +18,6 @@
 }
 
 .liked_btn {
-  // background-color: #1d2a5b;
+  background-color: #FFF;
   background-image: url('../../../assets/account-icons/back.svg');
 }

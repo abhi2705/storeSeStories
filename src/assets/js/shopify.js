@@ -32,7 +32,7 @@
           "product": {
             "styles": {
               "product": {
-                "@media (min-width: 300px)": {
+                "@media (max-width: 600px)": {
                   "max-width": "calc(25% - 20px)",
                   "margin-left": "20px",
                   "margin-bottom": "50px",

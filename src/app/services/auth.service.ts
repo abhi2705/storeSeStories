@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AuthService {
   private token: string;
   private _loginState = new BehaviorSubject<{active: boolean, mode?: string, msg?: string}>({active: false});
 
-  constructor(private api: ApiService) {
+  constructor(private api: ApiService, private router: Router) {
     this.token = '';
     this.refreshToken();
     console.log('Auth service intialised');
@@ -54,11 +55,17 @@ export class AuthService {
     });
   }
 
-  logout(): void {
-    this.api.auth.logout().subscribe(res => {
-      this.clearToken();
-      this.refreshToken();
-    });
+  logout(confirmed = false): void {
+    if (confirmed) {
+      this.api.auth.logout().subscribe(res => {
+        this.clearToken();
+        this._loggedIn.next(false);
+        this.router.navigate(['/feed']);
+        this.refreshToken();
+      });
+    } else {
+      this.showLogin('out');
+    }
   }
 
   sendOtp(mobile: string): void {

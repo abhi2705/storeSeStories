@@ -46,15 +46,18 @@
     </div>
 
 
-    <div class="card column" style=" padding: 0;" routerLink="/blog/{{blog.blogId}}"
+    <div class="card column" style=" padding: 0;"   (click)="ngOnInit()" 
         *ngFor="let blog of recommendedBlogs; let i = index">
-        <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
-            <div style="padding:8px;">
-                <div class="blog-date">{{getDate(blog)}}</div>
-                <div class=" blog-desc">{{blog.title}}</div>
-                <div class="blog-tag">{{blog.tags}}</div>
-            </div>
-        </a>
+        <div routerLink="/blog/{{blog.blogId}}">
+            <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
+                <div style="padding:8px;">
+                    <div class="blog-date">{{getDate(blog)}}</div>
+                    <div class=" blog-desc">{{blog.title}}</div>
+                    <div class="blog-tag">{{blog.tags}}</div>
+                </div>
+            </a>
+        </div>
+        
     </div>
 
 </div>

@@ -83,37 +83,5 @@
     -webkit-text-decoration-skip: objects;
   }
   
-  
-  .column {
-    float: left;
-    width: 45%;
-    padding: 0 0px;
-  }
-  .scroll-wrapper{
-    height:75vh;
-    width:auto;
-    overflow:scroll;
-    margin-left:8px;
-  
-  }
-  
-  
-  .card{
-    border: 0 solid rgba(255, 255, 255, 1);
-    box-shadow: none;
-  }
-  
-  .card-img-top{
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-  
-  }
-  .component-wrapper {
-    height: 100%;
-    .inner-wrapper {
-      height: 100%;
-      overflow: scroll;
-    }
-  }
-  
-  
+
 

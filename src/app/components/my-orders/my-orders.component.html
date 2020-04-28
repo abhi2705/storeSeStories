@@ -1,6 +1,6 @@
 <div class="container main">
     <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
-    <p class="main-heading" style="text-align: center;">My Orders</p>
+    <p class="main-heading" style="text-align: center; margin-top: 15px;">My Orders</p>
     <div class="card card-wrapper" *ngFor="let order of all_orders; let i = index">
         <div class="card-body card-body-wrapper" routerLink="/order/{{order.id}}">
             <div class="col-8">

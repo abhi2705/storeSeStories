@@ -1,7 +1,10 @@
 <div class="app-order-page" *ngIf ="order$|async as order">
   <div class="banner bg-light row align-items-center">
-    <div class="col-6">
-      <p class="my-0 mx-3"><strong>Order summary</strong></p>
+    <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
+
+    <div class="col-12">
+
+      <p class="" style="text-align: center;"><strong>Order summary</strong></p>
     </div>
   </div>
   <hr>

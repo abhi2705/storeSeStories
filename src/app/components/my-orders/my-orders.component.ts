@@ -78,7 +78,6 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
   }
   goBack() {
     this.location.back();
-
     console.log( 'goBack()...' );
   }
 

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="436.48" height="516.27" viewBox="0 0 436.48 516.27">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1, .cls-4 {
+        stroke: #1d2a5b;
+      }
+
+      .cls-1 {
+        stroke-miterlimit: 10;
+        stroke-width: 43px;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #1d2a5b;
+      }
+    </style>
+  </defs>
+  <g id="Group_11" data-name="Group 11" transform="translate(-625.5 1278.5)">
+    <g id="Group_10" data-name="Group 10" transform="translate(330 -1348)">
+      <g id="Stories_Dark" data-name="Stories Dark" transform="translate(212.87 28.52)">
+        <rect id="Rectangle_1" data-name="Rectangle 1" class="cls-1" width="393.48" height="473.27" rx="42.65" transform="translate(104.13 62.48)"/>
+        <path id="Path_1" data-name="Path 1" class="cls-2" d="M108.8,413.31H490.35V488a47.19,47.19,0,0,1-47.19,47.19H156a47.192,47.192,0,0,1-47.2-47.2Z"/>
+      </g>
+      <g id="favorite-24px" transform="translate(427 193.802)">
+        <path id="Path_19" data-name="Path 19" class="cls-3" d="M0,0H173.2V173.2H0Z"/>
+        <path id="Path_20" data-name="Path 20" class="cls-4" d="M98.014,164.963a15.591,15.591,0,0,1-22.749-.095l-.93-.945C29.935,119.014.927,89.61,2.027,52.926c.507-16.073,7.865-31.484,19.789-40.56,22.327-17.018,49.9-9.076,64.781,10.4,14.884-19.477,42.454-27.513,64.781-10.4,11.924,9.076,19.282,24.487,19.789,40.56,1.184,36.684-27.908,66.088-72.308,111.186l-.846.851Z" transform="translate(0 0)"/>
+      </g>
+    </g>
+  </g>
+</svg>

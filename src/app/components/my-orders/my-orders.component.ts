@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs';
 import { ApiService } from '../../services/api.service';
 import { ShopifyService } from 'src/app/services/shopify.service';
 import {ActivatedRoute} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-my-orders',
@@ -20,7 +21,8 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
 
   constructor(private apiservice: ApiService,
               private _shopify: ShopifyService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit(): void {
     this.orders$ = this.apiservice.account.getMyOrders();
@@ -73,6 +75,11 @@ export class MyOrdersComponent implements OnInit, OnDestroy {
       this.productCache[id] = this._shopify.getProductById(id);
     }
     return this.productCache[id];
+  }
+  goBack() {
+    this.location.back();
+
+    console.log( 'goBack()...' );
   }
 
 }

@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build:prod": "ng build --prod --aot --source-map=false",
+    "build:prod": "ng build --prod --aot --source-map=false --output-hashing=all",
     "build:stats": "ng build --prod --aot --source-map=false --stats-json",
     "analyze": "webpack-bundle-analyzer dist/SeStories/stats-es2015.json"
   },

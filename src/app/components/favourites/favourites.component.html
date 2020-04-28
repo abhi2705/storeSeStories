@@ -3,9 +3,12 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="component-wrapper">
     <div class="content-wrapper">
-      <div class="scroll-wrapper">
+      <div class="scroll-wrapper" style="overflow-x: hidden;">
         <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
-        <p class="heading" style="margin-left: 24vh; margin-top: 20px">Liked Cards</p>
+        <div class="banner bg-light row align-items-center">
+          <p class="" style="text-align: center; margin-left: 40%; margin-top: 4%;"><strong>Liked Cards</strong></p>
+        </div>
+        <br>
         <div class="card card-1 column"  *ngFor="let story of liked_stories; let i = index" >
           <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story, i)" id="{{i}}">
           <button class="btn gradient-button gradient-button-1" routerLink="/brand/{{story.brandId}}">VISIT BRAND</button>

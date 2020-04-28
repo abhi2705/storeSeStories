@@ -12,44 +12,44 @@ import { Observable, Subscription } from 'rxjs';
 export class BoomarkedBlogsComponent implements OnInit, OnDestroy {
 
   blogs$: Observable<Blogs | Blog>;
-  sub : Subscription;
-  searchText : any;
-  allBlogs : any;
+  sub: Subscription;
+  searchText: string;
+  allBlogs: Blog[];
 
   constructor(private location: Location,
-             private apiservice: ApiService) { }
+              private apiservice: ApiService) { }
 
 
   ngOnInit(): void {
     this.blogs$ = this.apiservice.blogs.get();
-    this.sub=this.blogs$.subscribe((data: Blogs) => {
-      this.allBlogs=data.blogs;
+    this.sub = this.blogs$.subscribe((data: Blogs) => {
+      this.allBlogs = data.blogs;
     });
   }
 
-  getDayNumberSuffix(day : number) {
+  getDayNumberSuffix(day: number) {
     if (day >= 11 && day <= 13) {
-        return "th";
+        return 'th';
     }
     switch (day % 10) {
     case 1:
-        return "st";
+        return 'st';
     case 2:
-        return "nd";
+        return 'nd';
     case 3:
-        return "rd";
+        return 'rd';
     default:
-        return "th";
+        return 'th';
     }
 }
 
   getDate(blog){
-    const date = new Date(blog.postedAt)
-    let year = date.getFullYear();
-    let month = date.toLocaleString('default', { month: 'short' })
-    let day = date.getUTCDate();
-    let suffix = this.getDayNumberSuffix(day)
-    return day+suffix+" "+month+" "+year;
+    const date = new Date(blog.postedAt);
+    const year = date.getFullYear();
+    const month = date.toLocaleString('default', { month: 'short' });
+    const day = date.getUTCDate();
+    const suffix = this.getDayNumberSuffix(day);
+    return day + suffix + ' ' + month + ' ' + year;
   }
   goBack() {
     // window.history.back();

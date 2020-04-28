@@ -24,9 +24,11 @@
       storefrontAccessToken: '157d47b99cc1af367ce12e227d2ca751',
     });
     ShopifyBuy.UI.onReady(client).then(function (ui) {
+      const el = document.getElementById('collection-component-1586969812920');
+      el.innerHTML = '';
       ui.createComponent('collection', {
         id: brandCollectionID,
-        node: document.getElementById('collection-component-1586969812920'),
+        node: el,
         moneyFormat: 'Rs.%20%7B%7Bamount%7D%7D',
         options: {
           "product": {
@@ -68,8 +70,8 @@
                   "background-color": "#3d4da2"
                 },
                 "border-radius": "7px",
-                "padding-left": "28px",
-                "padding-right": "28px"
+                "padding-left": "5px",
+                "padding-right": "5px"
               }
             },
             "contents": {

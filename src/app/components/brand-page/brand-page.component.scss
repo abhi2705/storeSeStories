@@ -1,20 +1,41 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 .brand-page {
   overflow-y: scroll;
   height: 100%;
   // margin-top: 10vh;
   padding-top: 5px;
+  .full-height {
+    height: 100%;
+  }
+  .loader {
+    position: fixed;
+    top: 42%;
+    left: 42%;
+    width: 4rem;
+    height: 4rem;
+  }
+  @include media-breakpoint-up(md) {
+    .loader {
+      left: 46%;
+    }
+  }
 }
 .btn1{
   position: absolute;
-  left: 5%;
+  left: 3%;
+  top:8.2%;
   border: none;
   height: 5vh;
   width: 5vh;
+  top:9%;
   border-radius: 50%;
   background-size: 50%;
   background-position: 50%, 50%;
   background-repeat: no-repeat;
-  
+
 }
 
 .liked_btn {

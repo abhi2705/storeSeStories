@@ -11,14 +11,14 @@ import { Subscription } from 'rxjs';
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
 
-  public isCollapsedAcc : Boolean;
-  public isCollapsedHelp : Boolean;
-  public isCollapsedOrders : Boolean;
+  public isCollapsedAcc: boolean;
+  public isCollapsedHelp: boolean;
+  public isCollapsedOrders: boolean;
   public accDetails: any;
-  public userSub : Subscription;
-  public phNo : Subscription;
+  public userSub: Subscription;
+  public phNo: Subscription;
 
-  constructor(private apiservice: ApiService, private auth: AuthService) { 
+  constructor(private apiservice: ApiService, private auth: AuthService) {
     this.isCollapsedAcc = true;
     this.isCollapsedHelp = true;
     this.isCollapsedOrders = true;
@@ -37,7 +37,6 @@ export class AccountPageComponent implements OnInit, OnDestroy {
       this.accDetails.phone += ' · '
     }
     });
-  
   }
 
   ngOnDestroy(): void {
@@ -50,5 +49,4 @@ export class AccountPageComponent implements OnInit, OnDestroy {
       this.phNo.unsubscribe();
     }
   }
-
 }

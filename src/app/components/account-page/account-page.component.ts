@@ -11,12 +11,12 @@ import { Subscription } from 'rxjs';
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
 
-  public isCollapsedAcc : Boolean;
-  public isCollapsedHelp : Boolean;
-  public isCollapsedOrders : Boolean;
+  public isCollapsedAcc: boolean;
+  public isCollapsedHelp: boolean;
+  public isCollapsedOrders: boolean;
   public accDetails: any;
-  public userSub : Subscription;
-  public phNo : Subscription;
+  public userSub: Subscription;
+  public phNo: Subscription;
 
   constructor(private apiservice: ApiService, private auth: AuthService) {
     this.isCollapsedAcc = true;
@@ -28,11 +28,16 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userSub = this.apiservice.account.getUserDetails().subscribe((data: User) => {
       this.accDetails = data;
-      console.log(this.accDetails)
+      if (this.accDetails.phone == null) {
+        const phNo = this.apiservice.account.getPhoneNumber().subscribe((data: number) => {
+          this.accDetails.phone = data + ' · ';
+          phNo.unsubscribe();
+        });
+      }
+      else{
+        this.accDetails.phone += ' · ';
+      }
     });
-
-    this.accDetails.phone = ''
-
   }
 
   ngOnDestroy(): void {
@@ -42,5 +47,4 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   onLogout(): void {
     this.auth.logout();
   }
-
 }

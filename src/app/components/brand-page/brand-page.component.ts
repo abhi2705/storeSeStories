@@ -24,6 +24,7 @@ export class BrandPageComponent implements OnInit {
               ) { }
 
   ngOnInit(): void {
+    console.log('INITTING');
     this.brandID = this.route.snapshot.params.id;
     this.subscription = this.api.brands.get(this.brandID).subscribe((brand: Brand) => {
      this.loadScripts(brand.collectionId);
@@ -33,7 +34,8 @@ export class BrandPageComponent implements OnInit {
   private loadScripts(id: string) {
     const s1 = this.ren2.createElement('script');
     s1.type = 'text/javascript';
-    s1.text = `const brandCollectionID = '${id}'`;
+    s1.text = `if(brandCollectionID) brandCollectionID = '${id}'
+    else { var brandCollectionID = '${id}'}`;
     this.ren2.appendChild(this.document.body, s1);
     const s2 = this.ren2.createElement('script');
     s2.type = 'text/javascript';

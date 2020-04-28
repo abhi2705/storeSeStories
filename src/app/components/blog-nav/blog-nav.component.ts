@@ -14,12 +14,18 @@ import { BlogsService } from '../../services/blogs.service';
 export class BlogNavComponent implements OnInit, OnDestroy {
   blogs$: Observable<Blogs | Blog>;
   private sub2: Subscription;
+  private sub: Subscription;
   favBtnEnabled: boolean;
+  allBlogs: any;
+  searchText: any;
   constructor(private apiservice: ApiService,
     private bookmarkButtonService: BlogsService) { }
 
   ngOnInit(): void {
     this.blogs$ = this.apiservice.blogs.get();
+    this.sub=this.blogs$.subscribe((data: Blogs) => {
+      this.allBlogs=data.blogs;
+    });
     this.sub2 = this.bookmarkButtonService.boomkmarkEnabled.subscribe(enabled => this.favBtnEnabled = enabled);
     this.bookmarkButtonService.toggleBookmarkBtnView(true);
   }
@@ -52,5 +58,6 @@ export class BlogNavComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.bookmarkButtonService.toggleBookmarkBtnView(false);
     this.sub2.unsubscribe();
+    this.sub.unsubscribe();
   }
 }

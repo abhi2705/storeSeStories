@@ -1,23 +1,30 @@
 
 import { Location } from '@angular/common';
-import { Blogs } from 'src/app/models/blog.model';
-import { Component, OnInit } from '@angular/core';
+import { Blogs, Blog } from 'src/app/models/blog.model';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 @Component({
   selector: 'app-boomarked-blogs',
   templateUrl: './boomarked-blogs.component.html',
   styleUrls: ['./boomarked-blogs.component.scss']
 })
-export class BoomarkedBlogsComponent implements OnInit {
+export class BoomarkedBlogsComponent implements OnInit, OnDestroy {
 
-  blogs$: Observable<Blogs>;
+  blogs$: Observable<Blogs | Blog>;
+  sub : Subscription;
+  searchText : any;
+  allBlogs : any;
+
   constructor(private location: Location,
              private apiservice: ApiService) { }
 
 
   ngOnInit(): void {
-    this.blogs$ = this.apiservice.account.getBookmarked();
+    this.blogs$ = this.apiservice.blogs.get();
+    this.sub=this.blogs$.subscribe((data: Blogs) => {
+      this.allBlogs=data.blogs;
+    });
   }
 
   getDayNumberSuffix(day : number) {
@@ -49,6 +56,9 @@ export class BoomarkedBlogsComponent implements OnInit {
     this.location.back();
 
     console.log( 'goBack()...' );
+  }
+  ngOnDestroy(){
+      this.sub.unsubscribe();
   }
 
 

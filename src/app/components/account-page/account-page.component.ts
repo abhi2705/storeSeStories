@@ -28,16 +28,21 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.userSub = this.apiservice.account.getUserDetails().subscribe((data: User) => {
       this.accDetails = data;
-      console.log(this.accDetails)
+    if(this.accDetails.phone == null){
+      this.phNo = this.apiservice.account.getPhoneNumber().subscribe((data: number) => {
+        this.accDetails.phone = data + ' · '
+      });
+      this.phNo.unsubscribe();
+    }
+    else{
+      this.accDetails.phone += ' · '
+    }
     });
-
-    this.accDetails.phone = ''
-
+  
   }
 
   ngOnDestroy(): void {
     this.userSub.unsubscribe();
-    this.phNo.unsubscribe();
   }
 
   onLogout(): void {

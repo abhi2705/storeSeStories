@@ -34,11 +34,12 @@ export class BlogPageComponent implements OnInit, OnDestroy {
                private bookmarkButtonService: BlogsService) {
                   this.isLiked=false;
                   this.isBookmarked=false;
+                  this.recommendedBlogs = []
+                  this.blogpage = []
                }
  
    ngOnInit(): void {
-     this.recommendedBlogs = []
-     this.blogpage = []
+     
      this.newComment = { "commentId": 0, "content": '', "sourceId": 0, "userId": 0 }
      this.blogId = this.route.snapshot.params['id']
      this.apiservice.blogs.get(this.blogId).subscribe((data: Blog) => {

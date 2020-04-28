@@ -32,7 +32,6 @@ export class AccountPageComponent implements OnInit, OnDestroy {
       this.phNo = this.apiservice.account.getPhoneNumber().subscribe((data: number) => {
         this.accDetails.phone = data + ' · '
       });
-      this.phNo.unsubscribe();
     }
     else{
       this.accDetails.phone += ' · '
@@ -47,6 +46,9 @@ export class AccountPageComponent implements OnInit, OnDestroy {
 
   onLogout(): void {
     this.auth.logout();
+    if(this.phNo){
+      this.phNo.unsubscribe();
+    }
   }
 
 }

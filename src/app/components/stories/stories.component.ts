@@ -48,6 +48,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.sub = this.stories$.subscribe((data: Stories) => {
       console.log(data);
       this.all_stories = data.stories;
+      this.all_stories.reverse();
       var l = this.all_stories.length;
       var i = 0;
       for(i = 0; i < l; i++){

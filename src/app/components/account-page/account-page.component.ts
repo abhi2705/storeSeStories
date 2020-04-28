@@ -16,8 +16,9 @@ export class AccountPageComponent implements OnInit, OnDestroy {
   public isCollapsedOrders : Boolean;
   public accDetails: any;
   public userSub : Subscription;
+  public phNo : Subscription;
 
-  constructor(private apiservice: ApiService, private auth: AuthService) { 
+  constructor(private apiservice: ApiService, private auth: AuthService) {
     this.isCollapsedAcc = true;
     this.isCollapsedHelp = true;
     this.isCollapsedOrders = true;
@@ -28,13 +29,10 @@ export class AccountPageComponent implements OnInit, OnDestroy {
     this.userSub = this.apiservice.account.getUserDetails().subscribe((data: User) => {
       this.accDetails = data;
       console.log(this.accDetails)
-      if(this.accDetails.phone != null){
-        this.accDetails.phone += '  ·  '
-      }
-      else{
-        this.accDetails.phone=''
-      }
     });
+
+    this.accDetails.phone = ''
+
   }
 
   ngOnDestroy(): void {

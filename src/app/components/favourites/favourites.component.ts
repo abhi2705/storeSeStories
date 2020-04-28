@@ -42,6 +42,7 @@ export class FavouritesComponent implements OnInit, OnDestroy {
     this.sub = this.stories$.subscribe((data: Stories) => {
       console.log(data);
       this.liked_stories = data.stories;
+      this.liked_stories.reverse();
       var l = this.liked_stories.length;
       var i = 0;
       for(i = 0; i < l; i++){

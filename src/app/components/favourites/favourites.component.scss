@@ -58,10 +58,11 @@ $btn-width: $img-width;
 }
 
 .heading {
-    margin-left: 11vw;
+    margin-left: 14vw;
     margin-top: 1vh;
     margin-bottom: 0;
     font-family: 'Montserrat';
+    font-size: medium;
 }
 
 .img {
@@ -237,9 +238,85 @@ $btn-width: $img-width;
   .liked_btn {
     background-color: #FFF;
     background-image: url('../../../assets/account-icons/back.svg');
+    z-index: 1;
   }
 
 .modal {
   align-items: center;
   z-index: 100 !important;
+}
+
+@include media-breakpoint-up(md) { 
+  .heading {
+    font-size: large;
+    margin-left: 10vw;
+  }
+  .column {
+    // float: left;
+    width: 33%;
+    padding: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-1 {
+  height: 39vh;
+  width: 30vw;
+  margin: auto;
+  padding: auto;
+  margin-bottom: 2vh;
+  margin-left: 2.5vw;
+}
+.img {
+ width: 30vw;
+ height: 32vh;
+}
+.gradient-button {
+  height: 7vh;
+  width: 30vw;
+  font-size: medium;
+}
+
+
+
+}
+
+@include media-breakpoint-up(lg) { 
+  .heading {
+    font-size: larger;
+    margin-left: 5vw;
+  }
+
+  .column {
+    // float: left;
+    width: 25%;
+    padding: auto;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-1 {
+  height: 39vh;
+  width: 18vw;
+  margin: auto;
+  padding: auto;
+  margin-bottom: 2vh;
+  margin-top: 1vh;
+  margin-left: 5.5vw;
+}
+
+.img {
+ height: 32vh;
+ width: 18vw;
+}
+.gradient-button {
+  height: 7vh;
+  width: 18vw;
+  font-size: large;
+}
+
 }

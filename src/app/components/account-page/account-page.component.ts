@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { User } from '../../models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-account-page',
@@ -10,22 +11,32 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AccountPageComponent implements OnInit, OnDestroy {
 
-  public isCollapsedAcc = true;
-  public isCollapsedHelp = true;
-  public isCollapsedOrders = true;
-  public accDetails: User;
+  public isCollapsedAcc : Boolean;
+  public isCollapsedHelp : Boolean;
+  public isCollapsedOrders : Boolean;
+  public accDetails: any;
+  public userSub : Subscription;
+  public phNo : Subscription;
 
-  constructor(private apiservice: ApiService, private auth: AuthService) { }
+  constructor(private apiservice: ApiService, private auth: AuthService) {
+    this.isCollapsedAcc = true;
+    this.isCollapsedHelp = true;
+    this.isCollapsedOrders = true;
+    this.accDetails = [];
+  }
 
   ngOnInit(): void {
-    this.apiservice.account.getUserDetails().subscribe((data: User) => {
+    this.userSub = this.apiservice.account.getUserDetails().subscribe((data: User) => {
       this.accDetails = data;
+      console.log(this.accDetails)
     });
+
+    this.accDetails.phone = ''
 
   }
 
   ngOnDestroy(): void {
-
+    this.userSub.unsubscribe();
   }
 
   onLogout(): void {

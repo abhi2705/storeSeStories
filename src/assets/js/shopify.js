@@ -68,8 +68,8 @@
                   "background-color": "#3d4da2"
                 },
                 "border-radius": "7px",
-                "padding-left": "28px",
-                "padding-right": "28px"
+                "padding-left": "5px",
+                "padding-right": "5px"
               }
             },
             "contents": {

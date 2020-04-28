@@ -5,7 +5,7 @@
     <div class="content-wrapper">
       <div class="scroll-wrapper">
         <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
-        <p class="heading">Liked Cards</p>
+        <p class="heading" style="margin-left: 24vh; margin-top: 20px">Liked Cards</p>
         <div class="card card-1 column"  *ngFor="let story of liked_stories; let i = index" >
           <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story, i)" id="{{i}}">
           <button class="btn gradient-button gradient-button-1" routerLink="/brand/{{story.brandId}}">VISIT BRAND</button>

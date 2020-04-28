@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Order } from '../../models/order.model';
 import {ActivatedRoute} from '@angular/router';
 import { ShopifyService } from 'src/app/services/shopify.service';
+import { Location } from '@angular/common';
+
 
 @Component({
   selector: 'app-order-page',
@@ -14,7 +16,7 @@ export class OrderPageComponent implements OnInit {
 
   order$: Observable<Order>;
   private productCache: any;
-  constructor(private api: ApiService, private route: ActivatedRoute, private _shopify: ShopifyService) { }
+  constructor(private api: ApiService, private route: ActivatedRoute, private _shopify: ShopifyService, private location: Location) { }
 
   ngOnInit(): void {
     console.log('initing')
@@ -31,5 +33,9 @@ export class OrderPageComponent implements OnInit {
       this.productCache[id] = this._shopify.getProductById(id);
     }
     return this.productCache[id];
+  }
+  goBack() {
+    this.location.back();
+    console.log( 'goBack()...' );
   }
 }

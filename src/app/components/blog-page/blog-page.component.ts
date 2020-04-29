@@ -23,7 +23,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   comments: number;
   private sub2: Subscription;
   favBtnEnabled: boolean;
-
+  private sub: Subscription;
   blogpage : any;
   newComment: Comment;
   recommendedBlogs: Array<Blog>;
@@ -32,23 +32,33 @@ export class BlogPageComponent implements OnInit, OnDestroy {
                private route : ActivatedRoute,
                private location: Location,
                private bookmarkButtonService: BlogsService) {
-                  this.isLiked=false;
-                  this.isBookmarked=false;
-                  this.recommendedBlogs = []
-                  this.blogpage = []
+                  
                }
+    ngOnInit() : void{
+        this.sub = this.route.params.subscribe(routeParams => {
+        this.fetchData(routeParams.id);
+    });
+    }
+    
  
-   ngOnInit(): void {
-     
+   fetchData(id): void {
+    this.recommendedBlogs = []
+    this.blogpage = []
      this.newComment = { "commentId": 0, "content": '', "sourceId": 0, "userId": 0 }
-     this.blogId = this.route.snapshot.params['id']
+     this.blogId = id
      this.apiservice.blogs.get(this.blogId).subscribe((data: Blog) => {
       this.blogpage = data;
       if(this.blogpage.isLiked==true){
         this.isLiked = true
       }
+      else{
+        this.isLiked=false
+      }
       if(this.blogpage.isBookmarked==true){
         this.isBookmarked = true
+      }
+      else{
+        this.isBookmarked = false
       }
     });
 
@@ -133,6 +143,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
   }
 
 
+
   onEnter(comment: string) {
     this.newComment.content = comment
     this.newComment.sourceId = this.blogId
@@ -148,6 +159,7 @@ export class BlogPageComponent implements OnInit, OnDestroy {
     this.sub2.unsubscribe();
     this.destroySubject$.next();
     this.destroySubject$.unsubscribe();
+    this.sub.unsubscribe();
   }
   goBack() {
     this.location.back();

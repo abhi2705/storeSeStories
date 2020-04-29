@@ -17,8 +17,8 @@ img.icon {
   position: absolute;
   right: 5%;
   border: none;
-  height: 5vh;
-  width: 5vh;
+  height: 7vh;
+  width: 7vh;
   border-radius: 50%;
   background-size: 50%;
   background-position: 50%, 50%;
@@ -28,8 +28,8 @@ img.icon {
   position: absolute;
   right: 5%;
   border: none;
-  height: 6vh;
-  width: 6vh;
+  height: 7vh;
+  width: 7vh;
   border-radius: 50%;
   background-size: 50%;
   background-position: 50%, 50%;
@@ -37,10 +37,10 @@ img.icon {
 }
 
 .liked_btn {
-  background-color: #1d2a5b;
-  background-image: url('src/assets/img/shareables/heart_liked.png');
+  background-color: transparent; //#1d2a5b;
+  background-image: url('src/assets/img/shareables/LikedCards.svg');
 }
 .bookmark_btn {
-  background-color: #FFF;
-  background-image: url('src/assets/blog-icons/Bookmark Filled.svg');
+  background-color:transparent;
+  background-image: url('src/assets/blog-icons/BP.svg');
 }

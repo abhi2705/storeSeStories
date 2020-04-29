@@ -1,40 +1,23 @@
 <div style="overflow-x: hidden;">
   <div class="track-block">
-    <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
-      <img alt="search icon" src="../../../assets/blog-icons/search.svg">
-      <input aria-label="Search" placeholder="Search for blogs"
-        type="text" [(ngModel)]="searchText" name="search" >
-    </div>
-    
     <a href="javascript:void(0)" (click)="goBack()">
-      <div backButton class="btn1 liked_btn" ></div>
+      <div backButton class="btn1 liked_btn"></div>
     </a>
-    <div class = "container " style=" margin-left: 4vh;margin-top: 8px;float: left; margin-bottom: 8px; width: 50px; ">Bookmarked</div>
+    <div class="container " style=" margin-left: 4vh;margin-top: 8px;float: left; margin-bottom: 8px; width: 50px; ">
+      Bookmarked</div>
   </div>
-
-  
-  
-    <div class="scroll-wrapper"  style="margin-top: 2vh; height:62vh; justify-content: center; width: 100%">
-              
-
-      <div class="card column" style=" padding: 0;" *ngFor="let blog of allBlogs | filter:searchText" >
+  <div class="scroll-wrapper" style="margin-top: 2vh; height:62vh; justify-content: center; width: 100%">
+    <div class="card column" style=" padding: 0;" *ngFor="let blog of allBlogs | filter:searchText">
       <div class="row" routerLink="/blog/{{blog.blogId}}">
         <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
           <div style="padding:8px;">
-            <div class="blog-date" >{{getDate(blog)}}</div>
+            <div class="blog-date">{{getDate(blog)}}</div>
             <div class=" blog-desc">{{blog.title}}</div>
             <div class="blog-tag">{{blog.tags}}</div>
           </div>
         </a>
 
-      </div>      
-      </div> 
-      
-
+      </div>
+    </div>
   </div>
-
-
-
-
 </div>
-   

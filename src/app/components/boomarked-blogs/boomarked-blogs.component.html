@@ -1,11 +1,23 @@
 <div style="overflow-x: hidden;">
-  <div class="track-block">
+  <!-- <div class="track-block">
     <div href="javascript:void(0)" (click)="goBack()">
       <div backButton class="btn1 liked_btn"></div>
     </a>
     <div class="container " style=" margin-left: 5vh;margin-top: 3vh;">
       Bookmarked</div>
   </div>
+    </div>
+    <div style="margin-top: 3vh; margin-left: 8vh;font-size: 2vh;">Bookmarked</div>
+    
+  </div> -->
+  <div class="banner bg-light  align-items-center">
+    <!-- <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
+    <p class="" style="text-align: center; margin-left: 16%; margin-top: 4%;"><strong>My Orders</strong></p> -->
+    <div class="banner bg-light  align-items-center" style="display:inline-block; ">
+        <p class="" style="text-align: center; margin-left: 5%; margin-top: 4%; margin-bottom: 0; vertical-align: middle; width: 100%;"><a href="javascript:void(0)" (click)="goBack()" style="vertical-align: middle;"><button backButton class="btn1 liked_btn" ></button></a><strong style="margin-left:30vw;">Bookmarked</strong></p>
+      </div>
+    <hr>
+</div>
   <div class="scroll-wrapper" style="margin-top: 2vh; height:62vh; justify-content: center; width: 100%">
     <div class="card column" style=" padding: 0;" *ngFor="let blog of allBlogs | filter:searchText">
       <div class="row" routerLink="/blog/{{blog.blogId}}">

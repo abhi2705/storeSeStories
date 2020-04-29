@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, OnDestroy, ViewChild } from '@angular/core';
+import { Component, OnInit, Inject, OnDestroy, ViewChild, HostListener } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import { Observable, Subscription } from 'rxjs';
@@ -6,15 +6,24 @@ import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
 import { IonSlides } from '@ionic/angular';
 import { FavButtonService } from '../../services/fav-button.service';
+import { trigger, keyframes, animate, transition } from "@angular/animations";
+import * as kf from './keyframes';
 
 @Component({
   selector: 'app-stories',
   templateUrl: './stories.component.html',
   styleUrls: ['./stories.component.scss'],
+  animations: [
+    trigger('cardAnimator', [
+      transition('* => *', animate("100ms ease-in-out", keyframes(kf.any))),
+    ])
+  ]
 })
 export class StoriesComponent implements OnInit, OnDestroy {
 
   @ViewChild("mySlider") slides: IonSlides;
+
+  isClicked = false;
 
   favourite_stories = [];
   all_stories;
@@ -240,6 +249,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
       },
       setTransition(duration) {
         const swiper = this;
+        duration = 500;
         swiper.slides
           .transition(duration)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
@@ -259,4 +269,21 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.sub2.unsubscribe();
   }
 
+  toggleIsClicked() {
+    this.isClicked = !this.isClicked;
+  }
+
+  @HostListener('dblclick') double_click(story, i) {
+    console.log("here");
+  }
+
+  startAnimation(state) {
+    if (!this.animationState) {
+      this.animationState = state;
+    }
+  }
+
+  resetAnimationState(state) {
+    this.animationState = '';
+  }
 }

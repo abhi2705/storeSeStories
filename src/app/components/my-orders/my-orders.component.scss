@@ -1,6 +1,7 @@
 .main {
     overflow-y: scroll; 
-    max-height: 100%;
+    max-height: 80%;
+    margin-top: 0;
 }
 
 .main-heading {
@@ -62,6 +63,10 @@
   }
   
   .liked_btn {
+    position: absolute;
     background-color: #FFF;
     background-image: url('../../../assets/account-icons/back.svg');
+    height: 5vh;
+    width: 5vh;
+    border-radius: 50%;
   }

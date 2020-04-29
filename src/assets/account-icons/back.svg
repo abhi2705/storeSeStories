@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 24.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 492 492" style="enable-background:new 0 0 492 492;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M198.6,246.1L382.7,62c5.1-5.1,7.9-11.8,7.9-19c0-7.2-2.8-14-7.9-19L366.5,7.9c-5.1-5.1-11.8-7.9-19-7.9s-14,2.8-19,7.9
-			L109.3,227c-5.1,5.1-7.9,11.9-7.8,19.1c0,7.2,2.8,14,7.8,19.1l218.9,218.9c5.1,5.1,11.8,7.9,19,7.9c7.2,0,14-2.8,19-7.9l16.1-16.1
-			c10.5-10.5,10.5-27.6,0-38.1L198.6,246.1z"/>
-	</g>
-</g>
+<svg id="arrow_back-24px" xmlns="http://www.w3.org/2000/svg" width="473.27" height="473.27" viewBox="0 0 473.27 473.27">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <path id="Path_3" data-name="Path 3" class="cls-1" d="M0,0H473.27V473.27H0Z"/>
+  <path id="Path_4" data-name="Path 4" d="M439.438,206.177H106.218L251.8,56.82a31.421,31.421,0,0,0,0-43.46,29.18,29.18,0,0,0-42.063,0L13.143,215.053a31.041,31.041,0,0,0,0,43.154L209.734,459.9a29.18,29.18,0,0,0,42.063,0,31.041,31.041,0,0,0,0-43.154L106.218,267.389h333.22c16.407,0,29.832-13.773,29.832-30.606S455.846,206.177,439.438,206.177Z" transform="translate(0 0)"/>
 </svg>

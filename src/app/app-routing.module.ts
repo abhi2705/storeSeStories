@@ -41,7 +41,8 @@ const routes: Routes = [
       },
       {
         path: 'blog/:id',
-        component: BlogPageComponent
+        component: BlogPageComponent,
+        runGuardsAndResolvers: 'always'
       },
       {
         path: 'liked',
@@ -68,7 +69,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

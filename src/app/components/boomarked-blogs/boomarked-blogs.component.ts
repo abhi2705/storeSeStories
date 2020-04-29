@@ -21,7 +21,7 @@ export class BoomarkedBlogsComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.blogs$ = this.apiservice.blogs.get();
+    this.blogs$ = this.apiservice.account.getBookmarked();
     this.sub = this.blogs$.subscribe((data: Blogs) => {
       this.allBlogs = data.blogs;
     });

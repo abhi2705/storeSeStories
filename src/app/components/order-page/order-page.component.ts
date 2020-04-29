@@ -38,4 +38,11 @@ export class OrderPageComponent implements OnInit {
     this.location.back();
     console.log( 'goBack()...' );
   }
+  getOrderStatus(order: Order): string {
+    if (order.fulfillment_status) {
+      return order.fulfillment_status.charAt(0).toUpperCase();
+    } else {
+      return 'Pending';
+    }
+  }
 }

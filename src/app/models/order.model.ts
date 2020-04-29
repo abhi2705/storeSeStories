@@ -6,6 +6,7 @@ export interface Order {
   shipping_address: any;
   total_tax: string;
   shipping_lines: any[];
+  fulfillment_status?: string;
 }
 
 export interface Orders {

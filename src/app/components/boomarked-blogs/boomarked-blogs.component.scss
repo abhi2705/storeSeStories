@@ -1,7 +1,7 @@
 
 @import '../blog-nav/blog-nav.component.scss';
 .btn1{
-  position: absolute;
+  position: relative !important;
   left: 3%;
   top:8.2%;
   border: none;

@@ -1,10 +1,10 @@
 <div style="overflow-x: hidden;">
   <div class="track-block">
-    <a href="javascript:void(0)" (click)="goBack()">
+    <div href="javascript:void(0)" (click)="goBack()">
       <div backButton class="btn1 liked_btn"></div>
-    </a>
-    <div class="container " style=" margin-left: 4vh;margin-top: 8px;float: left; margin-bottom: 8px; width: 50px; ">
-      Bookmarked</div>
+    </div>
+    <div style="margin-top: 3vh; margin-left: 8vh;font-size: 2vh;">Bookmarked</div>
+    
   </div>
   <div class="scroll-wrapper" style="margin-top: 2vh; height:62vh; justify-content: center; width: 100%">
     <div class="card column" style=" padding: 0;" *ngFor="let blog of allBlogs | filter:searchText">

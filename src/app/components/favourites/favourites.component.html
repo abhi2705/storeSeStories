@@ -4,11 +4,14 @@
 <div class="component-wrapper">
     <div class="content-wrapper">
       <div class="scroll-wrapper" style="overflow-x: hidden;">
-        <a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
+        <div class="heading1">
+          
         <div class="banner bg-light row align-items-center">
-          <p class="" style="text-align: center; margin-left: 15%; margin-top: 4%;"><strong>Liked Cards</strong></p>
+          <p class="" style="text-align: center; margin-left: 5%; margin-top: 4%; vertical-align: middle;"><a href="javascript:void(0)" (click)="goBack()" style="vertical-align: middle;"><button backButton class="btn1 liked_btn" ></button></a><strong style="margin-left:30vw;">Liked Cards</strong></p>
         </div>
-        <br>
+        </div>
+        
+        
         <div class="card card-1 column"  *ngFor="let story of liked_stories; let i = index" >
           <img class="card-img-top img" src="{{story.imageUrl}}" (click)="onClick(story, i)" id="{{i}}">
           <button class="btn gradient-button gradient-button-1" routerLink="/brand/{{story.brandId}}">VISIT BRAND</button>

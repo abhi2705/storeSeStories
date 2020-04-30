@@ -12,7 +12,14 @@
     background-repeat: no-repeat;
     
   }
+  a {
+    color: lightslategrey;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+  }
   
+
   .liked_btn {
     background-color: #FFF;
     background-image: url('../../../assets/account-icons/back.svg');
@@ -173,7 +180,6 @@
     margin-bottom: -18px;
     color:#3a5275; 
     font-family: 'Montserrat',sans-serif;
-    // font-size: 12px; 
     text-align: left;
     font-weight: 400;
 }
@@ -198,7 +204,12 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
-  }
+    overflow-x:hidden ;
+}
+
+
+
+
 
 
 

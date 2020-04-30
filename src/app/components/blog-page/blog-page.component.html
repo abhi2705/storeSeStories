@@ -10,7 +10,7 @@
             <div class="blog-page-tag ow">{{blogpage.tags}}</div>
             <div class="blog-title ow">{{blogpage.title}}</div>
             <div class="blog-page-date ow">{{blogpage.author}} · {{getDate(blogpage)}}</div>
-            <div class="blog-content ow" >{{blogpage.content}}</div>
+            <div class="blog-content ow" [innerHTML]="blogpage.content"></div>
         </div>
 
         <div class="button-strap container">
@@ -44,8 +44,6 @@
             *ngIf="recommendedBlogs.length > 0">You may also like</div>
 
     </div>
-
-
     <div class="card column" style=" padding: 0;"
         *ngFor="let blog of recommendedBlogs; let i = index">
         <div routerLink="/blog/{{blog.blogId}}">

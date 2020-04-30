@@ -307,6 +307,13 @@ export class StoriesComponent implements OnInit, OnDestroy {
       }
     });
   }
+ 
+  slideConfig = {
+    "slidesToShow": 1,
+    "slidesToScroll": 1,
+    "infinite": false,
+    "pauseOnFocus": false,
+    "pauseOnHover": false
+  };
 
-  
 }

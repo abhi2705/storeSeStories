@@ -1,12 +1,12 @@
 <div class="container view dragscroll" data-overflowing="both">
-  <ion-slides #mySlider *ngIf="all_stories" (ionSlideTransitionStart)="slidesDidChange()" (ionSlidesDidLoad)="slidesDidChange()" (ionSlideTap)="toggleIsClicked()" (ionSlideDoubleTap)="double_tap()" [options]="slideOpts" >
+  <ion-slides #mySlider *ngIf="all_stories" (ionSlideTransitionStart)="slidesDidChange()" (ionSlidesDidLoad)="slidesDidChange()"  (ionSlideDoubleTap)="double_tap()" [options]="slideOpts" >
     <ion-slide *ngFor="let story of all_stories; let i = index" id="{{i}}">
       <div class="card  card-wrapper">
         <div class="card card-wrapper-2">
-          <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
-          <p *ngIf="isClicked" class="text">{{get_duration(story)}}</p>
-          <button *ngIf="isClicked" class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> 
-          <button *ngIf="isClicked" class="btn share" (click)="activateShare(story.targetUrl)"></button>
+          <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img" (click)="toggleIsClicked()">
+          <p *ngIf="isClicked" [@cardAnimator]="isClicked" class="text">{{get_duration(story)}}</p>
+          <button *ngIf="isClicked" [@cardAnimator]="isClicked" class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> 
+          <button *ngIf="isClicked" [@cardAnimator]="isClicked" class="btn share" (click)="activateShare(story.targetUrl)"></button>
           <button class="btn gradient-button gradient-button-1" routerLink="/brand/{{story.brandId}}">VISIT BRAND</button>
         </div>
       </div>
@@ -14,7 +14,7 @@
   </ion-slides>
   <div class="view-1"  *ngIf="slidesLoaded">
     <div *ngFor="let x of active; let ind = index"> 
-      <span *ngIf="isClicked" [ngClass]="get_class(ind)"></span>
+      <span *ngIf="isClicked" [@cardAnimator]="isClicked" [ngClass]="get_class(ind)"></span>
     </div>
   </div>
   <div>

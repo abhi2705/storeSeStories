@@ -26,8 +26,13 @@ export const slidefromleft = [
 ]
 
 export const enter = [
-  style({transform: 'translateX(100%) rotate3d(0, 0, 1, 0)' , opacity: 0}),
-  style({transform: 'translateX(0)', opacity: 1})
+  style({opacity: 0}),
+  style({opacity: 1})
+]
+
+export const exit = [
+  style({opacity: 1}),
+  style({opacity: 0})
 ]
 
 export const any = [

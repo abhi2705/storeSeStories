@@ -9,6 +9,33 @@ ion-slides {
   --bullet-background-active: orangered;
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity:0.75;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:0.75;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:0.75;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
 .view-1 {
   position: fixed;
   display: flex;
@@ -211,35 +238,7 @@ ion-slides {
     animation: fadeOut ease-out 2s;
     -webkit-animation: fadeOut ease-out 2s;
     -moz-animation: fadeOut ease-out 2s;
-  }
-
-  @keyframes fadeOut {
-    0% {
-      opacity:0.75;
-    }
-    100% {
-      opacity:0;
-    }
-  }
-  
-  @-moz-keyframes fadeOut {
-    0% {
-      opacity:0.75;
-    }
-    100% {
-      opacity:0;
-    }
-  }
-  
-  @-webkit-keyframes fadeOut {
-    0% {
-      opacity:0.75;
-    }
-    100% {
-      opacity:0;
-    }
-  }
-  
+  }  
   
 }
 
@@ -373,6 +372,17 @@ ion-slides {
     border-radius: 50%;
     text-align: center;
   }
+
+  .like_clicked {
+    z-index: 1;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+    display: none;
+    animation: fadeOut ease-out 2s;
+    -webkit-animation: fadeOut ease-out 2s;
+    -moz-animation: fadeOut ease-out 2s;
+  }  
 
 }
 
@@ -509,6 +519,17 @@ ion-slides {
     text-align: center;
   }
 
+  .like_clicked {
+    z-index: 1;
+    position: absolute;
+    top: 35%;
+    left: 43%;
+    display: none;
+    animation: fadeOut ease-out 2s;
+    -webkit-animation: fadeOut ease-out 2s;
+    -moz-animation: fadeOut ease-out 2s;
+  }  
+
 }
 
 // For large laptop screens
@@ -643,5 +664,16 @@ ion-slides {
     border-radius: 50%;
     text-align: center;
   }
+
+  .like_clicked {
+    z-index: 1;
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    display: none;
+    animation: fadeOut ease-out 2s;
+    -webkit-animation: fadeOut ease-out 2s;
+    -moz-animation: fadeOut ease-out 2s;
+  }  
 
  }

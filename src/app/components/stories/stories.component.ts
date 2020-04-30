@@ -15,7 +15,8 @@ import * as kf from './keyframes';
   styleUrls: ['./stories.component.scss'],
   animations: [
     trigger('cardAnimator', [
-      transition('* => *', animate("100ms ease-in-out", keyframes(kf.any))),
+      transition(':enter', animate("500ms ease-in", keyframes(kf.enter))),
+      transition(':leave', animate("500ms ease-out", keyframes(kf.exit)))
     ])
   ]
 })
@@ -138,6 +139,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
   activateShare(brandUrl: string) {
     console.log('activating share');
     this.shareTabService.activate(brandUrl);
+    // this.isClicked = !this.isClicked;
   }
 
   add_like(story, i){
@@ -148,6 +150,9 @@ export class StoriesComponent implements OnInit, OnDestroy {
     else {
       this.liked[i] = "like_y";
       this.sub5 = this.apiservice.stories.like(story.storyId).subscribe(()=> {});
+    }
+    if(this.isSingleClick) {
+      // this.isClicked = !this.isClicked;
     }
     return;
   }
@@ -279,27 +284,27 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.isSingleClick = true;
     setTimeout(()=>{
         if(this.isSingleClick){
+          console.log("here");
           this.isClicked = !this.isClicked;
         }
-      },250);
+      },200);
   }
 
   double_tap() {
     this.isSingleClick = false;
+    var unlike = false;
     this.slides.getActiveIndex().then(i => {
       var story = this.all_stories[i];
-      if(this.liked[i] == "like_y")
-      {
-        return;
+      if(this.liked[i] == "like_y") {
+        unlike = true;
       }
-      
-      this.add_like(story, i);
-
-      this.document.getElementById("likeimg").style.display = "block";
-      setTimeout(() => {
-        this.document.getElementById("likeimg").style.display = "none";
-      }, 1000);
-
+      else {
+        this.add_like(story, i);
+        this.document.getElementById("likeimg").style.display = "block";
+        setTimeout(() => {
+          this.document.getElementById("likeimg").style.display = "none";
+        }, 1000);
+      }
     });
   }
 

@@ -9,6 +9,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { IonicModule } from '@ionic/angular';
 import { SwipeCardLibModule } from 'ng-swipe-card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 // Component imports
 import { AppComponent } from './app.component';
@@ -63,7 +64,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     IonicModule.forRoot(),
     SwipeCardLibModule,
     BrowserAnimationsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    SlickCarouselModule
   ],
   providers: [
     {

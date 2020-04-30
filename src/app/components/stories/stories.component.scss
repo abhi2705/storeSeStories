@@ -202,6 +202,45 @@ ion-slides {
     text-align: center;
   }
 
+  .like_clicked {
+    z-index: 1;
+    position: absolute;
+    top: 30%;
+    left: 32%;
+    display: none;
+    animation: fadeOut ease-out 2s;
+    -webkit-animation: fadeOut ease-out 2s;
+    -moz-animation: fadeOut ease-out 2s;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity:0.75;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    0% {
+      opacity:0.75;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  @-webkit-keyframes fadeOut {
+    0% {
+      opacity:0.75;
+    }
+    100% {
+      opacity:0;
+    }
+  }
+  
+  
 }
 
 

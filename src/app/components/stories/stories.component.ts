@@ -202,7 +202,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
         const center = isHorizontal ? -transform$$1 + (swiperWidth / 2) : -transform$$1 + (swiperHeight / 2);
         const rotate = isHorizontal ? params.rotate : -params.rotate;
         const translate = params.depth;
-        console.log(swiper);
+        // console.log(swiper);
         // Each slide offset from center
         for (let i = 0, length = slides.length; i < length; i += 1) {
           const $slideEl = slides.eq(i);
@@ -288,7 +288,18 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.isSingleClick = false;
     this.slides.getActiveIndex().then(i => {
       var story = this.all_stories[i];
+      if(this.liked[i] == "like_y")
+      {
+        return;
+      }
+      
       this.add_like(story, i);
+
+      this.document.getElementById("likeimg").style.display = "block";
+      setTimeout(() => {
+        this.document.getElementById("likeimg").style.display = "none";
+      }, 1000);
+
     });
   }
 

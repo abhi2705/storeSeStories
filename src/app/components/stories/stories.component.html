@@ -1,13 +1,9 @@
 <div class="container view dragscroll" data-overflowing="both">
-  <ion-slides #mySlider *ngIf="all_stories" (ionSlideTransitionStart)="slidesDidChange()" (ionSlidesDidLoad)="slidesDidChange()" [options]="slideOpts" >
-    <ion-slide *ngFor="let story of all_stories; let i = index" id="{{i}}"
-      [@cardAnimator]="animationState"
-      (@cardAnimator.done)="resetAnimationState($event)"
-      (swipeleft)='startAnimation("swipeleft")' 
-      (swiperight)='startAnimation("swiperight")'>
+  <ion-slides #mySlider *ngIf="all_stories" (ionSlideTransitionStart)="slidesDidChange()" (ionSlidesDidLoad)="slidesDidChange()" (ionSlideTap)="toggleIsClicked()" (ionSlideDoubleTap)="double_tap()" [options]="slideOpts" >
+    <ion-slide *ngFor="let story of all_stories; let i = index" id="{{i}}">
       <div class="card  card-wrapper">
         <div class="card card-wrapper-2">
-          <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img" (click)="toggleIsClicked()" (dblclick)="double_click(story, i)">
+          <img [src]="story.imageUrl" alt="{{story.content}}" class="card-img-top img-fluid img">
           <p *ngIf="isClicked" class="text">{{get_duration(story)}}</p>
           <button *ngIf="isClicked" class="btn like" [ngClass]=liked[i] (click)="add_like(story, i)"></button> 
           <button *ngIf="isClicked" class="btn share" (click)="activateShare(story.targetUrl)"></button>
@@ -20,6 +16,9 @@
     <div *ngFor="let x of active; let ind = index"> 
       <span *ngIf="isClicked" [ngClass]="get_class(ind)"></span>
     </div>
+  </div>
+  <div>
+    <!-- <button class="like_clicked"></button> -->
   </div>
 </div>
 <br>

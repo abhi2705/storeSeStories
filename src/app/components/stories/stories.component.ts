@@ -186,8 +186,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
         swiper.params.watchSlidesProgress = true;
         swiper.originalParams.watchSlidesProgress = true;
+        // swiper.params.touchReleaseOnEdges = true;
+        // swiper.originalParams.touchReleaseOnEdges = true;
+        // swiper.passedParams.touchReleaseOnEdges = true;
       },
       setTranslate() {
+        // console.log("translate");
         const swiper = this;
         const {
           width: swiperWidth, height: swiperHeight, slides, $wrapperEl, slidesSizesGrid, $
@@ -198,6 +202,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
         const center = isHorizontal ? -transform$$1 + (swiperWidth / 2) : -transform$$1 + (swiperHeight / 2);
         const rotate = isHorizontal ? params.rotate : -params.rotate;
         const translate = params.depth;
+        console.log(swiper);
         // Each slide offset from center
         for (let i = 0, length = slides.length; i < length; i += 1) {
           const $slideEl = slides.eq(i);
@@ -222,7 +227,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
            const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-           $slideEl.transform(slideTransform);
+          $slideEl.transform(slideTransform);
           $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
           // if (params.slideShadows) {
           //   // Set shadows
@@ -249,7 +254,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
       },
       setTransition(duration) {
         const swiper = this;
-        duration = 500;
         swiper.slides
           .transition(duration)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
@@ -269,21 +273,24 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.sub2.unsubscribe();
   }
 
+  isSingleClick: Boolean = true;
+  
   toggleIsClicked() {
-    this.isClicked = !this.isClicked;
+    this.isSingleClick = true;
+    setTimeout(()=>{
+        if(this.isSingleClick){
+          this.isClicked = !this.isClicked;
+        }
+      },250);
   }
 
-  @HostListener('dblclick') double_click(story, i) {
-    console.log("here");
+  double_tap() {
+    this.isSingleClick = false;
+    this.slides.getActiveIndex().then(i => {
+      var story = this.all_stories[i];
+      this.add_like(story, i);
+    });
   }
 
-  startAnimation(state) {
-    if (!this.animationState) {
-      this.animationState = state;
-    }
-  }
-
-  resetAnimationState(state) {
-    this.animationState = '';
-  }
+  
 }

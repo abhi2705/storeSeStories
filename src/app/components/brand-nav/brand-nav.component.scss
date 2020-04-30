@@ -184,10 +184,10 @@ a {
 
 }
 .component-wrapper {
-  height: 100%;
+  height: 94%;
   .inner-wrapper {
     height: 100%;
-    overflow: scroll;
+    overflow-y: scroll;
   }
 }
 .card-title {
@@ -212,3 +212,33 @@ a {
   }
 }
 
+.track-block {
+  // position: absolute;
+  height: 8%;
+  .search-wrap {
+    height: 100%;
+    margin: 0;
+  }
+}
+
+.app-brand-nav {
+  padding-top: 1%;
+}
+
+.inner-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.inner-wrapper {
+  -ms-overflow-style: none;
+}
+
+.scroll-wrapper {
+  -ms-overflow-style: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+  display: none;
+}

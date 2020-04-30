@@ -15,7 +15,8 @@ import * as kf from './keyframes';
   styleUrls: ['./stories.component.scss'],
   animations: [
     trigger('cardAnimator', [
-      transition('* => *', animate("100ms ease-in-out", keyframes(kf.any))),
+      transition(':enter', animate("500ms ease-in", keyframes(kf.enter))),
+      transition(':leave', animate("500ms ease-out", keyframes(kf.exit)))
     ])
   ]
 })
@@ -138,6 +139,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
   activateShare(brandUrl: string) {
     console.log('activating share');
     this.shareTabService.activate(brandUrl);
+    // this.isClicked = !this.isClicked;
   }
 
   add_like(story, i){
@@ -148,6 +150,9 @@ export class StoriesComponent implements OnInit, OnDestroy {
     else {
       this.liked[i] = "like_y";
       this.sub5 = this.apiservice.stories.like(story.storyId).subscribe(()=> {});
+    }
+    if(this.isSingleClick) {
+      // this.isClicked = !this.isClicked;
     }
     return;
   }
@@ -186,8 +191,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
         swiper.params.watchSlidesProgress = true;
         swiper.originalParams.watchSlidesProgress = true;
+        // swiper.params.touchReleaseOnEdges = true;
+        // swiper.originalParams.touchReleaseOnEdges = true;
+        // swiper.passedParams.touchReleaseOnEdges = true;
       },
       setTranslate() {
+        // console.log("translate");
         const swiper = this;
         const {
           width: swiperWidth, height: swiperHeight, slides, $wrapperEl, slidesSizesGrid, $
@@ -198,6 +207,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
         const center = isHorizontal ? -transform$$1 + (swiperWidth / 2) : -transform$$1 + (swiperHeight / 2);
         const rotate = isHorizontal ? params.rotate : -params.rotate;
         const translate = params.depth;
+        // console.log(swiper);
         // Each slide offset from center
         for (let i = 0, length = slides.length; i < length; i += 1) {
           const $slideEl = slides.eq(i);
@@ -222,7 +232,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
            const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
-           $slideEl.transform(slideTransform);
+          $slideEl.transform(slideTransform);
           $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
           // if (params.slideShadows) {
           //   // Set shadows
@@ -249,7 +259,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
       },
       setTransition(duration) {
         const swiper = this;
-        duration = 500;
         swiper.slides
           .transition(duration)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
@@ -269,21 +278,35 @@ export class StoriesComponent implements OnInit, OnDestroy {
     this.sub2.unsubscribe();
   }
 
+  isSingleClick: Boolean = true;
+  
   toggleIsClicked() {
-    this.isClicked = !this.isClicked;
+    this.isSingleClick = true;
+    setTimeout(()=>{
+        if(this.isSingleClick){
+          console.log("here");
+          this.isClicked = !this.isClicked;
+        }
+      },200);
   }
 
-  @HostListener('dblclick') double_click(story, i) {
-    console.log("here");
+  double_tap() {
+    this.isSingleClick = false;
+    var unlike = false;
+    this.slides.getActiveIndex().then(i => {
+      var story = this.all_stories[i];
+      if(this.liked[i] == "like_y") {
+        unlike = true;
+      }
+      else {
+        this.add_like(story, i);
+        this.document.getElementById("likeimg").style.display = "block";
+        setTimeout(() => {
+          this.document.getElementById("likeimg").style.display = "none";
+        }, 1000);
+      }
+    });
   }
 
-  startAnimation(state) {
-    if (!this.animationState) {
-      this.animationState = state;
-    }
-  }
-
-  resetAnimationState(state) {
-    this.animationState = '';
-  }
+  
 }

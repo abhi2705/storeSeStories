@@ -42,6 +42,13 @@ export class BrandPageComponent implements OnInit {
     s2.src = 'assets/js/shopify.js';
     s2.text = ``;
     this.ren2.appendChild(this.document.body, s2);
+    const s3 = this.ren2.createElement('style');
+    s3.text = `
+    .shopify-buy__modal: {
+      max-height: 75% !important;
+    }
+    `;
+    // this.ren2.appendChild(this.document.body, s3);
   }
   goBack() {
     // window.history.back();

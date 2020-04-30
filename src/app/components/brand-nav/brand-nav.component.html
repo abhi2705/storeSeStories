@@ -1,11 +1,12 @@
+<div class="app-brand-nav">
 <div class="track-block">
-  <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
+  <div class="search-wrap ml-auto mr-auto">
     <img alt="search icon" src="../../../assets/img/logos/search.svg">
     <input aria-label="Search" onkeyup="search(event)" placeholder="Search for brands"
       type="text" [(ngModel)]="searchText" name="search" >
   </div>
 </div>
-<div class="component-wrapper" style="height: 100vh; text-align: center;width:100%" >
+<div class="component-wrapper" style="text-align: center;width:100%" >
   <div class="inner-wrapper" style="width:100%; overflow-x: hidden; justify-content: center;">
     <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs  flex-nowrap"
       style=" width:100%; overflow-x: scroll; overflow-y:hidden; padding: 0 1rem; height:3.8vh; ">
@@ -13,10 +14,10 @@
         <a ngbNavLink>All</a>
         <ng-template ngbNavContent  >
           <!-- <button class="btn" style="margin-left: 85%; position:static; margin-top: 0%; "><img src="../../../assets/img/filter.svg" height="20vh" width="20vh" alt="filter icon"></button> -->
-          <div class="scroll-wrapper container-fluid" style="margin-top: 2vh; height:65vh; justify-content: center; width: 100%">
-            <div class="row">
-            <div class="card col-6 col-sm-3 col-lg-2 px-1 px-sm-2" style=" padding: 0;" *ngFor="let brand of all_brands | filter:searchText" >
-              <a routerLink="/brand/{{brand.brandId}}" ><img class="card-img-top mb-1" src="{{brand.logoUrl}}" style="">
+          <div class="scroll-wrapper container-fluid" style="justify-content: center; width: 100%">
+            <div class="brand row">
+            <div class="brand card col-6 col-sm-3 col-lg-2 px-1 px-sm-2 px-md-3 px-lg-2 px-xl-4" *ngFor="let brand of all_brands | filter:searchText" >
+              <a routerLink="/brand/{{brand.brandId}}" ><img class="card-img-top mb-1" src="{{brand.logoUrl}}">
               <div class="card-body" style="padding:0;">
                 <h5 class="card-title company-name mb-2 mb-md-3"
                   style=" margin: 0.25em 0.25em 0.35em 0.25em; color:#3a5275; font-family: 'Montserrat',sans-serif; text-align: left; font-weight:600;">
@@ -33,11 +34,9 @@
       <li [ngbNavItem]="2">
         <a ngbNavLink>New</a>
         <ng-template ngbNavContent>
-          <!-- <button class="btn" style="margin-left: 85%; position:static; margin-top: 0%; "><img src="../../../assets/img/filter.svg" height="20vh" width="20vh" alt="filter icon"></button> -->
         <div class="scroll-wrapper container-fluid" style="margin-top: 2vh; height:65vh; justify-content: center; width: 100%">
-          <div class="row">
-
-          <div class="card col-6 col-sm-3 col-lg-2 px-1 px-sm-2" style=" padding: 0;" *ngFor="let brand of all_brands; let i = index" >
+          <div class="brand row">
+          <div class="brand card col-6 col-sm-3 col-lg-2 px-1 px-sm-2 px-md-3 px-lg-2 px-xl-4" style=" padding: 0;" *ngFor="let brand of all_brands; let i = index" >
             <a routerLink="/brand/{{brand.brandId}}" ><img class="card-img-top mb-1" src="{{brand.logoUrl}}" style="">
             <div class="card-body" style="padding:0;">
               <h5 class="card-title company-name mb-2 mb-md-3"
@@ -115,6 +114,4 @@
       </li>
     </ul>
     <div [ngbNavOutlet]="nav" class="mt-2"></div>
-
-
-    <!-- <img *ngFor="let brand of (brands$ | async)?.brands; let i = index" src={{brand.logoUrl}}> -->
+  </div>

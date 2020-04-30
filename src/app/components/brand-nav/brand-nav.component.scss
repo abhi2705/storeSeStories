@@ -26,9 +26,7 @@
 .card-img, .card-img-top, .card-img-bottom {
   flex-shrink: 0;
   width: 100%;
-  height: 150px;
   border-radius: 20px;
-
 }
 
 .nav-tabs  .nav-tabs .nav-item.show .nav-link {
@@ -199,4 +197,18 @@ a {
   }
 }
 
+.card-img-top {
+  height: 150px;
+}
+@include media-breakpoint-up(lg){
+  .card-img-top {
+    height: 180px;
+  }
+}
+
+@include media-breakpoint-up(xl){
+  .card-img-top {
+    height: 200px;
+  }
+}
 

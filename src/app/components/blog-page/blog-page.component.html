@@ -10,7 +10,7 @@
             <div class="blog-page-tag ow">{{blogpage.tags}}</div>
             <div class="blog-title ow">{{blogpage.title}}</div>
             <div class="blog-page-date ow">{{blogpage.author}} · {{getDate(blogpage)}}</div>
-            <div class="blog-content ow" >{{blogpage.content}}</div>
+            <div class="blog-content ow" [innerHtml]="blogpage.content"></div>
         </div>
 
         <div class="button-strap container">
@@ -40,8 +40,8 @@
         </div>
 
         <div class="blog-page-date container">Comments({{comments}})</div> -->
-        <div class="blog-content container" style="font-size: 12px; font-weight: 600; margin-bottom: 8px;margin-top: 16px;"
-            *ngIf="recommendedBlogs.length > 0">You may also like</div>
+        <div class="blog-content blog-may-like container" 
+            *ngIf="recommendedBlogs.length > 0" >You may also like</div>
 
     </div>
 

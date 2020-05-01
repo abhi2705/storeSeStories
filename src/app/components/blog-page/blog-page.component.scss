@@ -96,23 +96,10 @@
     margin-bottom: 8px;
     background-color: white;
     text-align:center;
-    opacity: 100%;
+    
     
 }
-.button-strap{
-   
-    position: fixed;
-    width: 600px;
-    height: 200px;
-    left: 83%;
-    top: 60%;
-    display: flex;
-    flex-direction: column;
-    text-align: right;
-    z-index: 999;
-  
-    
-}
+
 .search-wrap {
     display: flex;
     flex: 1 58%;
@@ -177,13 +164,76 @@
     text-align: left;
     font-weight: 400;
 }
-.column {
-    float: left;
-    width: 44%;
-    margin-left: 14px;
-    border-radius: 16px 16px 16px 16px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+
+
+@media only screen and (min-width: 601px) {
+    .column {
+      float: left;
+      width: 23vh;
+      margin-left: 3%;
+      border-radius: 16px 16px 16px 16px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+      padding: 0 0px;
+      margin-bottom: 2%;
+    }
+    .blog-may-like{
+        font-size: 12px;
+         font-weight: 600;
+         margin-left: 0vh;
+          margin-bottom: 8px;
+          margin-top: 16px;
+    
+    }
+    .button-strap{
+   
+        position: fixed;
+        width: 600px;
+        height: 200px;
+        left: 93%;
+        top: 57%;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        z-index: 999;
+      
+        
+    }
+    }
+    @media only screen and (max-width: 600px) {
+      .column{
+        float: left;
+        width: 44%;
+        margin-left: 15px;
+        border-radius: 16px 16px 16px 16px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+      }
+      .blog-may-like{
+        font-size: 12px;
+         font-weight: 600;
+          margin-bottom: 8px;
+          margin-top: 16px;
+    
+    }
+    .button-strap{
+   
+        position: fixed;
+        width: 600px;
+        height: 200px;
+        left: 83%;
+        top: 60%;
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        z-index: 999;
+      
+        
+    }
+      
+    }
+a:hover{
+        text-decoration: none;   
 }
+
 .card-img-top{
     margin-bottom:0.3em;
     width: 100%;
@@ -198,7 +248,9 @@
     overflow-wrap: break-word;
     word-wrap: break-word;
     hyphens: auto;
+    overflow-x: hidden;
   }
-
-
-
+  button:focus {
+    outline:none;
+    box-shadow: none;
+  }

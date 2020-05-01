@@ -66,12 +66,7 @@ a {
 }
 
 
-.column {
-  float: left;
-  width: 45%;
-  padding: 0 0px;
-  margin-bottom: 16px;
-}
+
 .scroll-wrapper{
   height:30%;
   width:auto;
@@ -111,14 +106,17 @@ a {
   font-size:14px; 
   text-align: left;
   font-weight:600;
-  height: 64px;
+  height: 62px;
   white-space: normal; 
   overflow: hidden;
   text-overflow: ellipsis; 
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 .blog-tag{
   height:36px;
-  margin-top: 18px;
+  margin-top: 10px;
   margin-bottom: -18px;
   color:#3a5275; 
   font-family: 'Montserrat',sans-serif;
@@ -126,17 +124,35 @@ a {
   text-align: left;
   font-weight: 400;
 }
+@media only screen and (min-width: 601px) {
 .column {
   float: left;
-  width: 43%;
+  width: 21vh;
   margin-left: 4%;
   border-radius: 16px 16px 16px 16px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+ 
+  padding: 0 0px;
+  margin-bottom: 2%;
 }
+}
+@media only screen and (max-width: 600px) {
+  .column{
+    float: left;
+    width: 43%;
+    margin-left: 4%;
+    border-radius: 16px 16px 16px 16px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+    padding: 0 0px;
+    margin-bottom: 16px;
+  }
+  
+}
+
 .card-img-top{
   margin-bottom:0.3em;
   width: 100%;
-  height:14vh;
+  height:13vh;
   border-radius:16px 16px 0px 0px;
   object-fit: cover;
   max-width: 100%;

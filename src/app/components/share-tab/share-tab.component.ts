@@ -24,7 +24,7 @@ export class ShareTabComponent implements OnInit, OnDestroy {
     {name: 'Linkedin', icon: 'assets/img/shareables/linkedin.svg', targetUrl: 'https://linkedin.com/shareArticle?text='},
     {name: 'Gmail', icon: 'assets/img/shareables/gmail.svg', targetUrl: 'mailto:?&subject=Amazing Brand here!&body='}
   ];
-  message = 'Checkout this cool brand!\n';
+  message = '';
   private swipeCoord?: [number, number];
   private swipeTime?: number;
   state: ShareTab;

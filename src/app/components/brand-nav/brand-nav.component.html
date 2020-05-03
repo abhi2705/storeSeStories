@@ -1,15 +1,14 @@
-<div class="app-brand-nav">
-<div class="track-block">
+<div class="app-brand-nav pt-3">
+<div class="track-block mb-1">
   <div class="search-wrap ml-auto mr-auto">
     <img alt="search icon" src="../../../assets/img/logos/search.svg">
     <input aria-label="Search" onkeyup="search(event)" placeholder="Search for brands"
       type="text" [(ngModel)]="searchText" name="search" >
   </div>
 </div>
-<div class="component-wrapper" style="text-align: center;width:100%" >
   <div class="inner-wrapper" style="width:100%; overflow-x: hidden; justify-content: center;">
     <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs  flex-nowrap"
-      style=" width:100%; overflow-x: scroll; overflow-y:hidden; padding: 0 1rem; height:3.8vh; ">
+      style=" width:100%; overflow-x: scroll; overflow-y:hidden; padding: 0 1rem; height:5%; ">
       <li [ngbNavItem]="1">
         <a ngbNavLink>All</a>
         <ng-template ngbNavContent  >

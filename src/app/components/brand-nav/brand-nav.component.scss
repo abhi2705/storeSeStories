@@ -160,7 +160,7 @@ a {
   }
 }
 .scroll-wrapper{
-  height:75vh;
+  height:100%;
   width:auto;
   overflow:scroll;
 }
@@ -183,12 +183,10 @@ a {
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 
 }
-.component-wrapper {
-  height: 94%;
-  .inner-wrapper {
-    height: 100%;
-    overflow-y: scroll;
-  }
+.inner-wrapper {
+  flex-grow: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .card-title {
   font-size: 1rem;
@@ -214,7 +212,6 @@ a {
 
 .track-block {
   // position: absolute;
-  height: 8%;
   .search-wrap {
     height: 100%;
     margin: 0;
@@ -222,7 +219,9 @@ a {
 }
 
 .app-brand-nav {
-  padding-top: 1%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .inner-wrapper::-webkit-scrollbar {

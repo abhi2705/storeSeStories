@@ -59,15 +59,17 @@
       background: linear-gradient(90deg, rgba(245,132,31,1) 0%, rgba(249,25,100,1) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f5841f",endColorstr="#f91964",GradientType=1);
     }
-    a.switch-mode {
+    p.switch-mode {
       background: transparent;
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       border: none;
       border-radius: 0;
       color: #212121;
       justify-self: center;
-      text-decoration: underline;
       text-align: center;
+      a {
+        text-decoration: underline dotted;
+      }
     }
   }
 }

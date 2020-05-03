@@ -49,14 +49,14 @@
           [class.is-invalid]="((cfPassword.invalid || registerForm.hasError('passwordNotMatch'))  && (cfPassword.dirty || cfPassword.touched))">
         </div>
       </div>
-      <div class="form-row justify-content-center">
-        <div class="col mb-3 d-flex justify-content-center">
-          <a class="switch-mode" (click)="switchMode('log')">Already have an account? Click here to login</a>
+      <div class="from-row">
+        <div class="col-9 ml-auto mr-auto d-flex justify-content-center mb-3">
+          <button type="submit" class="btn" [disabled]="registerForm.invalid">Register</button>
         </div>
       </div>
-      <div class="from-row">
-        <div class="col-9 ml-auto mr-auto d-flex justify-content-center">
-          <button type="submit" class="btn" [disabled]="registerForm.invalid">Register</button>
+      <div class="form-row justify-content-center">
+        <div class="col d-flex justify-content-center">
+          <p class="switch-mode">Already have an account? <a (click)="switchMode('log')">Login</a></p>
         </div>
       </div>
     </form>
@@ -81,14 +81,14 @@
           [class.is-invalid]="(password.invalid  && (password.dirty || password.touched))">
         </div>
       </div>
-      <div class="form-row justify-content-center">
-        <div class="col mb-3 d-flex justify-content-center">
-          <a class="switch-mode" (click)="switchMode('reg')">Don't have an account? Click here to create one</a>
+      <div class="from-row">
+        <div class="col-9 mb-3 ml-auto mr-auto d-flex justify-content-center">
+          <button class="btn" [disabled]="loginForm.invalid">Login</button>
         </div>
       </div>
-      <div class="from-row">
-        <div class="col-9 ml-auto mr-auto d-flex justify-content-center">
-          <button class="btn" [disabled]="loginForm.invalid">Login</button>
+      <div class="form-row justify-content-center">
+        <div class="col d-flex justify-content-center">
+          <p class="switch-mode">Don't have an account? <a (click)="switchMode('reg')">Sign Up</a></p>
         </div>
       </div>
     </form>

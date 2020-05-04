@@ -25,13 +25,14 @@ import { BlogPageComponent } from './components/blog-page/blog-page.component';
 import { BottomMenuComponent } from './components/bottom-menu/bottom-menu.component';
 import { StoriedBlogsComponent } from './components/storied-blogs/storied-blogs.component';
 import { AccountPageComponent } from './components/account-page/account-page.component';
-import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component'
+import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-blogs.component';
 import { LoginComponent } from './components/login/login.component';
 import { BearerInterceptorService } from './services/bearer-interceptor.service';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderPageComponent } from './components/order-page/order-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { CacheInterceptorService } from './services/cache-interceptor.service';
+import { BrandPageComponent } from './components/brand-page/brand-page.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { CacheInterceptorService } from './services/cache-interceptor.service';
     BoomarkedBlogsComponent,
     LoginComponent,
     MyOrdersComponent,
-    OrderPageComponent
+    OrderPageComponent,
+    BrandPageComponent
   ],
   imports: [
     BrowserModule,

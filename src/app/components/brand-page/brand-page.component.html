@@ -1,8 +1,62 @@
-<a href="javascript:void(0)" (click)="goBack()"><button backButton class="btn1 liked_btn" ></button></a>
-<div class="brand-page">
-  <div id='collection-component-1588157966426' class="full-height">
+<div class="brand-page pt-2">
+  <div class="about-brand">
+    <div class="brand-info container-fluid">
+      <div class="row">
+        <div class="col-1 p-0 pl-1 d-flex align-items-center mb-2">
+          <a href="javascript:void(0)">
+            <button backButton class="liked_btn" ></button>
+          </a>
+        </div>
+        <div class="col-11 d-flex align-items-center mb-2">
+          <h6 class="mb-1"><strong>{{brand?.name}}</strong></h6>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4 col-lg-2 mb-2 d-flex align-items-center">
+          <img class="brand-img" src="{{brand?.logoUrl}}">
+        </div>
+        <div class="col-8 mb-2 pl-0 d-flex align-items-center">
+          <p>{{brand?.description}}</p>
+        </div>
+      </div>
+    </div>
+    <ul class="nav bg-light mb-1">
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="active===1" (click)="changeTabTo(1)">Catalog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [class.active]="active===2" (click)="changeTabTo(2)">Blogs</a>
+      </li>
+    </ul>
+  </div>
+  <ng-container *ngTemplateOutlet="activeTemplate"></ng-container>
+</div>
+
+
+<ng-template #cat>
+  <div id='collection-component-1588157966426' class="fill-height">
     <div class="spinner-border loader" role="status">
       <span class="sr-only">Loading...</span>
     </div>
   </div>
-</div>
+</ng-template>
+
+<ng-template #blog>
+  <div class="fill-height">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 col-md-4 col-lg-2">
+          <div class="blog card" *ngFor="let blog of (blogs$ | async)?.blogs">
+              <a routerLink="/blog/{{blog.blogId}}"><img class="card-img-top" src="{{blog.imageUrl}}">
+                <div style="padding:8px;">
+                  <!-- <div class="blog-date">{{getDate(blog)}}</div> -->
+                  <div class="blog-desc">{{blog.title}}</div>
+                  <div class="blog-tag">{{blog.tags}}</div>
+                </div>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

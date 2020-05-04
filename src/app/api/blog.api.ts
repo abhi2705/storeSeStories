@@ -3,7 +3,7 @@ import { BaseApi } from './base.api';
 import { Observable } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Blogs, Blog } from '../models/blog.model';
-import { Comment,Comments} from '../models/comment.model';
+import { Comment } from '../models/comment.model';
 
 export class BlogApi extends BaseApi {
   private endpointUrl: string;
@@ -27,49 +27,49 @@ export class BlogApi extends BaseApi {
     );
   }
 
-  isbookmarked(id: number): Observable<Boolean> {
+  isbookmarked(id: number): Observable<boolean> {
     const urlParam = 'isbookmarked/' + id;
-    return this.http.get<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.get<boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
   }
 
-  isliked(id: number): Observable<Boolean> {
+  isliked(id: number): Observable<boolean> {
     const urlParam = 'isliked/' + id;
-    return this.http.get<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.get<boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
   }
 
-  like(id: number) : Observable<Boolean>{
+  like(id: number): Observable<boolean>{
     const urlParam = 'like/' + id;
-    return this.http.post<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.post<boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
   }
 
-  unlike(id: number) : Observable<Boolean>{
+  unlike(id: number) : Observable<boolean>{
     const urlParam = 'unlike/' + id;
-    return this.http.post<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.post<boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
   }
 
-  bookmark(id: number) : Observable<Boolean>{
+  bookmark(id: number) : Observable<boolean>{
     const urlParam = 'bookmark/' + id;
-    return this.http.post<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.post<boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
   }
 
-  unbookmark(id: number) : Observable<Boolean>{
+  unbookmark(id: number) : Observable<boolean>{
     const urlParam = 'unbookmark/' + id;
-    return this.http.post<Boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
+    return this.http.post<boolean>(this.endpointUrl + urlParam, this.GlobalOpts).pipe(
       retry(this.Retries),
       catchError(this.handleError)
     );
@@ -83,13 +83,21 @@ export class BlogApi extends BaseApi {
     );
   }
 
-  addComment (comment: Comment): Observable<Comment> {
+  addComment(comment: Comment): Observable<Comment> {
     const urlParam = 'add-comment/';
     return this.http.post<Comment>(this.endpointUrl + urlParam, comment, this.GlobalOpts)
       .pipe(
         retry(this.Retries),
         catchError(this.handleError)
       );
+  }
+
+  getBlogsByBrandId(id: number): Observable<Blogs> {
+    return this.http.get<Blogs>(this.endpointUrl + 'all/' + id, this.GlobalOpts)
+    .pipe(
+      retry(this.Retries),
+      catchError(this.handleError)
+    );
   }
 
 

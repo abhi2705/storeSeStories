@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { Router, CanActivateChild, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements CanActivateChild, CanActivate {
 
   private _loggedIn = new BehaviorSubject<boolean>(false);
   private token: string;
@@ -14,7 +14,6 @@ export class AuthService {
 
   constructor(private api: ApiService, private router: Router) {
     this.token = '';
-    this.refreshToken();
     console.log('Auth service intialised');
   }
 
@@ -33,15 +32,15 @@ export class AuthService {
     return this._loginState;
   }
 
-  refreshToken(): void {
+  refreshToken(msg?: string): void {
     this.token = this.getLocalToken();
-    if(this.token) {
+    if (this.token) {
       this.api.auth.verifyToken(this.token).subscribe(
         res => this.verificationSuccessfull(),
         err => this.showLogin('log', 'Session expired!')
       );
     } else {
-      this.showLogin('log');
+      this.showLogin('log', msg);
     }
   }
 
@@ -116,5 +115,19 @@ export class AuthService {
 
   private getLocalToken(): string {
     return localStorage.getItem('jwt');
+  }
+
+  canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>
+  | Promise<boolean> | boolean {
+    return this.isLoggedIn;
+  }
+
+  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean>
+  | Promise<boolean> | boolean {
+    if (!this.isLoggedIn){
+      this.showLogin('log', 'Please login to continue.');
+      return false;
+    }
+    return true;
   }
 }

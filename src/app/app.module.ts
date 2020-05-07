@@ -31,6 +31,7 @@ import { BearerInterceptorService } from './services/bearer-interceptor.service'
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderPageComponent } from './components/order-page/order-page.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CacheInterceptorService } from './services/cache-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,11 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: BearerInterceptorService,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CacheInterceptorService,
       multi: true
     }
   ],

@@ -177,8 +177,8 @@ export class StoriesComponent implements OnInit, OnDestroy {
     slidesPerView: 1,
     coverflowEffect: {
       rotate: 0,
-      stretch: 0,
-      depth: 200,
+      stretch: -20,
+      depth: 100,
       modifier: 1,
       slideShadows: true,
     },

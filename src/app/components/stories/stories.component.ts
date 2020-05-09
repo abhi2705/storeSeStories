@@ -175,6 +175,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
   // ==> Coverflow
   slideOpts = {
     slidesPerView: 1,
+    speed: 275,
     coverflowEffect: {
       rotate: 0,
       stretch: -20,
@@ -247,11 +248,16 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
       setTransition(duration) {
         const swiper = this;
-        duration = swiper.params.speed;
-        swiper.slides
-          .transition(duration)
+        if(duration == 0)
+          swiper.slides
+          .transition(300)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-          .transition(duration);
+          .transition(300);
+        else
+          swiper.slides
+          .transition(500)
+          .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+          .transition(500);
       }
     },
     pagination: {

@@ -15,8 +15,8 @@ import * as kf from './keyframes';
   styleUrls: ['./stories.component.scss'],
   animations: [
     trigger('cardAnimator', [
-      transition(':enter', animate("500ms ease-in", keyframes(kf.enter))),
-      transition(':leave', animate("500ms ease-out", keyframes(kf.exit)))
+      transition(':enter', animate("300ms ease-in", keyframes(kf.enter))),
+      transition(':leave', animate("300ms ease-out", keyframes(kf.exit)))
     ])
   ]
 })
@@ -175,9 +175,10 @@ export class StoriesComponent implements OnInit, OnDestroy {
   // ==> Coverflow
   slideOpts = {
     slidesPerView: 1,
+    speed: 275,
     coverflowEffect: {
-      rotate: 50,
-      stretch: 0,
+      rotate: 0,
+      stretch: -20,
       depth: 100,
       modifier: 1,
       slideShadows: true,
@@ -191,10 +192,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
         swiper.params.watchSlidesProgress = true;
         swiper.originalParams.watchSlidesProgress = true;
+        // Uncommenting this will remove extra left and right swipe space from the first and the last card respectively
         // swiper.params.touchReleaseOnEdges = true;
         // swiper.originalParams.touchReleaseOnEdges = true;
         // swiper.passedParams.touchReleaseOnEdges = true;
       },
+
       setTranslate() {
         // console.log("translate");
         const swiper = this;
@@ -215,12 +218,12 @@ export class StoriesComponent implements OnInit, OnDestroy {
           const slideOffset = $slideEl[0].swiperSlideOffset;
           const offsetMultiplier = ((center - slideOffset - (slideSize / 2)) / slideSize) * params.modifier;
 
-           let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
+          let rotateY = isHorizontal ? rotate * offsetMultiplier : 0;
           let rotateX = isHorizontal ? 0 : rotate * offsetMultiplier;
           // var rotateZ = 0
           let translateZ = -translate * Math.abs(offsetMultiplier);
 
-           let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
+          let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
           let translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
 
            // Fix for ultra small values
@@ -230,25 +233,10 @@ export class StoriesComponent implements OnInit, OnDestroy {
           if (Math.abs(rotateY) < 0.001) rotateY = 0;
           if (Math.abs(rotateX) < 0.001) rotateX = 0;
 
-           const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+          const slideTransform = `translate3d(${translateX}px,${translateY}px,${translateZ}px)  rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 
           $slideEl.transform(slideTransform);
           $slideEl[0].style.zIndex = -Math.abs(Math.round(offsetMultiplier)) + 1;
-          // if (params.slideShadows) {
-          //   // Set shadows
-          //   let $shadowBeforeEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-left') : $slideEl.find('.swiper-slide-shadow-top');
-          //   let $shadowAfterEl = isHorizontal ? $slideEl.find('.swiper-slide-shadow-right') : $slideEl.find('.swiper-slide-shadow-bottom');
-          //   if ($shadowBeforeEl.length === 0) {
-          //     $shadowBeforeEl = swiper.$(`<div class="swiper-slide-shadow-${isHorizontal ? 'left' : 'top'}"></div>`);
-          //     $slideEl.append($shadowBeforeEl);
-          //   }
-          //   if ($shadowAfterEl.length === 0) {
-          //     $shadowAfterEl = swiper.$(`<div class="swiper-slide-shadow-${isHorizontal ? 'right' : 'bottom'}"></div>`);
-          //     $slideEl.append($shadowAfterEl);
-          //   }
-          //   if ($shadowBeforeEl.length) $shadowBeforeEl[0].style.opacity = offsetMultiplier > 0 ? offsetMultiplier : 0;
-          //   if ($shadowAfterEl.length) $shadowAfterEl[0].style.opacity = (-offsetMultiplier) > 0 ? -offsetMultiplier : 0;
-          // }
         }
 
          // Set correct perspective for IE10
@@ -257,12 +245,19 @@ export class StoriesComponent implements OnInit, OnDestroy {
           ws.perspectiveOrigin = `${center}px 50%`;
         }
       },
+
       setTransition(duration) {
         const swiper = this;
-        swiper.slides
-          .transition(duration)
+        if(duration == 0)
+          swiper.slides
+          .transition(300)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
-          .transition(duration);
+          .transition(300);
+        else
+          swiper.slides
+          .transition(500)
+          .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
+          .transition(500);
       }
     },
     pagination: {
@@ -303,7 +298,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
         this.document.getElementById("likeimg").style.display = "block";
         setTimeout(() => {
           this.document.getElementById("likeimg").style.display = "none";
-        }, 1000);
+        }, 2000);
       }
     });
   }

@@ -15,8 +15,8 @@ import * as kf from './keyframes';
   styleUrls: ['./stories.component.scss'],
   animations: [
     trigger('cardAnimator', [
-      transition(':enter', animate("500ms ease-in", keyframes(kf.enter))),
-      transition(':leave', animate("500ms ease-out", keyframes(kf.exit)))
+      transition(':enter', animate("300ms ease-in", keyframes(kf.enter))),
+      transition(':leave', animate("300ms ease-out", keyframes(kf.exit)))
     ])
   ]
 })
@@ -247,8 +247,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
       setTransition(duration) {
         const swiper = this;
-        if(duration == 0)
-          duration = 300;
+        duration = swiper.params.speed;
         swiper.slides
           .transition(duration)
           .find('.swiper-slide-shadow-top, .swiper-slide-shadow-right, .swiper-slide-shadow-bottom, .swiper-slide-shadow-left')
@@ -293,7 +292,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
         this.document.getElementById("likeimg").style.display = "block";
         setTimeout(() => {
           this.document.getElementById("likeimg").style.display = "none";
-        }, 1000);
+        }, 2000);
       }
     });
   }

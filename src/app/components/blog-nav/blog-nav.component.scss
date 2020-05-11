@@ -91,9 +91,9 @@ a {
 
 .blog-date{
   height:36px;
-  color:#3a5275; 
+  color:#3a5275;
   font-family: 'Montserrat',sans-serif;
-  font-size: 12px; 
+  font-size: 12px;
   text-align: left;
   font-weight: 400;
 }
@@ -101,15 +101,15 @@ a {
 .blog-desc{
   position: relative;
   margin-top: -8px;
-  color:#3a5275; 
+  color:#3a5275;
   font-family: 'Montserrat',sans-serif;
-  font-size:14px; 
+  font-size:14px;
   text-align: left;
   font-weight:600;
   height: 62px;
-  white-space: normal; 
+  white-space: normal;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
   overflow-wrap: break-word;
   word-wrap: break-word;
   hyphens: auto;
@@ -118,9 +118,9 @@ a {
   height:36px;
   margin-top: 10px;
   margin-bottom: -18px;
-  color:#3a5275; 
+  color:#3a5275;
   font-family: 'Montserrat',sans-serif;
-  font-size: 12px; 
+  font-size: 12px;
   text-align: left;
   font-weight: 400;
 }
@@ -130,8 +130,8 @@ a {
   width: 21vh;
   margin-left: 4%;
   border-radius: 16px 16px 16px 16px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
- 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
+
   padding: 0 0px;
   margin-bottom: 2%;
 }
@@ -142,11 +142,11 @@ a {
     width: 43%;
     margin-left: 4%;
     border-radius: 16px 16px 16px 16px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
     padding: 0 0px;
     margin-bottom: 16px;
   }
-  
+
 }
 
 .card-img-top{
@@ -168,4 +168,12 @@ a {
   width:100%;
 }
 
+.app-blog-nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .scroll-wrapper {
+    flex-grow: 1;
+  }
+}
 

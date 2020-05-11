@@ -1,13 +1,13 @@
-<div style="overflow-x: hidden;">
-  <div class="track-block">
-    <div class="search-wrap" style="margin: 1vh 1vh 1vh 1vh;">
+<div style="overflow-x: hidden;" class="app-blog-nav pt-3">
+  <div class="track-block mb-1">
+    <div class="search-wrap ml-auto mr-auto">
       <img alt="search icon" src="../../../assets/img/logos/search.svg">
       <input aria-label="Search" placeholder="Search for blogs"
         type="text" [(ngModel)]="searchText" name="search" >
     </div>
   </div>
 
-  <div class="scroll-wrapper" style="margin-top: 2vh; height:65vh; justify-content: center; width: 100%">
+  <div class="scroll-wrapper">
     <div class="card column" style=" padding: 0; " *ngFor="let blog of allBlogs | filter:searchText">
       <div class="row" routerLink="/blog/{{blog.blogId}}">
         <a href="#" target="_blank"><img class="card-img-top" src="{{blog.imageUrl}}">
@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-  
+
 
 <!-- <div class="component-wrapper" style="height: 100vh;">
   <div class="inner-wrapper">

@@ -175,6 +175,7 @@ export class StoriesComponent implements OnInit, OnDestroy {
   // ==> Coverflow
   slideOpts = {
     slidesPerView: 1,
+    direction: 'vertical',
     speed: 275,
     coverflowEffect: {
       rotate: 0,

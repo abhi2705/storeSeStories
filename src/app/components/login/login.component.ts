@@ -63,6 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   cancelLogin(): void {
+    this.form.reset();
     this.auth.hideLogin();
   }
   get firstName(): AbstractControl {

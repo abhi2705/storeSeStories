@@ -11,7 +11,7 @@ export class BearerInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // If request is to /api/auth (exception: /api/auth/logout) or not to the api, then let it pass untouched.
-    if (/\/api\/auth\/[^l]+/.test(req.url) || !(/\/api/.test(req.url))) {
+    if (this.allowRequest(req)) {
       return next.handle(req);
     }
     if (!this.auth) {
@@ -26,12 +26,18 @@ export class BearerInterceptorService implements HttpInterceptor {
     if (this.auth.isLoggedIn) {
       return addToken();
     }
-    // Else wait for getting token and then continue
+    // Else propmt login, wait for getting token and then continue
+    this.auth.refreshToken('Please login to continue');
     return this.waitForToken().pipe(
       switchMap(_ => {
         return addToken();
       })
     );
+  }
+
+  private allowRequest(req: HttpRequest<any>): boolean {
+    return (/\/api\/auth\/[^l]+/.test(req.url) || !/\/api/.test(req.url) ||
+    (req.method === 'GET' && !/\/api\/account\//.test(req.url)));
   }
 
   private waitForToken(): Observable<any> {

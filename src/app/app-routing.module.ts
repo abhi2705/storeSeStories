@@ -12,6 +12,7 @@ import { BoomarkedBlogsComponent } from './components/boomarked-blogs/boomarked-
 import { BrandPageComponent } from './components/brand-page/brand-page.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { OrderPageComponent } from './components/order-page/order-page.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   {
@@ -50,7 +51,8 @@ const routes: Routes = [
       },
       {
         path : 'account',
-        component : AccountPageComponent
+        component : AccountPageComponent,
+        canActivate: [ AuthService ]
       },
       {
         path : 'bookmarked',

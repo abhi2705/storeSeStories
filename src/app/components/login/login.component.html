@@ -1,4 +1,4 @@
-<div class="app-login active" *ngIf="state.active">
+<div class="app-login" *ngIf="state.active" [class.active]="state.active">
   <div class="login-modal" [ngSwitch]="state.mode">
     <ng-container *ngSwitchCase="'log'">
       <ng-container *ngTemplateOutlet="l"></ng-container>
@@ -14,6 +14,9 @@
 
 <ng-template #r>
   <div class="p-3 register-stage container">
+    <div class="close">
+      <a (click)="cancelLogin()">&times;</a>
+    </div>
     <h5 class="mb-3">Register Now</h5>
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <div class="form-row">
@@ -65,6 +68,9 @@
 
 <ng-template #l>
   <div class="p-3 register-stage container">
+    <div class="close">
+      <a (click)="cancelLogin()">&times;</a>
+    </div>
     <h5 class="mb-3">Login</h5>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-row">

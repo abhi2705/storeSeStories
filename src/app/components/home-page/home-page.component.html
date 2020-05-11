@@ -3,7 +3,7 @@
   <div class="header">
     <app-nav-bar></app-nav-bar>
   </div>
-  <div class="content-wrapper">
+  <div class="content-wrapper" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
     <router-outlet></router-outlet>
   </div>
   <div class="footer">

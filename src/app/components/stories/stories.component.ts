@@ -6,7 +6,7 @@ import { Stories } from 'src/app/models/story.model';
 import { ShareTabService } from 'src/app/services/share-tab.service';
 import { IonSlides } from '@ionic/angular';
 import { FavButtonService } from '../../services/fav-button.service';
-import { trigger, keyframes, animate, transition } from "@angular/animations";
+import { trigger, keyframes, animate, transition } from '@angular/animations';
 import * as kf from './keyframes';
 
 @Component({
@@ -15,12 +15,16 @@ import * as kf from './keyframes';
   styleUrls: ['./stories.component.scss'],
   animations: [
     trigger('cardAnimator', [
-      transition(':enter', animate("300ms ease-in", keyframes(kf.enter))),
-      transition(':leave', animate("300ms ease-out", keyframes(kf.exit)))
+      transition(':enter', animate('300ms ease-in', keyframes(kf.enter))),
+      transition(':leave', animate('300ms ease-out', keyframes(kf.exit)))
     ])
   ]
 })
 export class StoriesComponent implements OnInit, OnDestroy {
+  constructor(@Inject(DOCUMENT) private document: Document,
+              private apiservice: ApiService,
+              private shareTabService: ShareTabService,
+              private favButtonService: FavButtonService ) {}
 
   @ViewChild("mySlider") slides: IonSlides;
 
@@ -48,129 +52,6 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
   images = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => `../../../assets/sample_stories/ss${n}.jpg`);
   stories$: Observable<Stories>;
-  constructor(@Inject(DOCUMENT) private document: Document,
-              private apiservice: ApiService,
-              private shareTabService: ShareTabService,
-              private favButtonService: FavButtonService ) {}
-
-  ngOnInit(): void {
-    this.stories$ = this.apiservice.stories.get();
-    this.sub = this.stories$.subscribe((data: Stories) => {
-      console.log(data);
-      this.all_stories = data.stories;
-      this.all_stories.reverse();
-      var l = this.all_stories.length;
-      var i = 0;
-      for(i = 0; i < l; i++){
-        if(this.all_stories[i].isLiked) {
-          this.liked.push("like_y");
-        }
-        else {
-          this.liked.push("like_n");
-        }
-        if(i < 7)
-        this.active.push("dot");
-      }
-      this.len = l;
-    });
-
-    this.sub2 = this.favButtonService.favEnabled.subscribe(enabled => this.favBtnEnabled = enabled);
-    this.favButtonService.toggleBtnView(true);
-  }
-
-  get_class(ind){
-    var i = parseInt(this.document.getElementsByClassName("swiper-slide-active")[0].id);
-    if(i < 6){
-      if(this.len > 7){
-        if(ind == 6){
-          return "dot_small";
-        }
-      }
-      if(i == ind){
-        return "dot_active";
-      }
-      else{
-        return "dot";
-      }
-    }
-    else if(i > (this.len - 7)){
-      if(this.len > 7){
-        if(ind == 0){
-          return "dot_small";
-        }
-      }
-      if(i - ind + 7 == this.len){
-        return "dot_active";
-      }
-      else {
-        return "dot";
-      }
-    }
-    else {
-      if(ind == 0 || ind == 6){
-        return "dot_small";
-      }
-      if(ind == 3){
-        return "dot_active";
-      }
-      else{
-        return "dot";
-      }
-    }
-  }
-
-  get_duration(story){
-    const date1 = new Date(story.postedAt);
-    const date2 = new Date();
-    const utc_date2 = new Date(date2.getTime() + date2.getTimezoneOffset() * 60000);
-    const diffTime = Math.abs(utc_date2.getTime() - date1.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
-    const diffMins = Math.ceil(diffTime / (1000 * 60 ));
-    if (diffHours >= 24) {
-      return diffDays.toString() + ' d';
-    }
-    else if (diffMins >= 60){
-      return diffHours.toString() + ' h';
-    }
-    return diffMins.toString() + ' m';
-  }
-
-  activateShare(brandUrl: string) {
-    console.log('activating share');
-    this.shareTabService.activate(brandUrl);
-    // this.isClicked = !this.isClicked;
-  }
-
-  add_like(story, i){
-    if(this.liked[i] == "like_y") {
-      this.liked[i] = "like_n";
-      this.sub4 = this.apiservice.stories.unlike(story.storyId).subscribe(()=> {});
-    }
-    else {
-      this.liked[i] = "like_y";
-      this.sub5 = this.apiservice.stories.like(story.storyId).subscribe(()=> {});
-    }
-    if(this.isSingleClick) {
-      // this.isClicked = !this.isClicked;
-    }
-    return;
-  }
-
-  change_dots(event){
-    var prevind = event.lastActiveIndex;
-    var curind = event.activeIndex;
-    this.active[prevind] = "dot";
-    this.active[curind] = "dot_active";
-  }
-
-  slidesDidChange() {
-    // this.slides.startAutoplay();
-    // console.log("here");
-    this.slidesLoaded = true;
-    this.active.push(0);
-    this.active.pop();
-  }
 
   // ==> Coverflow
   slideOpts = {
@@ -267,14 +148,131 @@ export class StoriesComponent implements OnInit, OnDestroy {
 
   }
 
+  isSingleClick: Boolean = true;
+
+  ngOnInit(): void {
+    this.stories$ = this.apiservice.stories.get();
+    this.sub = this.stories$.subscribe((data: Stories) => {
+      console.log(data);
+      this.all_stories = data.stories;
+      this.all_stories.reverse();
+      var l = this.all_stories.length;
+      var i = 0;
+      for(i = 0; i < l; i++){
+        if(this.all_stories[i].isLiked) {
+          this.liked.push("like_y");
+        }
+        else {
+          this.liked.push("like_n");
+        }
+        if(i < 7)
+        this.active.push("dot");
+      }
+      this.len = l;
+    });
+
+    this.sub2 = this.favButtonService.favEnabled.subscribe(enabled => this.favBtnEnabled = enabled);
+    this.favButtonService.toggleBtnView(true);
+  }
+
+  get_class(ind){
+    var i = parseInt(this.document.getElementsByClassName("swiper-slide-active")[0].id);
+    if(i < 6){
+      if(this.len > 7){
+        if(ind == 6){
+          return "dot_small";
+        }
+      }
+      if(i == ind){
+        return "dot_active";
+      }
+      else{
+        return "dot";
+      }
+    }
+    else if(i > (this.len - 7)){
+      if(this.len > 7){
+        if(ind == 0){
+          return "dot_small";
+        }
+      }
+      if(i - ind + 7 == this.len){
+        return "dot_active";
+      }
+      else {
+        return "dot";
+      }
+    }
+    else {
+      if(ind == 0 || ind == 6){
+        return "dot_small";
+      }
+      if(ind == 3){
+        return "dot_active";
+      }
+      else{
+        return "dot";
+      }
+    }
+  }
+
+  get_duration(story){
+    const date1 = new Date(story.postedAt);
+    const date2 = new Date();
+    const utc_date2 = new Date(date2.getTime() + date2.getTimezoneOffset() * 60000);
+    const diffTime = Math.abs(utc_date2.getTime() - date1.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    const diffHours = Math.ceil(diffTime / (1000 * 60 * 60));
+    const diffMins = Math.ceil(diffTime / (1000 * 60 ));
+    if (diffHours >= 24) {
+      return diffDays.toString() + ' d';
+    }
+    else if (diffMins >= 60){
+      return diffHours.toString() + ' h';
+    }
+    return diffMins.toString() + ' m';
+  }
+
+  activateShare(brandUrl: string) {
+    console.log('activating share');
+    this.shareTabService.activate(brandUrl);
+    // this.isClicked = !this.isClicked;
+  }
+
+  add_like(story, i){
+    if(this.liked[i] == "like_y") {
+      this.sub4 = this.apiservice.stories.unlike(story.storyId).subscribe(_ => {this.liked[i] = "like_n";});
+    }
+    else {
+      this.sub5 = this.apiservice.stories.like(story.storyId).subscribe(_ => { this.liked[i] = "like_y"; });
+    }
+    if(this.isSingleClick) {
+      // this.isClicked = !this.isClicked;
+    }
+    return;
+  }
+
+  change_dots(event){
+    var prevind = event.lastActiveIndex;
+    var curind = event.activeIndex;
+    this.active[prevind] = "dot";
+    this.active[curind] = "dot_active";
+  }
+
+  slidesDidChange() {
+    // this.slides.startAutoplay();
+    // console.log("here");
+    this.slidesLoaded = true;
+    this.active.push(0);
+    this.active.pop();
+  }
+
   ngOnDestroy(): void {
     this.favButtonService.toggleBtnView(false);
     this.sub.unsubscribe();
     this.sub2.unsubscribe();
   }
 
-  isSingleClick: Boolean = true;
-  
   toggleIsClicked() {
     this.isSingleClick = true;
     setTimeout(()=>{
@@ -303,5 +301,5 @@ export class StoriesComponent implements OnInit, OnDestroy {
     });
   }
 
-  
+
 }
